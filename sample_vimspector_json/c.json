@@ -1,0 +1,13 @@
+{
+  "configurations": {
+    "simple_c_program - Launch": {
+      "adapter": "vscode-cpptools",
+      "configuration": {
+        "request": "launch",
+        "cwd": "${workspaceRoot}",
+        "program": "${fileDirname}/${fileBasenameNoExtension}.out",
+        "stopAtEntry": true
+      }
+    }
+  }
+}

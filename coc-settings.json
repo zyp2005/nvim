@@ -1,0 +1,21 @@
+{
+	"git.addGBlameToVirtualText": true,
+	//"git.enableGutters":true,
+	//"git.addGBlameToBufferVar":true
+	"git.signOffset":2,
+	"git.splitWindowCommand": "below vs",
+	"git.showCommitInFloating": false,
+	"git.enableGutters": true,
+ "languageserver": {
+    "ccls": {
+      "command": "ccls",
+      "filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"],
+      "rootPatterns": [".ccls", "compile_commands.json", ".git/", ".hg/"],
+      "initializationOptions": {
+         "cache": {
+           "directory": "/tmp/ccls"
+         }
+       }
+    }
+  }
+}
