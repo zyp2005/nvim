@@ -143,7 +143,7 @@ noremap Q :q<CR>
 noremap <C-q> :qa<CR>
 noremap S :w<CR>
 
-map R :source $MYVIMRC<CR>
+"map R :source $MYVIMRC<CR>
 
 " Open the vimrc file anytime
 noremap <LEADER>rc :e ~/.config/nvim/init.vim<CR>
@@ -227,8 +227,8 @@ noremap N 5<C-e>
 " ===
 " === Insert Mode Cursor Movement
 " ===
-inoremap <C-l> <ESC>A
-inoremap <C-h> <ESC>I
+inoremap <C-k> <ESC>A
+inoremap <C-j> <ESC>I
 
 
 
@@ -255,10 +255,10 @@ noremap = nzz
 " === Window management
 " ===
 " Use <space> + new arrow keys for moving the cursor around windows
-noremap <LEADER><Right> <C-w>l  "右切屏
-noremap <LEADER><Left> <C-w>h   "左切屏
-noremap <LEADER><Up> <C-w>k     "上切屏
-noremap <LEADER><Down> <C-w>j   "下切屏
+noremap <LEADER><Right> <C-w>l<left> "右切屏
+noremap <LEADER><Left> <C-w>h<left><left>  "左切屏
+noremap <LEADER><Up> <C-w>k<left><left><left><left><left>     "上切屏
+noremap <LEADER><Down> <C-w>j<left><left><left>   "下切屏
 noremap <LEADER>w <C-w>w
 
 " Disable the default s key
@@ -271,10 +271,16 @@ noremap s<Up> :set nosplitbelow<CR>:split<CR>:set splitbelow<CR>"上分屏
 noremap s<Down> :set splitbelow<CR>:split<CR>   "下分屏
 
 " Resize splits with arrow keys
-noremap <c-up> :res +5<CR>
-noremap <c-down> :res -5<CR>
-noremap <c-left> :vertical resize-5<CR>
-noremap <c-right> :vertical resize+5<CR>
+noremap <M-up> :res +5<CR>
+noremap <M-down> :res -5<CR>
+noremap <M-left> :vertical resize-5<CR>
+noremap <M-right> :vertical resize+5<CR>
+
+imap <M-h> <left>
+imap <M-l> <right>
+imap <M-j> <down>
+imap <M-k> <up>
+
 
 " Place the two screens up and down
 noremap sh <C-w>t<C-w>K
@@ -296,8 +302,8 @@ noremap srv <C-w>b<C-w>H
 " Create a new tab with tu
 noremap tn :tabe<CR>
 " Move around tabs with tn and ti
-noremap th :-tabnext<CR>
-noremap tl :+tabnext<CR>
+noremap t[ :-tabnext<CR>
+noremap t] :+tabnext<CR>
 " Move the tabs with tmn and tmi
 noremap tj :-tabmove<CR>
 noremap tk :+tabmove<CR>
@@ -327,7 +333,7 @@ inoremap <C-e> <ESC>lx$p
 noremap <LEADER>/ :set splitbelow<CR>:split<CR>:res +5<CR>:term<CR>
 
 " Press space twice to jump to the next '<++>' and edit it
-noremap \\ <Esc>/<++><CR>:nohlsearch<CR>c4l
+noremap '' <Esc>/<++><CR>:nohlsearch<CR>c4l
 
 " Splelling Check with <space>sc
 noremap <LEADER>sc :set spell!<CR>
@@ -347,73 +353,73 @@ noremap <LEADER>- :lN<CR>
 noremap <LEADER>= :lne<CR>
 
 " find and replace
-noremap \s :%s//<left><left>
+noremap \s :%s//<left>
 
 " set wrap
 "noremap <LEADER>sw :set wrap<CR>
 
-" press f10 to show hlgroup
-map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+" press F10 to show hlgroup
+map <F7> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
 			\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
 			\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
 " Compile function
-noremap r :call CompileRunGcc()<CR>
-func! CompileRunGcc()
-	exec "w"
-	if &filetype == 'c'
-		exec "!g++ % -g -o %<.out"
-		exec "!time ./%<.out"
-	elseif &filetype == 'cpp'
-		set splitbelow
-		exec "!g++ -std=c++11 % -Wall -o %<"
-		:sp
-		:res -15
-		:term ./%<
-	elseif &filetype == 'java'
-		exec "!javac %"
-		exec "!time java %<"
-	elseif &filetype == 'sh'
-		:!time bash %
-	elseif &filetype == 'python'
-		set splitbelow
-		:sp
-		:term python3 %
-	elseif &filetype == 'html'
-		silent! exec "!".g:mkdp_browser." % &"
-	elseif &filetype == 'markdown'
-		exec "MarkdownPreview"
-	elseif &filetype == 'tex'
-		silent! exec "VimtexStop"
-		silent! exec "VimtexCompile"
-	elseif &filetype == 'dart'
-		exec "CocCommand flutter.run -d ".g:flutter_default_device
-		CocCommand flutter.dev.openDevLog
-	elseif &filetype == 'javascript'
-		set splitbelow
-		:sp
-		:term export DEBUG="INFO,ERROR,WARNING"; node --trace-warnings .
-	elseif &filetype == 'go'
-		set splitbelow
-		:sp
-		:term go run .
-	endif
-endfunc
+"noremap r :call CompileRunGcc()<CR>
+"func! CompileRunGcc()
+"	exec "w"
+"	if &filetype == 'c'
+"		exec "!g++ % -g -o %<.out"
+"		exec "!time ./%<.out"
+"	elseif &filetype == 'cpp'
+"		set splitbelow
+"		exec "!g++ -std=c++11 % -Wall -o %<"
+"		:sp
+"		:res -15
+"		:term ./%<
+"	elseif &filetype == 'java'
+"		exec "!javac %"
+"		exec "!time java %<"
+"	elseif &filetype == 'sh'
+"		:!time bash %
+"	elseif &filetype == 'python'
+"		set splitbelow
+"		:sp
+"		:term python3 %
+"	elseif &filetype == 'html'
+"		silent! exec "!".g:mkdp_browser." % &"
+"	elseif &filetype == 'markdown'
+"		exec "MarkdownPreview"
+"	elseif &filetype == 'tex'
+"		silent! exec "VimtexStop"
+"		silent! exec "VimtexCompile"
+"	elseif &filetype == 'dart'
+"		exec "CocCommand flutter.run -d ".g:flutter_default_device
+"		CocCommand flutter.dev.openDevLog
+"	elseif &filetype == 'javascript'
+"		set splitbelow
+"		:sp
+"		:term export DEBUG="INFO,ERROR,WARNING"; node --trace-warnings .
+"	elseif &filetype == 'go'
+"		set splitbelow
+"		:sp
+"		:term go run .
+"	endif
+"endfunc
 
 "##### auto fcitx  ###########
 let g:input_toggle = 2
 function! Fcitx2en()
-	let s:input_status = system("fcitx-remote")
+	let s:input_status = system("fcitx5-remote")
 	if s:input_status == 2
 		let g:input_toggle = 1
-		let l:a = system("fcitx-remote -c")
+		let l:a = system("fcitx5-remote -c")
 	endif
 endfunction
 
 function! Fcitx2zh()
-	let s:input_status = system("fcitx-remote")
+	let s:input_status = system("fcitx5-remote")
 	if s:input_status != 2 && g:input_toggle == 1
-		let l:a = system("fcitx-remote -o")
+		let l:a = system("fcitx5-remote -o")
 		let g:input_toggle = 0
 	endif
 endfunction
@@ -433,7 +439,7 @@ call plug#begin('~/.config/nvim/plugged')
 
 " Testing my own plugin
 " Plug 'https://git.sdut.metheniceboy/vim-calc'
-"Plug 'https://git.sdut.me/nvim-treesitter/nvim-treesitter'
+Plug 'https://git.sdut.me/nvim-treesitter/nvim-treesitter'
 Plug 'https://git.sdut.me/sheerun/vim-polyglot'
 
 " Pretty Dress
@@ -444,6 +450,14 @@ Plug 'https://git.sdut.me/rakr/vim-one'
 Plug 'https://git.sdut.me/yianwillis/vimcdoc'
 Plug 'https://git.sdut.me/bronson/vim-trailing-whitespace'
 Plug 'https://git.sdut.me/voldikss/vim-translator'
+
+" Other visual enhancement
+"Plug 'ryanoasis/vim-devicons'
+Plug 'https://git.sdut.me/luochen1990/rainbow'
+"Plug 'https://git.sdut.me/mg979/vim-xtabline'
+Plug 'https://git.sdut.me/wincent/terminus'
+Plug 'https://git.sdut.me/zefei/vim-wintabs'
+Plug 'https://git.sdut.me/zefei/vim-wintabs-powerline'
 
 " Status line
 Plug 'https://git.sdut.me/vim-airline/vim-airline'
@@ -503,6 +517,26 @@ Plug 'https://git.sdut.me/jceb/vim-orgmode', {'for': ['vim-plug', 'org']}
 "Plug 'https://git.sdut.me/Raimondi/delimitMate'
 Plug 'https://git.sdut.me/jiangmiao/auto-pairs'
 Plug 'https://git.sdut.me/mg979/vim-visual-multi'
+Plug 'https://git.sdut.me/tomtom/tcomment_vim' " in <space>cn to comment a line
+Plug 'https://git.sdut.me/jwarby/antovim.git' " gs切换
+Plug 'https://git.sdut.me/tpope/vim-surround' " type yskw' to wrap the word with '' or type cs'` to change 'word' to `word`
+Plug 'https://git.sdut.me/gcmt/wildfire.vim' " in Visual mode, type k' to select all text in '', or type k) k] k} kp
+Plug 'https://git.sdut.me/junegunn/vim-after-object' " da= to delete what's after =
+Plug 'https://git.sdut.me/godlygeek/tabular' " ga, or :Tabularize <regex> to align
+Plug 'https://git.sdut.me/tpope/vim-capslock'	" Ctrl+L (insert) to toggle capslock
+Plug 'https://git.sdut.me/easymotion/vim-easymotion'
+"Plug 'https://git.sdut.me/Konfekt/FastFold'
+"Plug 'https://git.sdut.me/junegunn/vim-peekaboo'
+"Plug 'https://git.sdut.me/wellle/context.vim'
+Plug 'https://git.sdut.me/svermeulen/vim-subversive'
+Plug 'https://git.sdut.me/theniceboy/argtextobj.vim'
+Plug 'https://git.sdut.me/rhysd/clever-f.vim'
+Plug 'https://git.sdut.me/chrisbra/NrrwRgn'
+Plug 'https://git.sdut.me/AndrewRadev/splitjoin.vim'
+
+
+
+
 
 
 call plug#end()
@@ -579,10 +613,10 @@ let g:airline_theme='gruvbox_material'
 "language messages zh_CN.utf-8
 let g:airline_powerline_fonts = 1   " 使用powerline打过补丁的字体
 " 开启tabline
-let g:airline#extensions#tabline#enabled = 1      "tabline中当前buffer两端的分隔字符
-let g:airline#extensions#tabline#left_sep = ' '   "tabline中未激活buffer两端的分隔字符
-let g:airline#extensions#tabline#left_alt_sep = '|'      "tabline中buffer显示编号
-let g:airline#extensions#tabline#buffer_nr_show = 1
+"let g:airline#extensions#tabline#enabled = 1      "tabline中当前buffer两端的分隔字符
+"let g:airline#extensions#tabline#left_sep = ' '   "tabline中未激活buffer两端的分隔字符
+"let g:airline#extensions#tabline#left_alt_sep = '|'      "tabline中buffer显示编号
+"let g:airline#extensions#tabline#buffer_nr_show = 1
 " 映射切换buffer的键位
 let g:airline_section_b = '%{get(g:,"coc_git_status","")}%{get(b:,"coc_git_status","")}%{get(b:,"coc_git_blame","")}'
 let g:airline_section_a = airline#section#create_left(['mode','%{strftime("%m/%d-%H:%M")}', 'crypt', 'paste', 'keymap', 'spell', 'capslock', 'xkblayout', 'iminsert'])
@@ -893,6 +927,7 @@ let g:table_mode_cell_text_object_i_map = 'k<Bar>'
 " ===
 " === vimtex
 " ===
+let g:tex_flavor = 'latex'
 "let g:vimtex_view_method = ''
 let g:vimtex_view_general_viewer = 'llpp'
 let g:vimtex_mappings_enabled = 0
@@ -964,12 +999,12 @@ let g:vimspector_terminal_minwidth = 40
 "let g:VM_theme             = 'iceblue'
 "let g:VM_default_mappings = 0
 "let g:VM_leader                     = {'default': ',', 'visual': ',', 'buffer': ','}
-"let g:VM_maps                       = {}
+let g:VM_maps                       = {}
 "let g:VM_custom_motions             = {'n': 'h', 'i': 'l', 'u': 'k', 'e': 'j', 'N': '0', 'I': '$', 'h': 'e'}
 "let g:VM_maps['i']                  = 'k'
 "let g:VM_maps['I']                  = 'K'
-"let g:VM_maps['Find Under']         = '<C-k>'
-"let g:VM_maps['Find Subword Under'] = '<C-k>'
+let g:VM_maps['Find Under']         = '<C-m>'
+let g:VM_maps['Find Subword Under'] = '<C-m>'
 "let g:VM_maps['Find Next']          = ''
 "let g:VM_maps['Find Prev']          = ''
 "let g:VM_maps['Remove Region']      = 'q'
@@ -977,85 +1012,152 @@ let g:vimspector_terminal_minwidth = 40
 "let g:VM_maps["Undo"]               = 'l'
 "let g:VM_maps["Redo"]               = '<C-r>'
 
-"lua <<EOF
-"require'nvim-treesitter.configs'.setup {
-"highlight = {
-"		enable = true,                    -- false will disable the whole extension
-"		-- disable = { 'rust' },        -- list of language that will be disabled
-"		custom_captures = {               -- mapping of user defined captures to highlight groups
-"		-- ["foo.bar"] = "Identifier"   -- highlight own capture @foo.bar with highlight group "Identifier", see :h nvim-treesitter-query-extensions
-"		},
-"		},
-"		incremental_selection = {
-"	enable = true,
-"	-- disable = { 'cpp', 'lua' },
-"	keymaps = {                       -- mappings for incremental selection (visual mappings)
-"	init_selection = 'gnn',         -- maps in normal mode to init the node/scope selection
-"	node_incremental = "grn",       -- increment to the upper named parent
-"	scope_incremental = "grc",      -- increment to the upper scope (as defined in locals.scm)
-"	node_decremental = "grm",       -- decrement to the previous node
-"	}
-"	},
-"	refactor = {
-"	highlight_definitions = {
-"enable = true
-"},
-"highlight_current_scope = {
-"		enable = true
-"		},
-"		smart_rename = {
-"	enable = true,
-"	keymaps = {
-"	smart_rename = "grr"            -- mapping to rename reference under cursor
-"	}
-"	},
-"	navigation = {
-"enable = true,
-"keymaps = {
-"goto_definition = "gnd",        -- mapping to go to definition of symbol under cursor
-"list_definitions = "gnD"        -- mapping to list all definitions in current file
-"}
-"}
-"},
-"textobjects = { -- syntax-aware textobjects
-"	enable = true,
-"	disable = {},
-"	keymaps = {
-"	["iL"] = { -- you can define your own textobjects directly here
-"	python = "(function_definition) @function",
-"	c = "(function_definition) @function",
-"	cpp = "(function_definition) @function",
-"	java = "(method_declaration) @function"
-"	},
-"	-- or you use the queries from supported languages with textobjects.scm
-"	["af"] = "@function.outer",
-"	["if"] = "@function.inner",
-"	["aC"] = "@class.outer",
-"	["iC"] = "@class.inner",
-"	["ac"] = "@conditional.outer",
-"	["ic"] = "@conditional.inner",
-"	["ae"] = "@block.outer",
-"	["ie"] = "@block.inner",
-"	["al"] = "@loop.outer",
-"	["il"] = "@loop.inner",
-"	["is"] = "@statement.inner",
-"	["as"] = "@statement.outer",
-"	["ad"] = "@comment.outer",
-"	["am"] = "@call.outer",
-"	["im"] = "@call.inner"
-"	}
-"	},
-"ensure_installed = {'c' , 'cpp'} -- one of 'all', 'language', or a list of languages
-"}
-"EOF
+
+"==
+"==nvim-treesitter
+"==
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+highlight = {
+		enable = true,                    -- false will disable the whole extension
+		-- disable = { 'rust' },        -- list of language that will be disabled
+		custom_captures = {               -- mapping of user defined captures to highlight groups
+		-- ["foo.bar"] = "Identifier"   -- highlight own capture @foo.bar with highlight group "Identifier", see :h nvim-treesitter-query-extensions
+		},
+		},
+		incremental_selection = {
+	enable = true,
+	-- disable = { 'cpp', 'lua' },
+	keymaps = {                       -- mappings for incremental selection (visual mappings)
+	init_selection = 'gnn',         -- maps in normal mode to init the node/scope selection
+	node_incremental = "grn",       -- increment to the upper named parent
+	scope_incremental = "grc",      -- increment to the upper scope (as defined in locals.scm)
+	node_decremental = "grm",       -- decrement to the previous node
+	}
+	},
+	refactor = {
+	highlight_definitions = {
+enable = true
+},
+highlight_current_scope = {
+		enable = true
+		},
+		smart_rename = {
+	enable = true,
+	keymaps = {
+	smart_rename = "grr"            -- mapping to rename reference under cursor
+	}
+	},
+	navigation = {
+enable = true,
+keymaps = {
+goto_definition = "gnd",        -- mapping to go to definition of symbol under cursor
+list_definitions = "gnD"        -- mapping to list all definitions in current file
+}
+}
+},
+textobjects = { -- syntax-aware textobjects
+	enable = true,
+	disable = {},
+	keymaps = {
+	["iL"] = { -- you can define your own textobjects directly here
+	python = "(function_definition) @function",
+	c = "(function_definition) @function",
+	cpp = "(function_definition) @function",
+	java = "(method_declaration) @function"
+	},
+	-- or you use the queries from supported languages with textobjects.scm
+	["af"] = "@function.outer",
+	["if"] = "@function.inner",
+	["aC"] = "@class.outer",
+	["iC"] = "@class.inner",
+	["ac"] = "@conditional.outer",
+	["ic"] = "@conditional.inner",
+	["ae"] = "@block.outer",
+	["ie"] = "@block.inner",
+	["al"] = "@loop.outer",
+	["il"] = "@loop.inner",
+	["is"] = "@statement.inner",
+	["as"] = "@statement.outer",
+	["ad"] = "@comment.outer",
+	["am"] = "@call.outer",
+	["im"] = "@call.inner"
+	}
+	},
+ensure_installed = {'c' , 'cpp'} -- one of 'all', 'language', or a list of languages
+}
+EOF
 
 
 
+"==
+"== vim-wintabs
+"==
+let g:wintabs_ui_buffer_name_format = '%o:%t'
+nmap <M-[> <Plug>(wintabs_previous)
+nmap <M-]> <Plug>(wintabs_next)
+nmap <space>wc <Plug>(wintabs_close)
+nmap <space>wu <Plug>(wintabs_undo)
+nmap <space>wo <Plug>(wintabs_only)
+nmap <space>wwc <Plug>(wintabs_close_window)
+nmap <space>wwo <Plug>(wintabs_only_window)
+nmap <space>wg :WintabsGo
+nmap <space>wm :WintabsMove
+
+" ===
+" === rainbow
+" ===
+let g:rainbow_active = 1
 
 
+"==
+"== antovim
+"==
+nmap <space>q :Antovim<cr>
+autocmd FileType javascript let g:custom_antovim_definitions = [
+  \   ['this', 'that']
+  \ ]
 
+"==
+"== wildfire
+"==
+" This selects the next closest text object.
+map <M-N> <Plug>(wildfire-fuel)
+" This selects the previous closest text object.
+map <M-B> <Plug>(wildfire-water)
 
+" ===
+" === vim-after-object
+" ===
+autocmd VimEnter * call after_object#enable('=', ':', '-', '#', ' ')
 
+" ===
+" === tabular
+" ===
+vmap <space>d :Tabularize /
+nmap <space>d :Tabularize /
+
+" ===
+" === vim-easymotion
+" ===
+let g:EasyMotion_do_mapping = 0
+let g:EasyMotion_do_shade = 0
+let g:EasyMotion_smartcase = 1
+" map ' <Plug>(easymotion-overwin-f2)
+" nmap ' <Plug>(easymotion-overwin-f2)
+"map E <Plug>(easymotion-j)
+"map U <Plug>(easymotion-k)
+"nmap f <Plug>(easymotion-overwin-f)
+"map \; <Plug>(easymotion-prefix)
+"nmap ' <Plug>(easymotion-overwin-f2)
+"map 'l <Plug>(easymotion-bd-jk)
+"nmap 'l <Plug>(easymotion-overwin-line)
+"map  'w <Plug>(easymotion-bd-w)
+"nmap 'w <Plug>(easymotion-overwin-w)
+nmap <space>ef <Plug>(easymotion-overwin-f)
+nmap <space>eF <Plug>(easymotion-overwin-f2)
+nmap <space>el <Plug>(easymotion-overwin-line)
+nmap <space>ew <Plug>(easymotion-overwin-w)
 
 
 
@@ -1250,8 +1352,8 @@ nmap <leader>rn <Plug>(coc-rename)
 ""nnoremap <silent> <C-t> :<C-u>Ydc<CR>
 ""noremap <silent> <Leader>yd :<C-u>Yde<CR>
 "" <Leader>t 翻译光标下的文本，在命令行回显
-nmap <silent> <Leader>tt <Plug>Translate
-vmap <silent> <Leader>tt <Plug>TranslateV
+nmap <silent> <Leader>ty <Plug>Translate
+vmap <silent> <Leader>ty <Plug>TranslateV
 " Leader>w 翻译光标下的文本，在窗口中显示
 nmap <silent> <Leader>tw <Plug>TranslateW
 vmap <silent> <Leader>tw <Plug>TranslateWV
