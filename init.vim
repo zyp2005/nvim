@@ -735,14 +735,14 @@ let g:floaterm_winblend = 15
 hi Floaterm guibg=black
 hi FloatermBorder guibg=normal
 autocmd User Startified setlocal buflisted
-"let  g:floaterm_keymap_new     =  '<Leader>fo'
+let  g:floaterm_keymap_new     =  '<M-f><M-o>'
 ""let  g:floaterm_keymap_next    =  '<C-f><C-n>'
-"let g:floaterm_keymap_prev    =   '<leader>fp'
-"let  g:floaterm_keymap_next    =  '<Leader>fn'
-"let  g:floaterm_keymap_kill    =  '<Leader>fk'
-"let  g:floaterm_keymap_toggle  =  '<Leader>fu'
+let g:floaterm_keymap_prev    =   '<M-f><M-p>'
+let  g:floaterm_keymap_next    =  '<M-f><M-n>'
+let  g:floaterm_keymap_kill    =  '<M-f><M-k>'
+let  g:floaterm_keymap_toggle  =  '<M-t>'
 nmap <leader>fm :CocList --auto-preview floaterm<CR>
-nmap  <Leader>fl :FloatermNew ranger<CR>
+nmap  <Leader>fa :FloatermNew ranger<CR>
 nmap  <Leader>ff :FloatermNew fzf<CR>
 nmap  <Leader>fg :FloatermNew lazygit<CR>
 
