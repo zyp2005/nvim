@@ -527,15 +527,32 @@ Plug 'https://git.sdut.me/tpope/vim-capslock'	" Ctrl+L (insert) to toggle capslo
 Plug 'https://git.sdut.me/easymotion/vim-easymotion'
 "Plug 'https://git.sdut.me/Konfekt/FastFold'
 "Plug 'https://git.sdut.me/junegunn/vim-peekaboo'
-"Plug 'https://git.sdut.me/wellle/context.vim'
-Plug 'https://git.sdut.me/svermeulen/vim-subversive'
+Plug 'https://git.sdut.me/wellle/context.vim'
+"Plug 'https://git.sdut.me/svermeulen/vim-subversive'
 Plug 'https://git.sdut.me/theniceboy/argtextobj.vim'
 Plug 'https://git.sdut.me/rhysd/clever-f.vim'
 Plug 'https://git.sdut.me/chrisbra/NrrwRgn'
 Plug 'https://git.sdut.me/AndrewRadev/splitjoin.vim'
 
+" For general writing
+Plug 'https://git.sdut.me/junegunn/goyo.vim'
+Plug 'https://git.sdut.me/reedes/vim-wordy'
+Plug 'https://git.sdut.me/ron89/thesaurus_query.vim'
 
+" Bookmarks
+Plug 'https://git.sdut.me/MattesGroeger/vim-bookmarks'
 
+" Find & Replace
+Plug 'https://git.sdut.me/brooth/far.vim', { 'on': ['F', 'Far', 'Fardo'] }
+
+" Documentation
+"Plug 'KabbAmine/zeavim.vim' " <LEADER>z to find doc
+
+" Mini Vim-APP
+"Plug 'https://git.sdut.me/jceb/vim-orgmode'
+Plug 'https://git.sdut.me/mhinz/vim-startify'
+Plug 'https://git.sdut.me/skywind3000/asynctasks.vim'
+Plug 'https://git.sdut.me/skywind3000/asyncrun.vim'
 
 
 
@@ -1101,7 +1118,15 @@ nmap <space>wu <Plug>(wintabs_undo)
 nmap <space>wo <Plug>(wintabs_only)
 nmap <space>wwc <Plug>(wintabs_close_window)
 nmap <space>wwo <Plug>(wintabs_only_window)
-nmap <space>wg :WintabsGo
+nmap <space>g1 :WintabsGo 1<cr>
+nmap <space>g2 :WintabsGo 2<cr>
+nmap <space>g3 :WintabsGo 3<cr>
+nmap <space>g4 :WintabsGo 4<cr>
+nmap <space>g5 :WintabsGo 5<cr>
+nmap <space>g6 :WintabsGo 6<cr>
+nmap <space>g7 :WintabsGo 7<cr>
+nmap <space>g8 :WintabsGo 8<cr>
+nmap <space>g9 :WintabsGo 9<cr>
 nmap <space>wm :WintabsMove
 
 " ===
@@ -1158,6 +1183,117 @@ nmap <space>ef <Plug>(easymotion-overwin-f)
 nmap <space>eF <Plug>(easymotion-overwin-f2)
 nmap <space>el <Plug>(easymotion-overwin-line)
 nmap <space>ew <Plug>(easymotion-overwin-w)
+
+" ===
+" === fastfold
+" ===
+" nmap zuz <Plug>(FastFoldUpdate)
+" let g:fastfold_savehook = 1
+" let g:fastfold_fold_command_suffixes =  ['x','X','a','A','o','O','c','C']
+" let g:fastfold_fold_movement_commands = [']z', '[z', 'ze', 'zu']
+" let g:markdown_folding = 1
+" let g:tex_fold_enabled = 1
+" let g:vimsyn_folding = 'af'
+" let g:xml_syntax_folding = 1
+" let g:javaScript_fold = 1
+" let g:sh_fold_enabled= 7
+" let g:ruby_fold = 1
+" let g:perl_fold = 1
+" let g:perl_fold_blocks = 1
+" let g:r_syntax_folding = 1
+" let g:rust_fold = 1
+" let g:php_folding = 1
+
+" ===
+" === context.vim
+" ===
+let g:context_add_mappings = 0
+noremap <leader>ct :ContextToggle<CR>
+"let g:context_highlight_normal = 'PMenu'
+let g:context_highlight_normal = 'PMenu'
+let g:context_highlight_border = 'Comment'
+let g:context_highlight_tag    = 'Special'
+
+" ===
+" === vim-subversive
+" ===
+"nmap s <plug>(SubversiveSubstitute)
+"nmap ss <plug>(SubversiveSubstituteLine)
+
+" ===
+" === NrrwRgn
+" ===
+let g:nrrw_rgn_nomap_nr = 1
+let g:nrrw_rgn_nomap_Nr = 1
+noremap <leader>nm :NR<CR>
+
+" ===
+" === tcomment_vim
+" ===
+"nnoremap ci cl
+let g:tcomment_textobject_inlinecomment = ''
+nmap <LEADER>cn g>c
+vmap <LEADER>cn g>
+nmap <LEADER>cu g<c
+vmap <LEADER>cu g<
+
+" ===
+" === goyo
+" ===
+map <LEADER>gy :Goyo<CR>
+
+
+"nnoremap  <Leader>cs :ThesaurusQueryReplaceCurrentWord<CR>
+let g:tq_enabled_backends=["cilin_txt",
+            \"openthesaurus_de",
+            \"yarn_synsets",
+            \"openoffice_en",
+            \"mthesaur_txt",
+            \"datamuse_com",]
+let g:tq_language=['en', 'cn']
+let g:tq_cilin_txt_file="~/.config/nvim/thesaurus/cilin.txt"
+
+"==
+"==vim-bookmarks
+"==
+let g:bookmark_no_default_key_mappings = 1
+nmap <space>mm <Plug>BookmarkToggle
+nmap <space>mi <Plug>BookmarkAnnotate
+nmap <space>ms <Plug>BookmarkShowAll
+nmap <space>mn <Plug>BookmarkNext
+nmap <space>mb <Plug>BookmarkPrev
+nmap <space>mc <Plug>BookmarkClear
+nmap <space>mca <Plug>BookmarkClearAll
+" these will also work with a [count] prefix
+nmap <space>mk <Plug>BookmarkMoveUp
+nmap <space>mj <Plug>BookmarkMoveDown
+nmap <space>mg <Plug>BookmarkMoveToLine
+
+" ===
+" === Far.vim
+" ===
+noremap <LEADER>FF :F  **/*<left><left><left><left><left>
+noremap <space>FD :Far  **/*<left><left><left><left><left>
+let g:far#mapping = {
+		\ "replace_undo" : ["l"],
+		\ }
+let g:far#auto_preview = 1
+
+" ===
+" === AsyncRun
+" ===
+noremap gp :AsyncRun git push<CR>
+
+
+" ===
+" === AsyncTasks
+" ===
+let g:asyncrun_open = 6
+
+" Open Startify
+"noremap <LEADER>st :Startify<CR>
+
+
 
 
 
