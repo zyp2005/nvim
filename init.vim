@@ -554,6 +554,20 @@ Plug 'https://git.sdut.me/mhinz/vim-startify'
 Plug 'https://git.sdut.me/skywind3000/asynctasks.vim'
 Plug 'https://git.sdut.me/skywind3000/asyncrun.vim'
 
+" Vim Applications
+Plug 'https://git.sdut.me/itchyny/calendar.vim'
+
+" Other useful utilities
+Plug 'https://github.com/skywind3000/vim-preview.git'
+Plug 'https://git.sdut.me/lambdalisue/suda.vim' " do stuff like :sudowrite
+"Plug 'https://git.sdut.me/makerj/vim-pdf'
+"Plug 'https://git.sdut.me/xolox/vim-session'
+"Plug 'https://git.sdut.me/xolox/vim-misc' " vim-session dep
+
+" Dependencies
+" Plug 'https://git.sdut.me/MarcWeber/vim-addon-mw-utils'
+" Plug 'https://git.sdut.me/kana/vim-textobj-user'
+" Plug 'https://git.sdut.me/roxma/nvim-yarp'
 
 
 call plug#end()
@@ -1293,10 +1307,41 @@ let g:asyncrun_open = 6
 " Open Startify
 "noremap <LEADER>st :Startify<CR>
 
+" ===
+" === suda.vim
+" ===
+cnoreabbrev sudowrite w suda://%
+cnoreabbrev sw w suda://%
+
+" ===
+" === vim-session
+" ===
+"let g:session_directory = $HOME."/.config/nvim/tmp/sessions"
+"let g:session_autosave = 'no'
+"let g:session_autoload = 'no'
+"let g:session_command_aliases = 1
+"set sessionoptions-=buffers
+"set sessionoptions-=options
+"noremap sl :OpenSession<CR>
+"noremap sS :SaveSession<CR>
+"noremap ss :SaveSession 
+"noremap sc :SaveSession<CR>:CloseSession<CR>:q<CR>
+"noremap so :OpenSession default<CR>
+"noremap sD :DeleteSession<CR>
+""noremap sA :AppendTabSession<CR>
 
 
+let g:startify_files_number = 10
+let g:startify_fortune_use_unicode = 1
+let g:startify_padding_left = 40
+    let g:startify_custom_header =
+            \ startify#pad(split(system('figlet -f big "     zyp2005" && fortune -s'), '\n'))
 
-
+"==
+"== vim-preview
+"==
+autocmd FileType qf nnoremap <silent><buffer> p :PreviewQuickfix<cr>
+autocmd FileType qf nnoremap <silent><buffer> P :PreviewClose<cr>
 
 
 
