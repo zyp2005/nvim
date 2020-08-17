@@ -106,6 +106,9 @@ set virtualedit=block
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 "光标回到上次位置
 
+set tags+=./tags;
+
+
 " ===
 " === Terminal Behaviors
 " ===
@@ -1276,7 +1279,7 @@ nmap <space>mi <Plug>BookmarkAnnotate
 nmap <space>ms <Plug>BookmarkShowAll
 nmap <space>mn <Plug>BookmarkNext
 nmap <space>mb <Plug>BookmarkPrev
-nmap <space>mc <Plug>BookmarkClear
+nmap <space>mcc <Plug>BookmarkClear
 nmap <space>mca <Plug>BookmarkClearAll
 " these will also work with a [count] prefix
 nmap <space>mk <Plug>BookmarkMoveUp
@@ -1303,6 +1306,13 @@ noremap gp :AsyncRun git push<CR>
 " === AsyncTasks
 " ===
 let g:asyncrun_open = 6
+let g:asynctasks_term_pos = 'right'
+let g:asyncrun_rootmarks = ['.git', '.svn', '.root', '.project', '.hg']
+let g:asynctasks_term_rows = 10    " 设置纵向切割时，高度为 10
+let g:asynctasks_term_cols = 80    " 设置横向切割时，宽度为 80
+noremap <silent><space><F3> :AsyncTask file-build<cr>
+noremap <silent><space><F5> :AsyncTask file-run<cr>
+noremap <M-q> :cclose<cr>
 
 " Open Startify
 "noremap <LEADER>st :Startify<CR>
@@ -1391,7 +1401,7 @@ function! s:check_back_space() abort
 endfunction
 
 " Use <c-space> to trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
+inoremap <silent><expr> <M-space> coc#refresh()
 
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
 " position. Coc only does snippet and additional edit on confirm.
@@ -1500,6 +1510,38 @@ nmap <leader>rn <Plug>(coc-rename)
 "nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
 
+" Remap for do codeAction of selected region
+function! s:cocActionsOpenFromSelected(type) abort
+  execute 'CocCommand actions.open ' . a:type
+endfunction
+xmap <silent> <leader>a :<C-u>execute 'CocCommand actions.open ' . visualmode()<CR>
+nmap <silent> <leader>a :<C-u>set operatorfunc=<SID>cocActionsOpenFromSelected<CR>g@
+
+sign define OmniSharpCodeActions text=💡
+
+augroup OSCountCodeActions
+	autocmd!
+	autocmd FileType cs set signcolumn=yes
+	autocmd CursorHold *.cs call OSCountCodeActions()
+augroup END
+
+function! OSCountCodeActions() abort
+	if bufname('%') ==# '' || OmniSharp#FugitiveCheck() | return | endif
+	if !OmniSharp#IsServerRunning() | return | endif
+	let opts = {
+				\ 'CallbackCount': function('s:CBReturnCount'),
+				\ 'CallbackCleanup': {-> execute('sign unplace 99')}
+				\}
+	call OmniSharp#CountCodeActions(opts)
+endfunction
+
+function! s:CBReturnCount(count) abort
+	if a:count
+		let l = getpos('.')[1]
+		let f = expand('%:p')
+		execute ':sign place 99 line='.l.' name=OmniSharpCodeActions file='.f
+	endif
+endfunction
 
 
 
@@ -1568,3 +1610,18 @@ let g:translator_window_max_height = 0.5
 ""进入插入模式
 "autocmd InsertEnter * call Fcitx2zh()
 ""##### auto fcitx end ######
+
+" ===================== End of Plugin Settings =====================
+
+
+" ===
+" === Necessary Commands to Execute
+" ===
+exec "nohlsearch"
+
+
+" Open the _machine_specific.vim file if it has just been created
+if has_machine_specific_file == 0
+	exec "e ~/.config/nvim/_machine_specific.vim"
+endif
+
