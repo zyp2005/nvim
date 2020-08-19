@@ -339,7 +339,7 @@ noremap <LEADER>/ :set splitbelow<CR>:split<CR>:res +5<CR>:term<CR>
 noremap '' <Esc>/<++><CR>:nohlsearch<CR>c4l
 
 " Splelling Check with <space>sc
-noremap <LEADER>sc :set spell!<CR>
+"noremap <LEADER>sc :set spell!<CR>
 
 " Press ` to change case (instead of ~)
 noremap ` ~
@@ -481,11 +481,12 @@ Plug 'https://git.sdut.me/liuchengxu/vista.vim'
 
 " Auto Complete
 Plug 'https://git.sdut.me/neoclide/coc.nvim', {'branch': 'release'}
+Plug 'https://git.sdut.me/Shougo/echodoc.vim.git'
 "Plug 'https://git.sdut.me/wellle/tmux-complete.vim'
 
 " Snippets
-" Plug 'https://git.sdut.me/SirVer/ultisnips'
-"Plug 'https://git.sdut.me/honza/vim-snippets'
+"Plug 'https://git.sdut.me/SirVer/ultisnips'
+Plug 'https://git.sdut.me/honza/vim-snippets'
 
 " Undo Tree
 Plug 'https://git.sdut.me/mbbill/undotree'
@@ -690,7 +691,7 @@ nmap <leader>gf :CocCommand git.foldUnchanged<CR>
 ":CocCommand git.toggleGutters 在符号列中切换git gutter。
 nmap <leader>gt :CocCommand git.toggleGutters<CR>
 
-nmap <leader>gsc :CocList commits<CR>
+nmap <leader>sc :CocList commits<CR>
 nmap <leader>ga :CocList gstatus<CR>
 nmap <leader>gb :CocList branches<CR>
 
@@ -840,18 +841,19 @@ let g:formatters_javascript = ['custom_js']
 au BufWrite *.js :Autoformat
 
 " ===
-" === FZF
+" === clap
 " ===
-set rtp+=/usr/local/opt/fzf
-set rtp+=/home/linuxbrew/.linuxbrew/opt/fzf
-set rtp+=/home/david/.linuxbrew/opt/fzf
-noremap <leader>ff :Files<CR>
-noremap <leader>fr :Rg<CR>
-noremap <leader>fh :History<CR>
-noremap <leader>fb :BTags<CR>
-noremap <leader>fl :Lines<CR>
-noremap <leader>fw :Buffers<CR>
-noremap <leader>f; :History:<CR>
+"set rtp+=/usr/local/opt/fzf
+"set rtp+=/home/linuxbrew/.linuxbrew/opt/fzf
+"set rtp+=/home/david/.linuxbrew/opt/fzf
+noremap <leader>sf :Clap files<CR>
+noremap <leader>sr :Clap grep2<CR>
+noremap <leader>sh :Clap history<CR>
+noremap <leader>st :Clap tags<CR>
+noremap <leader>sl :Clap lines<CR>
+noremap <leader>sw :Clap buffers<CR>
+noremap <leader>sb :Clap bcommits<CR>
+"noremap <leader>f; :History:<CR>
 let g:fzf_preview_window = 'right:50%'
 let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
 let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.7 } }
@@ -1054,21 +1056,11 @@ lua <<EOF
 require'nvim-treesitter.configs'.setup {
 highlight = {
 		enable = true,                    -- false will disable the whole extension
-		-- disable = { 'rust' },        -- list of language that will be disabled
+		 disable = { 'rust' },        -- list of language that will be disabled
 		custom_captures = {               -- mapping of user defined captures to highlight groups
-		-- ["foo.bar"] = "Identifier"   -- highlight own capture @foo.bar with highlight group "Identifier", see :h nvim-treesitter-query-extensions
+		 --["foo.bar"] = "Identifier"   -- highlight own capture @foo.bar with highlight group "Identifier", see :h nvim-treesitter-query-extensions
 		},
 		},
-		incremental_selection = {
-	enable = true,
-	-- disable = { 'cpp', 'lua' },
-	keymaps = {                       -- mappings for incremental selection (visual mappings)
-	init_selection = 'gnn',         -- maps in normal mode to init the node/scope selection
-	node_incremental = "grn",       -- increment to the upper named parent
-	scope_incremental = "grc",      -- increment to the upper scope (as defined in locals.scm)
-	node_decremental = "grm",       -- decrement to the previous node
-	}
-	},
 	refactor = {
 	highlight_definitions = {
 enable = true
@@ -1076,48 +1068,7 @@ enable = true
 highlight_current_scope = {
 		enable = true
 		},
-		smart_rename = {
-	enable = true,
-	keymaps = {
-	smart_rename = "grr"            -- mapping to rename reference under cursor
-	}
-	},
-	navigation = {
-enable = true,
-keymaps = {
-goto_definition = "gnd",        -- mapping to go to definition of symbol under cursor
-list_definitions = "gnD"        -- mapping to list all definitions in current file
-}
-}
 },
-textobjects = { -- syntax-aware textobjects
-	enable = true,
-	disable = {},
-	keymaps = {
-	["iL"] = { -- you can define your own textobjects directly here
-	python = "(function_definition) @function",
-	c = "(function_definition) @function",
-	cpp = "(function_definition) @function",
-	java = "(method_declaration) @function"
-	},
-	-- or you use the queries from supported languages with textobjects.scm
-	["af"] = "@function.outer",
-	["if"] = "@function.inner",
-	["aC"] = "@class.outer",
-	["iC"] = "@class.inner",
-	["ac"] = "@conditional.outer",
-	["ic"] = "@conditional.inner",
-	["ae"] = "@block.outer",
-	["ie"] = "@block.inner",
-	["al"] = "@loop.outer",
-	["il"] = "@loop.inner",
-	["is"] = "@statement.inner",
-	["as"] = "@statement.outer",
-	["ad"] = "@comment.outer",
-	["am"] = "@call.outer",
-	["im"] = "@call.inner"
-	}
-	},
 ensure_installed = {'c' , 'cpp'} -- one of 'all', 'language', or a list of languages
 }
 EOF
@@ -1164,9 +1115,9 @@ autocmd FileType javascript let g:custom_antovim_definitions = [
 "== wildfire
 "==
 " This selects the next closest text object.
-map <M-N> <Plug>(wildfire-fuel)
+"map <M-N> <Plug>(wildfire-fuel)
 " This selects the previous closest text object.
-map <M-B> <Plug>(wildfire-water)
+"map <M-B> <Plug>(wildfire-water)
 
 " ===
 " === vim-after-object
@@ -1225,7 +1176,7 @@ nmap <space>ew <Plug>(easymotion-overwin-w)
 " === context.vim
 " ===
 let g:context_add_mappings = 0
-noremap <leader>ct :ContextToggle<CR>
+"noremap <leader>ct :ContextToggle<CR>
 "let g:context_highlight_normal = 'PMenu'
 let g:context_highlight_normal = 'PMenu'
 let g:context_highlight_border = 'Comment'
@@ -1314,8 +1265,6 @@ noremap <silent><space><F3> :AsyncTask file-build<cr>
 noremap <silent><space><F5> :AsyncTask file-run<cr>
 noremap <M-q> :cclose<cr>
 
-" Open Startify
-"noremap <LEADER>st :Startify<CR>
 
 " ===
 " === suda.vim
@@ -1340,12 +1289,13 @@ cnoreabbrev sw w suda://%
 "noremap sD :DeleteSession<CR>
 ""noremap sA :AppendTabSession<CR>
 
-
+" Open Startify
+"noremap <LEADER>st :Startify<CR>
 let g:startify_files_number = 10
 let g:startify_fortune_use_unicode = 1
-let g:startify_padding_left = 40
-    let g:startify_custom_header =
-            \ startify#pad(split(system('figlet -f big "     zyp2005" && fortune -s'), '\n'))
+let g:startify_padding_left = 3
+let g:startify_custom_header =
+        \ startify#pad(split(system('figlet -f big "     zyp2005" && fortune -s'), '\n'))
 
 "==
 "== vim-preview
@@ -1354,6 +1304,31 @@ autocmd FileType qf nnoremap <silent><buffer> p :PreviewQuickfix<cr>
 autocmd FileType qf nnoremap <silent><buffer> P :PreviewClose<cr>
 
 
+" ===
+" === vim-calendar
+" ===
+"noremap \c :Calendar -position=here<CR>
+noremap \c :Calendar<CR>:q<cr>:Calendar -view=clock -position=tab<CR>
+"let g:calendar_google_calendar = 1
+"let g:calendar_google_task = 1
+let g:calendar_frame = 'default'
+augroup calendar-mappings
+	autocmd!
+	" diamond cursor
+	autocmd FileType calendar nmap <buffer> u <Plug>(calendar_up)
+	autocmd FileType calendar nmap <buffer> n <Plug>(calendar_left)
+	autocmd FileType calendar nmap <buffer> e <Plug>(calendar_down)
+	autocmd FileType calendar nmap <buffer> i <Plug>(calendar_right)
+	autocmd FileType calendar nmap <buffer> <c-u> <Plug>(calendar_move_up)
+	autocmd FileType calendar nmap <buffer> <c-n> <Plug>(calendar_move_left)
+	autocmd FileType calendar nmap <buffer> <c-e> <Plug>(calendar_move_down)
+	autocmd FileType calendar nmap <buffer> <c-i> <Plug>(calendar_move_right)
+	autocmd FileType calendar nmap <buffer> k <Plug>(calendar_start_insert)
+	autocmd FileType calendar nmap <buffer> K <Plug>(calendar_start_insert_head)
+	" unmap <C-n>, <C-p> for other plugins
+	autocmd FileType calendar nunmap <buffer> <C-n>
+	autocmd FileType calendar nunmap <buffer> <C-p>
+augroup END
 
 
 
@@ -1399,6 +1374,23 @@ function! s:check_back_space() abort
 	let col = col('.') - 1
 	return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
+	" inoremap <silent><expr> <TAB>
+	"   \ pumvisible() ? coc#_select_confirm() :
+	"   \ coc#expandableOrJumpable() ?
+	"   \ "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+	"   \ <SID>check_back_space() ? "\<TAB>" :
+	"   \ coc#refresh()
+    "
+	" function! s:check_back_space() abort
+	"   let col = col('.') - 1
+	"   return !col || getline('.')[col - 1]  =~# '\s'
+	" endfunction
+
+" let g:coc_snippet_next = '<tab>'
+
+
+
+
 
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <M-space> coc#refresh()
@@ -1406,11 +1398,13 @@ inoremap <silent><expr> <M-space> coc#refresh()
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
 " position. Coc only does snippet and additional edit on confirm.
 " <cr> could be remapped by other vim plugin, try `:verbose imap <CR>`.
-if exists('*complete_info')
-	inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
-else
-	inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-endif
+" if exists('*complete_info')
+" 	inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+" else
+" 	inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" endif
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+			\: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 "" Use `[g` and `]g` to navigate diagnostics
 "nmap <silent> [g <Plug>(coc-diagnostic-prev)
@@ -1440,16 +1434,16 @@ endfunction
 nmap <leader>rn <Plug>(coc-rename)
 "
 "" Formatting selected code.
-"xmap <leader>f  <Plug>(coc-format-selected)
-"nmap <leader>f  <Plug>(coc-format-selected)
+xmap <leader>fo  <Plug>(coc-format-selected)
+nmap <leader>fo  <Plug>(coc-format-selected)
 "
-"augroup mygroup
-"  autocmd!
-"  " Setup formatexpr specified filetype(s).
-"  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-"  " Update signature help on jump placeholder.
-"  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-"augroup end
+augroup mygroup
+	autocmd!
+		" Setup formatexpr specified filetype(s).
+		autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+		" Update signature help on jump placeholder.
+		autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+	augroup end
 "
 "" Applying codeAction to the selected region.
 "" Example: `<leader>aap` for current paragraph
@@ -1463,14 +1457,14 @@ nmap <leader>rn <Plug>(coc-rename)
 "
 "" Map function and class text objects
 "" NOTE: Requires 'textDocument.documentSymbol' support from the language server.
-"xmap if <Plug>(coc-funcobj-i)
-"omap if <Plug>(coc-funcobj-i)
-"xmap af <Plug>(coc-funcobj-a)
-"omap af <Plug>(coc-funcobj-a)
-"xmap ic <Plug>(coc-classobj-i)
-"omap ic <Plug>(coc-classobj-i)
-"xmap ac <Plug>(coc-classobj-a)
-"omap ac <Plug>(coc-classobj-a)
+xmap if <Plug>(coc-funcobj-i)
+omap if <Plug>(coc-funcobj-i)
+xmap af <Plug>(coc-funcobj-a)
+omap af <Plug>(coc-funcobj-a)
+xmap ic <Plug>(coc-classobj-i)
+omap ic <Plug>(coc-classobj-i)
+xmap ac <Plug>(coc-classobj-a)
+omap ac <Plug>(coc-classobj-a)
 "
 "" Use CTRL-S for selections ranges.
 "" Requires 'textDocument/selectionRange' support of LS, ex: coc-tsserver
@@ -1478,7 +1472,7 @@ nmap <leader>rn <Plug>(coc-rename)
 "xmap <silent> <C-s> <Plug>(coc-range-select)
 "
 "" Add `:Format` command to format current buffer.
-"command! -nargs=0 Format :call CocAction('format')
+command! -nargs=0 Format :call CocAction('format')
 "
 "" Add `:Fold` command to fold current buffer.
 "command! -nargs=? Fold :call     CocAction('fold', <f-args>)
@@ -1493,7 +1487,7 @@ nmap <leader>rn <Plug>(coc-rename)
 "
 "" Mappings using CoCList:
 "" Show all diagnostics.
-"nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
+"nnoremap <silent> <space>ap  :<C-u>CocList diagnostics<cr>
 "" Manage extensions.
 "nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
 "" Show commands.
@@ -1508,6 +1502,24 @@ nmap <leader>rn <Plug>(coc-rename)
 "nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 "" Resume latest coc list.
 "nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+let g:coc_global_extensions = [
+  \ 'coc-actions',
+  \ 'coc-diagnostic',
+  \ 'coc-explorer',
+  \ 'coc-gitignore',
+  \ 'coc-lists',
+  \ 'coc-prettier',
+  \ 'coc-snippets',
+  \ 'coc-syntax',
+  \ 'coc-tasks',
+  \ 'coc-todolist',
+  \ 'coc-translator',
+  \ 'coc-tsserver',
+  \ 'coc-vimlsp',
+  \ 'coc-highlight',
+  \ 'coc-floaterm',
+  \ 'coc-git',
+  \ 'coc-yank']
 
 
 " Remap for do codeAction of selected region
@@ -1517,57 +1529,71 @@ endfunction
 xmap <silent> <leader>a :<C-u>execute 'CocCommand actions.open ' . visualmode()<CR>
 nmap <silent> <leader>a :<C-u>set operatorfunc=<SID>cocActionsOpenFromSelected<CR>g@
 
-sign define OmniSharpCodeActions text=💡
-
-augroup OSCountCodeActions
-	autocmd!
-	autocmd FileType cs set signcolumn=yes
-	autocmd CursorHold *.cs call OSCountCodeActions()
-augroup END
-
-function! OSCountCodeActions() abort
-	if bufname('%') ==# '' || OmniSharp#FugitiveCheck() | return | endif
-	if !OmniSharp#IsServerRunning() | return | endif
-	let opts = {
-				\ 'CallbackCount': function('s:CBReturnCount'),
-				\ 'CallbackCleanup': {-> execute('sign unplace 99')}
-				\}
-	call OmniSharp#CountCodeActions(opts)
-endfunction
-
-function! s:CBReturnCount(count) abort
-	if a:count
-		let l = getpos('.')[1]
-		let f = expand('%:p')
-		execute ':sign place 99 line='.l.' name=OmniSharpCodeActions file='.f
-	endif
-endfunction
-
-
-
-
-
+" Open up coc-commands
+nnoremap <leader>cc :CocCommand<CR>
+"打开coclist
+nnoremap <space>cl :CocList<CR>
+" Useful commands
+nnoremap <silent> <space>y :<C-u>CocList -A --normal yank<cr>
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+nmap <leader>rn <Plug>(coc-rename)
+nmap tt :CocCommand explorer<CR>
+" coctodolist
+nnoremap <leader>tn :CocCommand todolist.create<CR>
+nnoremap <leader>tl :CocList todolist<CR>
+nnoremap <leader>tu :CocCommand todolist.download<CR>:CocCommand todolist.upload<CR>
+" coc-tasks
+noremap <silent> <leader>ts :CocList tasks<CR>
+" coc-snippets
+" Use <C-l> for trigger snippet expand.
+imap <C-l> <Plug>(coc-snippets-expand)
+" Use <C-j> for select text for visual placeholder of snippet.
+vmap <C-j> <Plug>(coc-snippets-select)
+" Use <C-j> for jump to next placeholder, it's default of coc.nvim
+let g:coc_snippet_next = '<c-j>'
+" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
+let g:coc_snippet_prev = '<c-k>'
+" Use <C-j> for both expand and jump (make expand higher priority.)
+imap <C-j> <Plug>(coc-snippets-expand-jump)
+let g:snips_author = 'zyp2005'
 "
-"
+nmap <silent> <LEADER>- <Plug>(coc-diagnostic-prev)
+nmap <silent> <LEADER>= <Plug>(coc-diagnostic-next)
+
+nmap <space>rf <Plug>(coc-refactor)
+
+nnoremap <expr><M-j> coc#util#has_float() ? coc#util#float_scroll(1) : "\<C-f>"
+nnoremap <expr><M-k> coc#util#has_float() ? coc#util#float_scroll(0) : "\<C-b>"
+
+
+
+
+
+
+
+
+
+"==
+"== echodoc.vim
+"==
+let g:echodoc#enable_at_startup = 1
+let g:echodoc#type = 'echo'
+" To use a custom highlight for the float window,
+" change Pmenu to your highlight group
+"highlight link EchoDocFloat Pmenu
+
+
+
+
 "
 "let g:indentLine_setColors = 0
 "let g:indentLine_color_term = 239
 "let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 "
-"
-""=
-""===vim-floaterm
-""=
-"autocmd User Startified setlocal buflisted
-"let  g:floaterm_keymap_new     =  '<Leader>fo'
-""let  g:floaterm_keymap_next    =  '<C-f><C-n>'
-"let  g:floaterm_keymap_next    =  '<Leader>fn'
-"let  g:floaterm_keymap_kill    =  '<Leader>fk'
-"let  g:floaterm_keymap_toggle  =  '<Leader>fh'
-"map  <Leader>fl :FloatermNew lf<CR>
-"map  <Leader>ff :FZF<CR>
-"map  <Leader>fg :FloatermNew lazygit<CR>
-"
+
 ""=
 ""==translate
 ""=
@@ -1575,41 +1601,17 @@ endfunction
 ""nnoremap <silent> <C-t> :<C-u>Ydc<CR>
 ""noremap <silent> <Leader>yd :<C-u>Yde<CR>
 "" <Leader>t 翻译光标下的文本，在命令行回显
-nmap <silent> <Leader>ty <Plug>Translate
+nmap <silent> <Leader>ty <Plug>(coc-translator-e)
 vmap <silent> <Leader>ty <Plug>TranslateV
 " Leader>w 翻译光标下的文本，在窗口中显示
-nmap <silent> <Leader>tw <Plug>TranslateW
+nmap <silent> <Leader>tw <Plug>(coc-translator-p)
 vmap <silent> <Leader>tw <Plug>TranslateWV
 " Leader>r 替换光标下的文本为翻译内容
 nmap <silent> <Leader>tr <Plug>TranslateR
 vmap <silent> <Leader>tr <Plug>TranslateRV
 let g:translator_window_max_width = 0.5
 let g:translator_window_max_height = 0.5
-"
-""##### auto fcitx  ###########
-"let g:input_toggle = 2
-"function! Fcitx2en()
-"   let s:input_status = system("fcitx-remote")
-"   if s:input_status == 2
-"      let g:input_toggle = 1
-"      let l:a = system("fcitx-remote -c")
-"   endif
-"endfunction
-"
-"function! Fcitx2zh()
-"   let s:input_status = system("fcitx-remote")
-"   if s:input_status != 2 && g:input_toggle == 1
-"      let l:a = system("fcitx-remote -o")
-"      let g:input_toggle = 0
-"   endif
-"endfunction
-"
-"set ttimeoutlen=150
-""退出插入模式
-"autocmd InsertLeave * call Fcitx2en()
-""进入插入模式
-"autocmd InsertEnter * call Fcitx2zh()
-""##### auto fcitx end ######
+"##### auto fcitx end ######
 
 " ===================== End of Plugin Settings =====================
 

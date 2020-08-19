@@ -1,0 +1,6 @@
+# .clang-format
+---
+Language:        c
+BasedOnStyle:  Chromium
+TabWidth:        4
+UseTab:          Never
