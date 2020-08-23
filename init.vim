@@ -21,6 +21,12 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
 	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
+if empty(glob('~/.local/share/dein/'))
+	silent !curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
+	silent !sh ./installer.sh ~/.local/share/dein
+	autocmd VimEnter *  call dein#install()  | source $MYVIMRC
+endif
+
 " ===
 " === Create a _machine_specific.vim file to adjust machine specific stuff, like python interpreter location
 " ===
@@ -437,144 +443,169 @@ autocmd InsertEnter * call Fcitx2zh()
 " ===
 " === Install Plugins with Vim-Plug
 " ===
+if &compatible
+    set nocompatible
+endif
+set runtimepath+=~/.local/share/dein/repos/github.com/Shougo/dein.vim
+
+if dein#load_state('~/.local/share/dein')
+  call dein#begin('~/.local/share/dein')
+
+  call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
+  call dein#add('https://git.sdut.me/wsdjeg/dein-ui.vim')
+  call dein#add('https://git.sdut.me/haya14busa/dein-command.vim.git')
+
+  " Testing my own plugin
+  " call dein#add('https://git.sdut.metheniceboy/vim-calc')
+  "call dein#add('https://git.sdut.me/nvim-treesitter/nvim-treesitter', {'rev': '4f2689c','path':'.config/nvim/plugged','name':'nvim-treesitter'})
+  "call dein#add('https://git.sdut.me/sheerun/vim-polyglot')
+
+  " Pretty Dress
+  call dein#add('https://git.sdut.me/sainnhe/gruvbox-material',{'lzay': 1})
+  call dein#add('https://git.sdut.me/ryanoasis/vim-devicons',{'lzay': 1})
+  "call dein#add('https://git.sdut.me/rakr/vim-one')
+  "call dein#add('hardcoreplayers/oceanic-material')
+
+  call dein#add('https://git.sdut.me/yianwillis/vimcdoc',{'lzay': 1})
+  "call dein#add('https://git.sdut.me/bronson/vim-trailing-whitespace',{'lzay': 1, 'on_cmd':'FixWhitespce'})
+  call dein#add('https://git.sdut.me/voldikss/vim-translator',{'lzay': 1})
+
+  " Other visual enhancement
+  "call dein#add('ryanoasis/vim-devicons')
+  call dein#add('https://git.sdut.me/luochen1990/rainbow',{'lzay': 1})
+  "call dein#add('https://git.sdut.me/mg979/vim-xtabline')
+  "call dein#add('https://git.sdut.me/wincent/terminus')
+  call dein#add('https://git.sdut.me/zefei/vim-wintabs',{'lzay': 1})
+  call dein#add('https://git.sdut.me/zefei/vim-wintabs-powerline',{'lzay': 1})
+
+  " Status line
+  " call dein#add('https://git.sdut.me/vim-airline/vim-airline')
+  call dein#add('https://git.sdut.me/hardcoreplayers/spaceline.vim.git',{'lzay': 1})
+
+  " File navigation
+  "call dein#add('https://git.sdut.me/scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+  "call dein#add('https://git.sdut.me/Xuyuanp/nerdtree-git-plugin')
+  "call dein#add('junegunn/fzf', { 'build': { -> fzf#install() } })
+  call dein#add('https://git.sdut.me/junegunn/fzf.vim',{'lzay': 1})
+  call dein#add('https://git.sdut.me/pechorin/any-jump.vim',{'lzay': 1})
+  call dein#add('https://git.sdut.me/voldikss/vim-floaterm',{'lzay': 1})
+  "call dein#add('https://git.sdut.me/airblade/vim-rooter'
+  "call dein#add('https://git.sdut.me/Yggdroot/LeaderF', { 'do': './install.sh' }
+  "call dein#add('https://git.sdut.me/liuchengxu/vim-clap', {'build': ':Clap install-binary!' })
+  call dein#add('https://git.sdut.me/liuchengxu/vim-clap')
+  call dein#add('https://git.sdut.me/vn-ki/coc-clap',{'lzay': 1})
+
+  " Taglist
+  call dein#add('https://git.sdut.me/liuchengxu/vista.vim',{'lzay': 1})
+
+  " Auto Complete
+  call dein#add('https://git.sdut.me/neoclide/coc.nvim', {'rev': 'release'})
+  call dein#add('https://git.sdut.me/Shougo/echodoc.vim.git',{'lzay': 1})
+  "call dein#add('https://git.sdut.me/wellle/tmux-complete.vim')
+
+  " Snippets
+  "call dein#add('https://git.sdut.me/SirVer/ultisnips')
+  call dein#add('https://git.sdut.me/honza/vim-snippets',{'lzay': 1})
+
+  " Undo Tree
+  call dein#add('https://git.sdut.me/mbbill/undotree',{'lzay': 1})
+
+  " Git
+  "call dein#add('https://git.sdut.me/theniceboy/vim-gitignore', { 'for': ['gitignore', 'vim-plug'] }
+  "call dein#add('https://git.sdut.me/fszymanski/fzf-gitignore', { 'do': ':UpdateRemotePlugins' }
+  "call dein#add('https://git.sdut.me/mhinz/vim-signify'
+  "call dein#add('https://git.sdut.me/airblade/vim-gitgutter'
+  call dein#add('https://git.sdut.me/tpope/vim-fugitive',{'lzay': 1})
+
+  " Autoformat
+  call dein#add('https://git.sdut.me/Chiel92/vim-autoformat',{'lzay': 1})
+
+  " Markdown
+  call dein#add('https://git.sdut.me/iamcco/markdown-preview.nvim', { 'build': 'cd app & yarn install' , 'on_ft' :['markdown', 'vim-plug'] })
+  call dein#add('https://git.sdut.me/dhruvasagar/vim-table-mode', { 'on_cmd': 'TableModeToggle', 'on_ft': ['text', 'markdown', 'vim-plug'] })
+  call dein#add('https://git.sdut.me/mzlogin/vim-markdown-toc', { 'on_ft': ['gitignore', 'markdown', 'vim-plug'] })
+  call dein#add('https://git.sdut.me/dkarter/bullets.vim',{'lzay': 1})
+
+  "vimspector
+  call dein#add('https://github.com.cnpmjs.org/puremourning/vimspector',{'lzay': 1})
+
+  " Tex
+  call dein#add('https://git.sdut.me/lervag/vimtex',{'lzay': 1})
+
+  "orgmode
+  call dein#add('https://git.sdut.me/jceb/vim-orgmode', {'on_ft': ['vim-plug', 'org']})
+
+
+  " Editor Enhancement
+  "call dein#add('https://git.sdut.me/Raimondi/delimitMate')
+  call dein#add('https://git.sdut.me/jiangmiao/auto-pairs',{'lzay': 1})
+  call dein#add('https://git.sdut.me/mg979/vim-visual-multi',{'lzay': 1})
+  call dein#add('https://git.sdut.me/tomtom/tcomment_vim',{'lzay': 1}) " in <space>cn to comment a line
+  call dein#add('https://git.sdut.me/jwarby/antovim.git',{'lzay': 1}) " gs切换
+  call dein#add('https://git.sdut.me/tpope/vim-surround',{'lzay': 1}) " type yskw' to wrap the word with '' or type cs'` to change 'word' to `word`
+  call dein#add('https://git.sdut.me/gcmt/wildfire.vim',{'lzay': 1}) " in Visual mode, type k' to select all text in '', or type k) k] k} kp
+  call dein#add('https://git.sdut.me/junegunn/vim-after-object',{'lzay': 1}) " da= to delete what's after =
+  call dein#add('https://git.sdut.me/godlygeek/tabular',{'lzay': 1}) " ga, or :Tabularize <regex> to align
+  call dein#add('https://git.sdut.me/tpope/vim-capslock',{'lzay': 1})	" Ctrl+L (insert) to toggle capslock
+  call dein#add('https://git.sdut.me/easymotion/vim-easymotion',{'lzay': 1})
+  "call dein#add('https://git.sdut.me/Konfekt/FastFold')
+  "call dein#add('https://git.sdut.me/junegunn/vim-peekaboo')
+  call dein#add('https://git.sdut.me/wellle/context.vim',{'lzay': 1})
+  "call dein#add('https://git.sdut.me/svermeulen/vim-subversive')
+  call dein#add('https://git.sdut.me/theniceboy/argtextobj.vim',{'lzay': 1})
+  call dein#add('https://git.sdut.me/rhysd/clever-f.vim',{'lzay': 1})
+  call dein#add('https://git.sdut.me/chrisbra/NrrwRgn',{'lzay': 1})
+  call dein#add('https://git.sdut.me/AndrewRadev/splitjoin.vim',{'lzay': 1})
+
+  " For general writing
+  call dein#add('https://git.sdut.me/junegunn/goyo.vim',{'lzay': 1})
+  call dein#add('https://git.sdut.me/reedes/vim-wordy',{'lzay': 1})
+  call dein#add('https://git.sdut.me/ron89/thesaurus_query.vim',{'lzay': 1})
+
+  " Bookmarks
+  "call dein#add('https://git.sdut.me/MattesGroeger/vim-bookmarks')
+
+  " Find & Replace
+  call dein#add('https://git.sdut.me/brooth/far.vim', { 'on_cmd': ['F', 'Far', 'Fardo'] })
+
+  " Documentation
+  "call dein#add('KabbAmine/zeavim.vim') " <LEADER>z to find doc
+
+  " Mini Vim-APP
+  "call dein#add('https://git.sdut.me/jceb/vim-orgmode')
+  "call dein#add('https://git.sdut.me/mhinz/vim-startify')
+  call dein#add('https://git.sdut.me/hardcoreplayers/dashboard-nvim.git',{'lzay': 1})
+  call dein#add('https://git.sdut.me/skywind3000/asynctasks.vim',{'lzay': 1})
+  call dein#add('https://git.sdut.me/skywind3000/asyncrun.vim',{'lzay': 1})
+
+  " Vim Applications
+  call dein#add('https://git.sdut.me/itchyny/calendar.vim',{'lzay': 1})
+
+  " Other useful utilities
+  call dein#add('https://github.com/skywind3000/vim-preview.git',{'lzay': 1})
+  call dein#add('https://git.sdut.me/lambdalisue/suda.vim',{'lzay': 1}) " do stuff like :sudowrite
+  "call dein#add('https://git.sdut.me/makerj/vim-pdf')
+  "call dein#add('https://git.sdut.me/xolox/vim-session')
+  "call dein#add('https://git.sdut.me/xolox/vim-misc') " vim-session dep
+
+  " Dependencies
+  " call dein#add('https://git.sdut.me/MarcWeber/vim-addon-mw-utils')
+  " call dein#add('https://git.sdut.me/kana/vim-textobj-user')
+  " call dein#add('https://git.sdut.me/roxma/nvim-yarp')
+
+
+  call dein#end()
+  call dein#save_state()
+endif
 
 call plug#begin('~/.config/nvim/plugged')
-
-" Testing my own plugin
-" Plug 'https://git.sdut.metheniceboy/vim-calc'
-Plug 'https://git.sdut.me/nvim-treesitter/nvim-treesitter'
-Plug 'https://git.sdut.me/sheerun/vim-polyglot'
-
-" Pretty Dress
-Plug 'https://git.sdut.me/sainnhe/gruvbox-material'
-Plug 'https://git.sdut.me/ryanoasis/vim-devicons'
-Plug 'https://git.sdut.me/rakr/vim-one'
-
-Plug 'https://git.sdut.me/yianwillis/vimcdoc'
-Plug 'https://git.sdut.me/bronson/vim-trailing-whitespace'
-Plug 'https://git.sdut.me/voldikss/vim-translator'
-
-" Other visual enhancement
-"Plug 'ryanoasis/vim-devicons'
-Plug 'https://git.sdut.me/luochen1990/rainbow'
-"Plug 'https://git.sdut.me/mg979/vim-xtabline'
-Plug 'https://git.sdut.me/wincent/terminus'
-Plug 'https://git.sdut.me/zefei/vim-wintabs'
-Plug 'https://git.sdut.me/zefei/vim-wintabs-powerline'
-
-" Status line
-Plug 'https://git.sdut.me/vim-airline/vim-airline'
-
-" File navigation
-"Plug 'https://git.sdut.me/scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-"Plug 'https://git.sdut.me/Xuyuanp/nerdtree-git-plugin'
-Plug 'https://git.sdut.me/junegunn/fzf.vim'
-Plug 'https://git.sdut.me/pechorin/any-jump.vim'
-Plug 'https://git.sdut.me/voldikss/vim-floaterm'
-Plug 'https://git.sdut.me/airblade/vim-rooter'
-"Plug 'https://git.sdut.me/Yggdroot/LeaderF', { 'do': './install.sh' }
-Plug 'https://git.sdut.me/liuchengxu/vim-clap', {'do': ':Clap install-binary!' }
-Plug 'https://git.sdut.me/vn-ki/coc-clap'
-
-" Taglist
-Plug 'https://git.sdut.me/liuchengxu/vista.vim'
-
-" Auto Complete
-Plug 'https://git.sdut.me/neoclide/coc.nvim', {'branch': 'release'}
-Plug 'https://git.sdut.me/Shougo/echodoc.vim.git'
-"Plug 'https://git.sdut.me/wellle/tmux-complete.vim'
-
-" Snippets
-"Plug 'https://git.sdut.me/SirVer/ultisnips'
-Plug 'https://git.sdut.me/honza/vim-snippets'
-
-" Undo Tree
-Plug 'https://git.sdut.me/mbbill/undotree'
-
-" Git
-Plug 'https://git.sdut.me/theniceboy/vim-gitignore', { 'for': ['gitignore', 'vim-plug'] }
-"Plug 'https://git.sdut.me/fszymanski/fzf-gitignore', { 'do': ':UpdateRemotePlugins' }
-"Plug 'https://git.sdut.me/mhinz/vim-signify'
-"Plug 'https://git.sdut.me/airblade/vim-gitgutter'
-Plug 'https://git.sdut.me/tpope/vim-fugitive'
-
-" Autoformat
-Plug 'https://git.sdut.me/Chiel92/vim-autoformat'
-
-" Markdown
-Plug 'https://git.sdut.me/iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install' , 'for' :['markdown', 'vim-plug'] }
-Plug 'https://git.sdut.me/dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle', 'for': ['text', 'markdown', 'vim-plug'] }
-Plug 'https://git.sdut.me/mzlogin/vim-markdown-toc', { 'for': ['gitignore', 'markdown', 'vim-plug'] }
-Plug 'https://git.sdut.me/dkarter/bullets.vim'
-
-"vimspector
-Plug 'https://github.com.cnpmjs.org/puremourning/vimspector'
-
-" Tex
-Plug 'https://git.sdut.me/lervag/vimtex'
-
-"orgmode
-Plug 'https://git.sdut.me/jceb/vim-orgmode', {'for': ['vim-plug', 'org']}
-
-
-" Editor Enhancement
-"Plug 'https://git.sdut.me/Raimondi/delimitMate'
-Plug 'https://git.sdut.me/jiangmiao/auto-pairs'
-Plug 'https://git.sdut.me/mg979/vim-visual-multi'
-Plug 'https://git.sdut.me/tomtom/tcomment_vim' " in <space>cn to comment a line
-Plug 'https://git.sdut.me/jwarby/antovim.git' " gs切换
-Plug 'https://git.sdut.me/tpope/vim-surround' " type yskw' to wrap the word with '' or type cs'` to change 'word' to `word`
-Plug 'https://git.sdut.me/gcmt/wildfire.vim' " in Visual mode, type k' to select all text in '', or type k) k] k} kp
-Plug 'https://git.sdut.me/junegunn/vim-after-object' " da= to delete what's after =
-Plug 'https://git.sdut.me/godlygeek/tabular' " ga, or :Tabularize <regex> to align
-Plug 'https://git.sdut.me/tpope/vim-capslock'	" Ctrl+L (insert) to toggle capslock
-Plug 'https://git.sdut.me/easymotion/vim-easymotion'
-"Plug 'https://git.sdut.me/Konfekt/FastFold'
-"Plug 'https://git.sdut.me/junegunn/vim-peekaboo'
-Plug 'https://git.sdut.me/wellle/context.vim'
-"Plug 'https://git.sdut.me/svermeulen/vim-subversive'
-Plug 'https://git.sdut.me/theniceboy/argtextobj.vim'
-Plug 'https://git.sdut.me/rhysd/clever-f.vim'
-Plug 'https://git.sdut.me/chrisbra/NrrwRgn'
-Plug 'https://git.sdut.me/AndrewRadev/splitjoin.vim'
-
-" For general writing
-Plug 'https://git.sdut.me/junegunn/goyo.vim'
-Plug 'https://git.sdut.me/reedes/vim-wordy'
-Plug 'https://git.sdut.me/ron89/thesaurus_query.vim'
-
-" Bookmarks
-Plug 'https://git.sdut.me/MattesGroeger/vim-bookmarks'
-
-" Find & Replace
-Plug 'https://git.sdut.me/brooth/far.vim', { 'on': ['F', 'Far', 'Fardo'] }
-
-" Documentation
-"Plug 'KabbAmine/zeavim.vim' " <LEADER>z to find doc
-
-" Mini Vim-APP
-"Plug 'https://git.sdut.me/jceb/vim-orgmode'
-Plug 'https://git.sdut.me/mhinz/vim-startify'
-Plug 'https://git.sdut.me/skywind3000/asynctasks.vim'
-Plug 'https://git.sdut.me/skywind3000/asyncrun.vim'
-
-" Vim Applications
-Plug 'https://git.sdut.me/itchyny/calendar.vim'
-
-" Other useful utilities
-Plug 'https://github.com/skywind3000/vim-preview.git'
-Plug 'https://git.sdut.me/lambdalisue/suda.vim' " do stuff like :sudowrite
-"Plug 'https://git.sdut.me/makerj/vim-pdf'
-"Plug 'https://git.sdut.me/xolox/vim-session'
-"Plug 'https://git.sdut.me/xolox/vim-misc' " vim-session dep
-
-" Dependencies
-" Plug 'https://git.sdut.me/MarcWeber/vim-addon-mw-utils'
-" Plug 'https://git.sdut.me/kana/vim-textobj-user'
-" Plug 'https://git.sdut.me/roxma/nvim-yarp'
-
-
+    "Plug 'https://git.sdut.me/nvim-treesitter/nvim-treesitter', {'branch': '4f2689c'}'
+	Plug 'https://git.sdut.me/nvim-treesitter/nvim-treesitter',{'tag': '4f2689c'}
 call plug#end()
+
+filetype plugin indent on
+syntax enable
+
 
 " experimental
 set lazyredraw
@@ -593,7 +624,7 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 "let g:oceanic_next_terminal_bold = 1
 "let g:oceanic_next_terminal_italic = 1
 "let g:one_allow_italics = 1
-   
+
 set t_Co=256
 set termguicolors
 set background=dark
@@ -603,12 +634,12 @@ let g:gruvbox_material_diagnostic_line_highlight = 1
 let g:gruvbox_material_palette = 'mix'
 let g:gruvbox_material_background = 'medium'
 let g:gruvbox_material_enable_italic = 1
-"let g:gruvbox_material_sign_column_background = 'none'
+let g:gruvbox_material_better_performance = 1
 "let g:gruvbox_material_transparent_background = 1
 "let g:gruvbox_material_disable_italic_comment = 1
 let g:gruvbox_material_enable_bold = 1
 colorscheme gruvbox-material
-  
+
 "let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 "let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 "
@@ -639,29 +670,39 @@ let g:airline_theme='gruvbox_material'
 " ===
 " ===air-line
 " ===
-" 解决菜单乱码
-"source $VIMRUNTIME/delmenu.vim
-"source $VIMRUNTIME/menu.vim
-" 解决consle输出乱码
-"set termencoding = cp936
-" 设置中文提示
-"language messages zh_CN.utf-8
-let g:airline_powerline_fonts = 1   " 使用powerline打过补丁的字体
-" 开启tabline
-"let g:airline#extensions#tabline#enabled = 1      "tabline中当前buffer两端的分隔字符
-"let g:airline#extensions#tabline#left_sep = ' '   "tabline中未激活buffer两端的分隔字符
-"let g:airline#extensions#tabline#left_alt_sep = '|'      "tabline中buffer显示编号
-"let g:airline#extensions#tabline#buffer_nr_show = 1
-" 映射切换buffer的键位
-let g:airline_section_b = '%{get(g:,"coc_git_status","")}%{get(b:,"coc_git_status","")}%{get(b:,"coc_git_blame","")}'
-let g:airline_section_a = airline#section#create_left(['mode','%{strftime("%m/%d-%H:%M")}', 'crypt', 'paste', 'keymap', 'spell', 'capslock', 'xkblayout', 'iminsert'])
-let g:airline_section_c = airline#section#create(['%<', 'file','readonly'])
-let airline#extensions#coc#error_symbol = 'E:'
-let airline#extensions#coc#warning_symbol = 'W:'
-let airline#extensions#coc#stl_format_err = '%E{[%e(#%fe)]}'
-let airline#extensions#coc#stl_format_warn = '%W{[%w(#%fw)]}'
+" " 解决菜单乱码
+" "source $VIMRUNTIME/delmenu.vim
+" "source $VIMRUNTIME/menu.vim
+" " 解决consle输出乱码
+" "set termencoding = cp936
+" " 设置中文提示
+" "language messages zh_CN.utf-8
+" let g:airline_powerline_fonts = 1   " 使用powerline打过补丁的字体
+" " 开启tabline
+" "let g:airline#extensions#tabline#enabled = 1      "tabline中当前buffer两端的分隔字符
+" "let g:airline#extensions#tabline#left_sep = ' '   "tabline中未激活buffer两端的分隔字符
+" "let g:airline#extensions#tabline#left_alt_sep = '|'      "tabline中buffer显示编号
+" "let g:airline#extensions#tabline#buffer_nr_show = 1
+" " 映射切换buffer的键位
+" let g:airline_section_b = '%{get(g:,"coc_git_status","")}%{get(b:,"coc_git_status","")}%{get(b:,"coc_git_blame","")}'
+" let g:airline_section_a = airline#section#create_left(['mode','%{strftime("%m/%d-%H:%M")}', 'crypt', 'paste', 'keymap', 'spell', 'capslock', 'xkblayout', 'iminsert'])
+" let g:airline_section_c = airline#section#create(['%<', 'file','readonly'])
+" let airline#extensions#coc#error_symbol = 'E:'
+" let airline#extensions#coc#warning_symbol = 'W:'
+" let airline#extensions#coc#stl_format_err = '%E{[%e(#%fe)]}'
+" let airline#extensions#coc#stl_format_warn = '%W{[%w(#%fw)]}'
 nnoremap b[ :bp<CR>
 nnoremap b] :bn<CR>
+
+let g:spaceline_seperate_style= 'slant-cons'
+let g:spaceline_colorscheme = 'space'
+
+
+
+
+
+
+
 
 " ==
 " == Git
@@ -703,10 +744,6 @@ nmap <leader>gb :CocList branches<CR>
 nnoremap <leader>jj :AnyJump<CR>
 " Visual mode: jump to selected text in visual mode
 xnoremap <leader>jj :AnyJumpVisual<CR>
-" Normal mode: open previous opened file (after jump)
-nnoremap <leader>jb :AnyJumpBack<CR>
-" Normal mode: open last closed search window again
-nnoremap <leader>jl :AnyJumpLastResults<CR>
 " Show line numbers in search rusults
 let g:any_jump_list_numbers = 1
 " Auto search references
@@ -776,10 +813,12 @@ let g:floaterm_keymap_prev    =   '<M-f><M-p>'
 let  g:floaterm_keymap_next    =  '<M-f><M-n>'
 let  g:floaterm_keymap_kill    =  '<M-f><M-k>'
 let  g:floaterm_keymap_toggle  =  '<M-t>'
-nmap <leader>fm :CocList --auto-preview floaterm<CR>
-nmap  <Leader>fa :FloatermNew ranger<CR>
+nmap <M-f><M-o> :FloatermNew<cr>
+nmap <leader>fl :CocList --auto-preview floaterm<CR>
+nmap  <Leader>fr :FloatermNew ranger<CR>
 nmap  <Leader>ff :FloatermNew fzf<CR>
 nmap  <Leader>fg :FloatermNew lazygit<CR>
+
 
 " ===
 " === vim-rooter
@@ -808,7 +847,7 @@ set statusline+=%{NearestMethodOrFunction()}
 "
 " If you want to show the nearest function in your statusline automatically,
 " you can add the following line to your vimrc
-autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
+"autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
 let g:vista_sidebar_width = 30
 let g:vista_cursor_delay = 100 "显示详细信息延迟"`scroll
 let g:vista_echo_cursor_strategy = 'echo'
@@ -846,13 +885,14 @@ au BufWrite *.js :Autoformat
 "set rtp+=/usr/local/opt/fzf
 "set rtp+=/home/linuxbrew/.linuxbrew/opt/fzf
 "set rtp+=/home/david/.linuxbrew/opt/fzf
-noremap <leader>sf :Clap files<CR>
-noremap <leader>sr :Clap grep2<CR>
-noremap <leader>sh :Clap history<CR>
-noremap <leader>st :Clap tags<CR>
-noremap <leader>sl :Clap lines<CR>
-noremap <leader>sw :Clap buffers<CR>
-noremap <leader>sb :Clap bcommits<CR>
+noremap <silent> <leader>sf :Clap files ++finder=rg --ignore --hidden --files<CR>
+noremap <silent> <leader>sr :Clap grep2<CR>
+noremap <silent> <leader>sh :Clap history<CR>
+noremap <silent> <leader>st :Clap tags<CR>
+nnoremap <silent> <Leader>tc :<C-u>Clap colors<CR>
+noremap <silent> <leader>sl :Clap lines<CR>
+noremap <silent> <leader>sw :Clap buffers<CR>
+noremap <silent> <leader>sb :Clap bcommits<CR>
 "noremap <leader>f; :History:<CR>
 let g:fzf_preview_window = 'right:50%'
 let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
@@ -905,7 +945,7 @@ let g:clap_popup_border = 'rounded'
 "let g:clap_insert_mode_only = v:true
 let g:clap_search_box_border_style = 'curve'
 let g:clap_enable_icon = 1
-nmap <M-j> :Clap grep2 ++query=<cword><cr>
+nmap J :Clap grep2 ++query=<cword><cr>
 
 
 " ===
@@ -1224,18 +1264,25 @@ let g:tq_cilin_txt_file="~/.config/nvim/thesaurus/cilin.txt"
 "==
 "==vim-bookmarks
 "==
-let g:bookmark_no_default_key_mappings = 1
-nmap <space>mm <Plug>BookmarkToggle
-nmap <space>mi <Plug>BookmarkAnnotate
-nmap <space>ms <Plug>BookmarkShowAll
-nmap <space>mn <Plug>BookmarkNext
-nmap <space>mb <Plug>BookmarkPrev
-nmap <space>mcc <Plug>BookmarkClear
-nmap <space>mca <Plug>BookmarkClearAll
-" these will also work with a [count] prefix
-nmap <space>mk <Plug>BookmarkMoveUp
-nmap <space>mj <Plug>BookmarkMoveDown
-nmap <space>mg <Plug>BookmarkMoveToLine
+" let g:bookmark_no_default_key_mappings = 1
+" nmap <space>mm <Plug>BookmarkToggle
+" nmap <space>mi <Plug>BookmarkAnnotate
+" nmap <space>ms <Plug>BookmarkShowAll
+" nmap <space>mn <Plug>BookmarkNext
+" nmap <space>mb <Plug>BookmarkPrev
+" nmap <space>mcc <Plug>BookmarkClear
+" nmap <space>mca <Plug>BookmarkClearAll
+" " these will also work with a [count] prefix
+" nmap <space>mk <Plug>BookmarkMoveUp
+" nmap <space>mj <Plug>BookmarkMoveDown
+" nmap <space>mg <Plug>BookmarkMoveToLine
+nmap <silent> <space>mm :CocCommand bookmark.toggle<cr>
+nmap <silent> <space>mi :CocCommand bookmark.annotate<cr>
+nmap <silent> <space>mb :CocCommand bookmark.prev<cr>
+nmap <silent> <space>mn :CocCommand bookmark.next<cr>
+nmap <silent> <space>mcc :CocCommand bookmark.clearForCurrentFile<cr>
+nmap <silent> <space>mca :CocCommand bookmark.clearForAllFiles<cr>
+nmap <silent> <space>ms :CocList -A bookmark<cr>
 
 " ===
 " === Far.vim
@@ -1283,19 +1330,52 @@ cnoreabbrev sw w suda://%
 "set sessionoptions-=options
 "noremap sl :OpenSession<CR>
 "noremap sS :SaveSession<CR>
-"noremap ss :SaveSession 
+"noremap ss :SaveSession
 "noremap sc :SaveSession<CR>:CloseSession<CR>:q<CR>
 "noremap so :OpenSession default<CR>
 "noremap sD :DeleteSession<CR>
 ""noremap sA :AppendTabSession<CR>
 
-" Open Startify
+
+"==
+"== Open Startify
+"==
 "noremap <LEADER>st :Startify<CR>
-let g:startify_files_number = 10
-let g:startify_fortune_use_unicode = 1
-let g:startify_padding_left = 3
-let g:startify_custom_header =
-        \ startify#pad(split(system('figlet -f big "     zyp2005" && fortune -s'), '\n'))
+" let g:startify_files_number = 10
+" let g:startify_fortune_use_unicode = 1
+" let g:startify_padding_left = 3
+" let g:startify_custom_header =
+"         \ startify#pad(split(system('figlet -f big "     zyp2005" && fortune -s'), '\n'))
+
+"==
+"== dashboard
+"==
+let g:dashboard_default_executive ='clap'
+let g:dashboard_custom_header = [
+    \ '',
+	\ '                     ___   ___   ___  _____ ',
+	\ '                    |__ \ / _ \ / _ \| ____|',
+	\ '      _____   _ _ __   ) | | | | | | | |__  ',
+	\ '     |_  / | | | |_ \ / /| | | | | | |___ \ ',
+	\ '      / /| |_| | |_) / /_| |_| | |_| |___) |',
+	\ '     /___|\__, | .__/____|\___/ \___/|____/ ',
+	\ '           __/ | |                          ',
+	\ '          |___/|_|                          ',
+	\ ]
+nmap <Leader>nn :<C-u>DashboardNewFile<CR>
+let g:dashboard_custom_shortcut={
+     \ 'last_session' : 'no map',
+     \ 'find_history' : 'SPC s h',
+     \ 'find_file' : 'SPC s f',
+     \ 'new_file' : 'SPC c n',
+     \ 'change_colorscheme' : 'SPC s c',
+     \ 'find_word' : 'SPC s r',
+     \ 'book_marks' : 'SPC m s',
+     \ }
+
+
+
+
 
 "==
 "== vim-preview
@@ -1565,8 +1645,8 @@ nmap <silent> <LEADER>= <Plug>(coc-diagnostic-next)
 
 nmap <space>rf <Plug>(coc-refactor)
 
-nnoremap <expr><M-j> coc#util#has_float() ? coc#util#float_scroll(1) : "\<C-f>"
-nnoremap <expr><M-k> coc#util#has_float() ? coc#util#float_scroll(0) : "\<C-b>"
+nnoremap <expr><M-b> coc#util#has_float() ? coc#util#float_scroll(1) : "\<C-f>"
+nnoremap <expr><M-n> coc#util#has_float() ? coc#util#float_scroll(0) : "\<C-b>"
 
 
 
