@@ -448,158 +448,158 @@ autocmd InsertEnter * call Fcitx2zh()
 call plug#begin('~/.config/nvim/plugged')
 
 
-  " Testing my own plugin
-  " Plug 'https://hub.fastgit.orgtheniceboy/vim-calc')
-  "Plug 'https://hub.fastgit.org/nvim-treesitter/nvim-treesitter', {'rev': '4f2689c','path':'.config/nvim/plugged','name':'nvim-treesitter'})
-  "Plug 'https://hub.fastgit.org/sheerun/vim-polyglot')
-  " Plug 'https://hub.fastgit.org/octol/vim-cpp-enhanced-highlight.git'
-  Plug 'https://hub.fastgit.org/jackguo380/vim-lsp-cxx-highlight.git'
-  Plug 'https://hub.fastgit.org/jaxbot/semantic-highlight.vim.git'
-  Plug 'https://hub.fastgit.org/justinmk/vim-syntax-extra.git'
-  
-
-  " Pretty Dress
-  Plug 'https://hub.fastgit.org/sainnhe/gruvbox-material'
-  Plug 'https://hub.fastgit.org/ryanoasis/vim-devicons'
-  Plug 'https://hub.fastgit.org/rakr/vim-one'
-  "Plug 'hardcoreplayers/oceanic-material')
-
-  Plug 'https://hub.fastgit.org/yianwillis/vimcdoc'
-  "Plug 'https://hub.fastgit.org/bronson/vim-trailing-whitespace',{'lzay': 1, 'on_cmd':'FixWhitespce'})
-  Plug 'https://hub.fastgit.org/voldikss/vim-translator'
-
-  " Other visual enhancement
-  "Plug 'ryanoasis/vim-devicons')
-  Plug 'https://hub.fastgit.org/luochen1990/rainbow'
-  "Plug 'https://hub.fastgit.org/mg979/vim-xtabline')
-  "Plug 'https://hub.fastgit.org/wincent/terminus')
-  Plug 'https://hub.fastgit.org/zefei/vim-wintabs'
-  Plug 'https://hub.fastgit.org/zefei/vim-wintabs-powerline'
-
-  " Status line
-  " Plug 'https://hub.fastgit.org/vim-airline/vim-airline')
-  Plug 'https://hub.fastgit.org/hardcoreplayers/spaceline.vim.git'
-
-  " File navigation
-  "Plug 'https://hub.fastgit.org/scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-  "Plug 'https://hub.fastgit.org/Xuyuanp/nerdtree-git-plugin')
-  Plug 'https://hub.fastgit.org/junegunn/fzf', { 'build': { -> fzf#install() } }
-  Plug 'https://hub.fastgit.org/junegunn/fzf.vim'
-  Plug 'https://hub.fastgit.org/pechorin/any-jump.vim'
-  Plug 'https://hub.fastgit.org/voldikss/vim-floaterm'
-  "Plug 'https://hub.fastgit.org/airblade/vim-rooter'
-  "Plug 'https://hub.fastgit.org/Yggdroot/LeaderF', { 'do': './install.sh' }
-  "Plug 'https://hub.fastgit.org/liuchengxu/vim-clap', {'build': ':Clap install-binary!' })
-  Plug 'https://hub.fastgit.org/liuchengxu/vim-clap'
-  Plug 'https://hub.fastgit.org/vn-ki/coc-clap'
-
-  " Taglist
-  Plug 'https://hub.fastgit.org/liuchengxu/vista.vim'
-
-  " Auto Complete
-  Plug 'https://hub.fastgit.org/neoclide/coc.nvim', {'branch': 'release'}
-  Plug 'https://hub.fastgit.org/Shougo/echodoc.vim.git'
-  "Plug 'https://hub.fastgit.org/wellle/tmux-complete.vim')
-
-  " Snippets
-  "Plug 'https://hub.fastgit.org/SirVer/ultisnips')
-  Plug 'https://hub.fastgit.org/honza/vim-snippets'
-
-  " Undo Tree
-  Plug 'https://hub.fastgit.org/mbbill/undotree'
-
-  " Git
-  "Plug 'https://hub.fastgit.org/theniceboy/vim-gitignore', { 'for': ['gitignore', 'vim-plug'] }
-  "Plug 'https://hub.fastgit.org/fszymanski/fzf-gitignore', { 'do': ':UpdateRemotePlugins' }
-  "Plug 'https://hub.fastgit.org/mhinz/vim-signify'
-  "Plug 'https://hub.fastgit.org/airblade/vim-gitgutter'
-  Plug 'https://hub.fastgit.org/tpope/vim-fugitive'
-
-  " Autoformat
-  Plug 'https://hub.fastgit.org/Chiel92/vim-autoformat'
-
-  " Markdown
-  Plug 'https://hub.fastgit.org/iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install' , 'for' :['markdown', 'vim-plug'] }
-  Plug 'https://hub.fastgit.org/dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle', 'for': ['text', 'markdown', 'vim-plug'] }
-  Plug 'https://hub.fastgit.org/mzlogin/vim-markdown-toc', { 'for': ['gitignore', 'markdown', 'vim-plug'] }
-  Plug 'https://hub.fastgit.org/dkarter/bullets.vim'
-
-  "vimspector
-  Plug 'https://github.com.cnpmjs.org/puremourning/vimspector'
-
-  " Tex
-  Plug 'https://hub.fastgit.org/lervag/vimtex'
-
-  "orgmode
-  Plug 'https://hub.fastgit.org/jceb/vim-orgmode', {'for': ['vim-plug', 'org']}
+" Testing my own plugin
+" Plug 'https://hub.fastgit.orgtheniceboy/vim-calc')
+"Plug 'https://hub.fastgit.org/nvim-treesitter/nvim-treesitter', {'rev': '4f2689c','path':'.config/nvim/plugged','name':'nvim-treesitter'})
+"Plug 'https://hub.fastgit.org/sheerun/vim-polyglot')
+" Plug 'https://hub.fastgit.org/octol/vim-cpp-enhanced-highlight.git'
+Plug 'https://hub.fastgit.org/jackguo380/vim-lsp-cxx-highlight.git'
+Plug 'https://hub.fastgit.org/jaxbot/semantic-highlight.vim.git'
+Plug 'https://hub.fastgit.org/justinmk/vim-syntax-extra.git'
 
 
-  " Editor Enhancement
+" Pretty Dress
+Plug 'https://hub.fastgit.org/sainnhe/gruvbox-material'
+Plug 'https://hub.fastgit.org/ryanoasis/vim-devicons'
+Plug 'https://hub.fastgit.org/rakr/vim-one'
+"Plug 'hardcoreplayers/oceanic-material')
+
+Plug 'https://hub.fastgit.org/yianwillis/vimcdoc'
+"Plug 'https://hub.fastgit.org/bronson/vim-trailing-whitespace',{'lzay': 1, 'on_cmd':'FixWhitespce'})
+Plug 'https://hub.fastgit.org/voldikss/vim-translator'
+
+" Other visual enhancement
+"Plug 'ryanoasis/vim-devicons')
+Plug 'https://hub.fastgit.org/luochen1990/rainbow'
+"Plug 'https://hub.fastgit.org/mg979/vim-xtabline')
+"Plug 'https://hub.fastgit.org/wincent/terminus')
+Plug 'https://hub.fastgit.org/zefei/vim-wintabs'
+Plug 'https://hub.fastgit.org/zefei/vim-wintabs-powerline'
+
+" Status line
+Plug 'https://hub.fastgit.org/vim-airline/vim-airline'
+" Plug 'https://hub.fastgit.org/hardcoreplayers/spaceline.vim.git'
+
+" File navigation
+"Plug 'https://hub.fastgit.org/scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+"Plug 'https://hub.fastgit.org/Xuyuanp/nerdtree-git-plugin')
+Plug 'https://hub.fastgit.org/junegunn/fzf', { 'build': { -> fzf#install() } }
+Plug 'https://hub.fastgit.org/junegunn/fzf.vim'
+Plug 'https://hub.fastgit.org/pechorin/any-jump.vim'
+Plug 'https://hub.fastgit.org/voldikss/vim-floaterm'
+"Plug 'https://hub.fastgit.org/airblade/vim-rooter'
+"Plug 'https://hub.fastgit.org/Yggdroot/LeaderF', { 'do': './install.sh' }
+"Plug 'https://hub.fastgit.org/liuchengxu/vim-clap', {'build': ':Clap install-binary!' })
+Plug 'https://hub.fastgit.org/liuchengxu/vim-clap'
+" Plug 'https://hub.fastgit.org/vn-ki/coc-clap'
+
+" Taglist
+Plug 'https://hub.fastgit.org/liuchengxu/vista.vim'
+
+" Auto Complete
+Plug 'https://hub.fastgit.org/neoclide/coc.nvim', {'branch': 'release'}
+Plug 'https://hub.fastgit.org/Shougo/echodoc.vim.git'
+"Plug 'https://hub.fastgit.org/wellle/tmux-complete.vim')
+
+" Snippets
+"Plug 'https://hub.fastgit.org/SirVer/ultisnips')
+Plug 'https://hub.fastgit.org/honza/vim-snippets'
+
+" Undo Tree
+Plug 'https://hub.fastgit.org/mbbill/undotree'
+
+" Git
+"Plug 'https://hub.fastgit.org/theniceboy/vim-gitignore', { 'for': ['gitignore', 'vim-plug'] }
+"Plug 'https://hub.fastgit.org/fszymanski/fzf-gitignore', { 'do': ':UpdateRemotePlugins' }
+"Plug 'https://hub.fastgit.org/mhinz/vim-signify'
+"Plug 'https://hub.fastgit.org/airblade/vim-gitgutter'
+Plug 'https://hub.fastgit.org/tpope/vim-fugitive'
+
+" Autoformat
+Plug 'https://hub.fastgit.org/Chiel92/vim-autoformat'
+
+" Markdown
+Plug 'https://hub.fastgit.org/iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install' , 'for' :['markdown', 'vim-plug'] }
+Plug 'https://hub.fastgit.org/dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle', 'for': ['text', 'markdown', 'vim-plug'] }
+Plug 'https://hub.fastgit.org/mzlogin/vim-markdown-toc', { 'for': ['gitignore', 'markdown', 'vim-plug'] }
+Plug 'https://hub.fastgit.org/dkarter/bullets.vim'
+
+"vimspector
+Plug 'https://hub.fastgit.org/puremourning/vimspector'
+
+" Tex
+Plug 'https://hub.fastgit.org/lervag/vimtex'
+
+"orgmode
+Plug 'https://hub.fastgit.org/jceb/vim-orgmode', {'for': ['vim-plug', 'org']}
 
 
-  " Editor Enhancement
-  "Plug 'https://hub.fastgit.org/Raimondi/delimitMate')
-  Plug 'https://hub.fastgit.org/jiangmiao/auto-pairs'
-  Plug 'https://hub.fastgit.org/mg979/vim-visual-multi'
-  Plug 'https://hub.fastgit.org/tomtom/tcomment_vim' " in <space>cn to comment a line
-  Plug 'https://hub.fastgit.org/jwarby/antovim.git' " gs切换
-  Plug 'https://hub.fastgit.org/tpope/vim-surround' " type yskw' to wrap the word with '' or type cs'` to change 'word' to `word`
-  Plug 'https://hub.fastgit.org/gcmt/wildfire.vim' " in Visual mode, type k' to select all text in '', or type k) k] k} kp
-  Plug 'https://hub.fastgit.org/junegunn/vim-after-object' " da= to delete what's after =
-  Plug 'https://hub.fastgit.org/godlygeek/tabular' " ga, or :Tabularize <regex> to align
-  Plug 'https://hub.fastgit.org/tpope/vim-capslock'	" Ctrl+L (insert) to toggle capslock
-  Plug 'https://hub.fastgit.org/easymotion/vim-easymotion'
-  "Plug 'https://hub.fastgit.org/Konfekt/FastFold')
-  "Plug 'https://hub.fastgit.org/junegunn/vim-peekaboo')
-  " Plug 'https://hub.fastgit.org/wellle/context.vim'
-  "Plug 'https://hub.fastgit.org/svermeulen/vim-subversive')
-  Plug 'https://hub.fastgit.org/theniceboy/argtextobj.vim'
-  Plug 'https://hub.fastgit.org/rhysd/clever-f.vim'
-  Plug 'https://hub.fastgit.org/chrisbra/NrrwRgn'
-  Plug 'https://hub.fastgit.org/AndrewRadev/splitjoin.vim'
+" Editor Enhancement
 
-  " For general writing
-  Plug 'https://hub.fastgit.org/junegunn/goyo.vim'
-  Plug 'https://hub.fastgit.org/reedes/vim-wordy'
-  Plug 'https://hub.fastgit.org/ron89/thesaurus_query.vim'
 
-  " Bookmarks
-  "Plug 'https://hub.fastgit.org/MattesGroeger/vim-bookmarks')
+" Editor Enhancement
+"Plug 'https://hub.fastgit.org/Raimondi/delimitMate')
+Plug 'https://hub.fastgit.org/jiangmiao/auto-pairs'
+Plug 'https://hub.fastgit.org/mg979/vim-visual-multi'
+Plug 'https://hub.fastgit.org/tomtom/tcomment_vim' " in <space>cn to comment a line
+Plug 'https://hub.fastgit.org/jwarby/antovim.git' " gs切换
+Plug 'https://hub.fastgit.org/tpope/vim-surround' " type yskw' to wrap the word with '' or type cs'` to change 'word' to `word`
+Plug 'https://hub.fastgit.org/gcmt/wildfire.vim' " in Visual mode, type k' to select all text in '', or type k) k] k} kp
+Plug 'https://hub.fastgit.org/junegunn/vim-after-object' " da= to delete what's after =
+Plug 'https://hub.fastgit.org/godlygeek/tabular' " ga, or :Tabularize <regex> to align
+Plug 'https://hub.fastgit.org/tpope/vim-capslock'	" Ctrl+L (insert) to toggle capslock
+Plug 'https://hub.fastgit.org/easymotion/vim-easymotion'
+"Plug 'https://hub.fastgit.org/Konfekt/FastFold')
+"Plug 'https://hub.fastgit.org/junegunn/vim-peekaboo')
+" Plug 'https://hub.fastgit.org/wellle/context.vim'
+"Plug 'https://hub.fastgit.org/svermeulen/vim-subversive')
+Plug 'https://hub.fastgit.org/theniceboy/argtextobj.vim'
+Plug 'https://hub.fastgit.org/rhysd/clever-f.vim'
+Plug 'https://hub.fastgit.org/chrisbra/NrrwRgn'
+Plug 'https://hub.fastgit.org/AndrewRadev/splitjoin.vim'
 
-  " Find & Replace
-  Plug 'https://hub.fastgit.org/brooth/far.vim', { 'on': ['F', 'Far', 'Fardo'] }
+" For general writing
+Plug 'https://hub.fastgit.org/junegunn/goyo.vim'
+Plug 'https://hub.fastgit.org/reedes/vim-wordy'
+Plug 'https://hub.fastgit.org/ron89/thesaurus_query.vim'
 
-  " Documentation
-  "Plug 'KabbAmine/zeavim.vim') " <LEADER>z to find doc
+" Bookmarks
+"Plug 'https://hub.fastgit.org/MattesGroeger/vim-bookmarks')
 
-  " Mini Vim-APP
-  "Plug 'https://hub.fastgit.org/jceb/vim-orgmode')
-  "Plug 'https://hub.fastgit.org/mhinz/vim-startify')
-  Plug 'https://hub.fastgit.org/hardcoreplayers/dashboard-nvim.git'
-  Plug 'https://hub.fastgit.org/skywind3000/asynctasks.vim'
-  Plug 'https://hub.fastgit.org/skywind3000/asyncrun.vim'
+" Find & Replace
+Plug 'https://hub.fastgit.org/brooth/far.vim', { 'on': ['F', 'Far', 'Fardo'] }
 
-  " Vim Applications
-  Plug 'https://hub.fastgit.org/itchyny/calendar.vim'
+" Documentation
+"Plug 'KabbAmine/zeavim.vim') " <LEADER>z to find doc
 
-  " Other useful utilities
-  Plug 'https://github.com/skywind3000/vim-preview.git'
-  Plug 'https://hub.fastgit.org/lambdalisue/suda.vim' " do stuff like :sudowrite
-  "Plug 'https://hub.fastgit.org/makerj/vim-pdf')
-  "Plug 'https://hub.fastgit.org/xolox/vim-session')
-  "Plug 'https://hub.fastgit.org/xolox/vim-misc') " vim-session dep
+" Mini Vim-APP
+"Plug 'https://hub.fastgit.org/jceb/vim-orgmode')
+"Plug 'https://hub.fastgit.org/mhinz/vim-startify')
+Plug 'https://hub.fastgit.org/hardcoreplayers/dashboard-nvim.git'
+Plug 'https://hub.fastgit.org/skywind3000/asynctasks.vim'
+Plug 'https://hub.fastgit.org/skywind3000/asyncrun.vim'
 
-  " Dependencies
-  " Plug 'https://hub.fastgit.org/MarcWeber/vim-addon-mw-utils')
-  " Plug 'https://hub.fastgit.org/kana/vim-textobj-user')
-  " Plug 'https://hub.fastgit.org/roxma/nvim-yarp')
+" Vim Applications
+Plug 'https://hub.fastgit.org/itchyny/calendar.vim'
+
+" Other useful utilities
+Plug 'https://hub.fastgit.org/skywind3000/vim-preview.git'
+Plug 'https://hub.fastgit.org/lambdalisue/suda.vim' " do stuff like :sudowrite
+"Plug 'https://hub.fastgit.org/makerj/vim-pdf')
+"Plug 'https://hub.fastgit.org/xolox/vim-session')
+"Plug 'https://hub.fastgit.org/xolox/vim-misc') " vim-session dep
+
+" Dependencies
+" Plug 'https://hub.fastgit.org/MarcWeber/vim-addon-mw-utils')
+" Plug 'https://hub.fastgit.org/kana/vim-textobj-user')
+" Plug 'https://hub.fastgit.org/roxma/nvim-yarp')
 
 
 call plug#end()
 
 "call plug#begin('~/.config/nvim/plugged')
-    "Plug 'https://hub.fastgit.org/nvim-treesitter/nvim-treesitter', {'branch': '4f2689c'}'
-	"Plug 'https://hub.fastgit.org/nvim-treesitter/nvim-treesitter',{'tag': '4f2689c'}
+"Plug 'https://hub.fastgit.org/nvim-treesitter/nvim-treesitter', {'branch': '4f2689c'}'
+"Plug 'https://hub.fastgit.org/nvim-treesitter/nvim-treesitter',{'tag': '4f2689c'}
 "call plug#end()
 
 filetype plugin indent on
@@ -683,17 +683,17 @@ let g:airline_powerline_fonts = 1   " 使用powerline打过补丁的字体
 " "let g:airline#extensions#tabline#left_alt_sep = '|'      "tabline中buffer显示编号
 " "let g:airline#extensions#tabline#buffer_nr_show = 1
 " " 映射切换buffer的键位
-" let g:airline_section_b = '%{get(g:,"coc_git_status","")}%{get(b:,"coc_git_status","")}%{get(b:,"coc_git_blame","")}'
-" let g:airline_section_a = airline#section#create_left(['mode','%{strftime("%m/%d-%H:%M")}', 'crypt', 'paste', 'keymap', 'spell', 'capslock', 'xkblayout', 'iminsert'])
-" let g:airline_section_c = airline#section#create(['%<', 'file','readonly'])
-" let airline#extensions#coc#error_symbol = 'E:'
-" let airline#extensions#coc#warning_symbol = 'W:'
-" let airline#extensions#coc#stl_format_err = '%E{[%e(#%fe)]}'
-" let airline#extensions#coc#stl_format_warn = '%W{[%w(#%fw)]}'
+let g:airline_section_b = '%{get(g:,"coc_git_status","")}%{get(b:,"coc_git_status","")}%{get(b:,"coc_git_blame","")}'
+let g:airline_section_a = airline#section#create_left(['mode','%{strftime("%m/%d-%H:%M")}', 'crypt', 'paste', 'keymap', 'spell', 'capslock', 'xkblayout', 'iminsert'])
+let g:airline_section_c = airline#section#create(['%<', 'file','readonly'])
+let airline#extensions#coc#error_symbol = 'E:'
+let airline#extensions#coc#warning_symbol = 'W:'
+let airline#extensions#coc#stl_format_err = '%E{[%e(#%fe)]}'
+let airline#extensions#coc#stl_format_warn = '%W{[%w(#%fw)]}'
 nnoremap b[ :bp<CR>
 nnoremap b] :bn<CR>
 
-let g:spaceline_seperate_style= 'slant-cons'
+let g:spaceline_seperate_style= 'none'
 let g:spaceline_colorscheme = 'space'
 
 
@@ -795,6 +795,7 @@ let g:any_jump_references_only_for_current_filetype = 0
 " Disable search engine ignore vcs untracked files
 " (default: false, search engine will ignore vcs untracked files)
 let g:any_jump_disable_vcs_ignore = 0
+let g:any_jump_disable_default_keybindings = 1
 
 " ===
 " === vim-floaterm
@@ -1135,8 +1136,8 @@ let g:rainbow_active = 1
 "==
 nmap <space>q :Antovim<cr>
 autocmd FileType javascript let g:custom_antovim_definitions = [
-  \   ['this', 'that']
-  \ ]
+			\   ['this', 'that']
+			\ ]
 
 "==
 "== wildfire
@@ -1240,11 +1241,11 @@ map <LEADER>gy :Goyo<CR>
 
 "nnoremap  <Leader>cs :ThesaurusQueryReplaceCurrentWord<CR>
 let g:tq_enabled_backends=["cilin_txt",
-            \"openthesaurus_de",
-            \"yarn_synsets",
-            \"openoffice_en",
-            \"mthesaur_txt",
-            \"datamuse_com",]
+			\"openthesaurus_de",
+			\"yarn_synsets",
+			\"openoffice_en",
+			\"mthesaur_txt",
+			\"datamuse_com",]
 let g:tq_language=['en', 'cn']
 let g:tq_cilin_txt_file="~/.config/nvim/thesaurus/cilin.txt"
 
@@ -1277,8 +1278,8 @@ nmap <silent> <space>ms :CocList -A bookmark<cr>
 noremap <LEADER>FF :F  **/*<left><left><left><left><left>
 noremap <space>FD :Far  **/*<left><left><left><left><left>
 let g:far#mapping = {
-		\ "replace_undo" : ["l"],
-		\ }
+			\ "replace_undo" : ["l"],
+			\ }
 let g:far#auto_preview = 1
 
 " ===
@@ -1339,26 +1340,26 @@ cnoreabbrev sw w suda://%
 "==
 let g:dashboard_default_executive ='clap'
 let g:dashboard_custom_header = [
-    \ '',
-	\ '                     ___   ___   ___  _____ ',
-	\ '                    |__ \ / _ \ / _ \| ____|',
-	\ '      _____   _ _ __   ) | | | | | | | |__  ',
-	\ '     |_  / | | | |_ \ / /| | | | | | |___ \ ',
-	\ '      / /| |_| | |_) / /_| |_| | |_| |___) |',
-	\ '     /___|\__, | .__/____|\___/ \___/|____/ ',
-	\ '           __/ | |                          ',
-	\ '          |___/|_|                          ',
-	\ ]
+			\ '',
+			\ '                     ___   ___   ___  _____ ',
+			\ '                    |__ \ / _ \ / _ \| ____|',
+			\ '      _____   _ _ __   ) | | | | | | | |__  ',
+			\ '     |_  / | | | |_ \ / /| | | | | | |___ \ ',
+			\ '      / /| |_| | |_) / /_| |_| | |_| |___) |',
+			\ '     /___|\__, | .__/____|\___/ \___/|____/ ',
+			\ '           __/ | |                          ',
+			\ '          |___/|_|                          ',
+			\ ]
 nmap <Leader>nn :<C-u>DashboardNewFile<CR>
 let g:dashboard_custom_shortcut={
-     \ 'last_session' : 'no map',
-     \ 'find_history' : 'SPC s h',
-     \ 'find_file' : 'SPC s f',
-     \ 'new_file' : 'SPC c n',
-     \ 'change_colorscheme' : 'SPC s c',
-     \ 'find_word' : 'SPC s r',
-     \ 'book_marks' : 'SPC m s',
-     \ }
+			\ 'last_session' : 'no map',
+			\ 'find_history' : 'SPC s h',
+			\ 'find_file' : 'SPC s f',
+			\ 'new_file' : 'SPC c n',
+			\ 'change_colorscheme' : 'SPC s c',
+			\ 'find_word' : 'SPC s r',
+			\ 'book_marks' : 'SPC m s',
+			\ }
 
 
 
@@ -1406,15 +1407,15 @@ augroup END
 set hidden
 
 " Some servers have issues with backup files, see #649.
-set nobackup
-set nowritebackup
+" set nobackup
+" set nowritebackup
 
 " Give more space for displaying messages.
 set cmdheight=1
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
-set updatetime=500
+set updatetime=50
 
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
@@ -1441,17 +1442,17 @@ function! s:check_back_space() abort
 	let col = col('.') - 1
 	return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
-	" inoremap <silent><expr> <TAB>
-	"   \ pumvisible() ? coc#_select_confirm() :
-	"   \ coc#expandableOrJumpable() ?
-	"   \ "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-	"   \ <SID>check_back_space() ? "\<TAB>" :
-	"   \ coc#refresh()
-    "
-	" function! s:check_back_space() abort
-	"   let col = col('.') - 1
-	"   return !col || getline('.')[col - 1]  =~# '\s'
-	" endfunction
+" inoremap <silent><expr> <TAB>
+"   \ pumvisible() ? coc#_select_confirm() :
+"   \ coc#expandableOrJumpable() ?
+"   \ "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+"   \ <SID>check_back_space() ? "\<TAB>" :
+"   \ coc#refresh()
+"
+" function! s:check_back_space() abort
+"   let col = col('.') - 1
+"   return !col || getline('.')[col - 1]  =~# '\s'
+" endfunction
 
 " let g:coc_snippet_next = '<tab>'
 
@@ -1460,7 +1461,7 @@ endfunction
 
 
 " Use <c-space> to trigger completion.
-inoremap <silent><expr> <M-space> coc#refresh()
+inoremap <silent><expr> <c-x> coc#refresh()
 
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
 " position. Coc only does snippet and additional edit on confirm.
@@ -1471,7 +1472,7 @@ else
 	inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 endif
 " inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-" 			\: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+"			\: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 
 "" Use `[g` and `]g` to navigate diagnostics
@@ -1507,11 +1508,11 @@ nmap <leader>fo  <Plug>(coc-format-selected)
 "
 augroup mygroup
 	autocmd!
-		" Setup formatexpr specified filetype(s).
-		autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-		" Update signature help on jump placeholder.
-		autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-	augroup end
+	" Setup formatexpr specified filetype(s).
+	autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+	" Update signature help on jump placeholder.
+	autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
 "
 "" Applying codeAction to the selected region.
 "" Example: `<leader>aap` for current paragraph
@@ -1571,28 +1572,28 @@ command! -nargs=0 Format :call CocAction('format')
 "" Resume latest coc list.
 "nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 let g:coc_global_extensions = [
-  \ 'coc-actions',
-  \ 'coc-diagnostic',
-  \ 'coc-explorer',
-  \ 'coc-gitignore',
-  \ 'coc-lists',
-  \ 'coc-prettier',
-  \ 'coc-snippets',
-  \ 'coc-syntax',
-  \ 'coc-tasks',
-  \ 'coc-todolist',
-  \ 'coc-translator',
-  \ 'coc-tsserver',
-  \ 'coc-vimlsp',
-  \ 'coc-highlight',
-  \ 'coc-floaterm',
-  \ 'coc-git',
-  \ 'coc-yank']
+			\ 'coc-actions',
+			\ 'coc-diagnostic',
+			\ 'coc-explorer',
+			\ 'coc-gitignore',
+			\ 'coc-lists',
+			\ 'coc-prettier',
+			\ 'coc-snippets',
+			\ 'coc-syntax',
+			\ 'coc-tasks',
+			\ 'coc-todolist',
+			\ 'coc-translator',
+			\ 'coc-tsserver',
+			\ 'coc-vimlsp',
+			\ 'coc-highlight',
+			\ 'coc-floaterm',
+			\ 'coc-git',
+			\ 'coc-yank']
 
 
 " Remap for do codeAction of selected region
 function! s:cocActionsOpenFromSelected(type) abort
-  execute 'CocCommand actions.open ' . a:type
+	execute 'CocCommand actions.open ' . a:type
 endfunction
 xmap <silent> <leader>a :<C-u>execute 'CocCommand actions.open ' . visualmode()<CR>
 nmap <silent> <leader>a :<C-u>set operatorfunc=<SID>cocActionsOpenFromSelected<CR>g@
@@ -1607,6 +1608,7 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+
 nmap <leader>rn <Plug>(coc-rename)
 nmap tt :CocCommand explorer<CR>
 " coctodolist
