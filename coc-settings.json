@@ -48,7 +48,6 @@
 },
 "diagnostic.maxWindowWidth":80,
 "diagnostic.displayByAle":false,
-"signature.floatMaxWidth":60,
 //"diagnostic.virtualText": true,
 //"diagnostic.virtualTextPrefix": " ❯❯❯ ",
 	"diagnostic.errorSign": "×",
@@ -153,12 +152,7 @@
   },
 "explorer.file.tabCD":true,
 	"diagnostic-languageserver.filetypes": {
-		"vim": "vint",
-		"email": "languagetool",
-		"markdown": ["write-good", "markdownlint"],
-		"sh": "shellcheck",
-		"elixir": ["mix_credo", "mix_credo_compile"],
-		"eelixir": ["mix_credo", "mix_credo_compile"],
+		"c": ["cppcheck"],
 		"php": ["phpstan", "psalm"]
 	},
 	"diagnostic-languageserver.formatFiletypes": {

@@ -121,7 +121,7 @@ set tags+=./tags;
 " === Terminal Behaviors
 " ===
 let g:neoterm_autoscroll = 1
-autocmd TermOpen term://* startinsert
+" autocmd TermOpen term://* startinsert
 tnoremap <C-N> <C-\><C-N>
 tnoremap <C-O> <C-\><C-N><C-O>
 tnoremap <C-Q> <C-\><C-N>:q<CR>
@@ -449,8 +449,9 @@ autocmd InsertEnter * call Fcitx2zh()
 
 call plug#begin('~/.config/nvim/plugged')
 
-
-" Testing my own plugin
+Plug 'Shougo/vimproc.vim', {'do' : 'make'}
+Plug 'https://hub.fastgit.org/idanarye/vim-vebugger'
+"Testing my own plugin
 " Plug 'https://hub.fastgit.orgtheniceboy/vim-calc')
 "Plug 'https://hub.fastgit.org/nvim-treesitter/nvim-treesitter', {'rev': '4f2689c','path':'.config/nvim/plugged','name':'nvim-treesitter'})
 "Plug 'https://hub.fastgit.org/sheerun/vim-polyglot')
@@ -485,7 +486,7 @@ Plug 'https://hub.fastgit.org/vim-airline/vim-airline'
 " File navigation
 "Plug 'https://hub.fastgit.org/scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 "Plug 'https://hub.fastgit.org/Xuyuanp/nerdtree-git-plugin')
-Plug 'https://hub.fastgit.org/junegunn/fzf', { 'build': { -> fzf#install() } }
+" Plug 'https://hub.fastgit.org/junegunn/fzf', { 'build': { -> fzf#install() } }
 Plug 'https://hub.fastgit.org/junegunn/fzf.vim'
 Plug 'https://hub.fastgit.org/pechorin/any-jump.vim'
 Plug 'https://hub.fastgit.org/voldikss/vim-floaterm'
@@ -595,10 +596,9 @@ Plug 'https://hub.fastgit.org/lambdalisue/suda.vim' " do stuff like :sudowrite
 " Plug 'https://hub.fastgit.org/MarcWeber/vim-addon-mw-utils')
 " Plug 'https://hub.fastgit.org/kana/vim-textobj-user')
 " Plug 'https://hub.fastgit.org/roxma/nvim-yarp')
-
+Plug 'https://hub.fastgit.org/lifepillar/vim-gruvbox8.git'
 
 call plug#end()
-
 "call plug#begin('~/.config/nvim/plugged')
 "Plug 'https://hub.fastgit.org/nvim-treesitter/nvim-treesitter', {'branch': '4f2689c'}'
 "Plug 'https://hub.fastgit.org/nvim-treesitter/nvim-treesitter',{'tag': '4f2689c'}
@@ -608,6 +608,7 @@ filetype plugin indent on
 syntax enable
 
 
+let g:vebugger_path_gdb = "/usr/bin/gdb"
 " experimental
 set lazyredraw
 "set regexpengine=1
@@ -626,8 +627,8 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 "let g:oceanic_next_terminal_italic = 1
 "let g:one_allow_italics = 1
 
-" set t_Co=256
-" set termguicolors
+set t_Co=256
+set termguicolors
 set background=dark
 "let g:gruvbox_material_background = 'soft' "hard
 let g:gruvbox_material_diagnostic_line_highlight = 1
@@ -695,8 +696,6 @@ let airline#extensions#coc#stl_format_warn = '%W{[%w(#%fw)]}'
 nnoremap b[ :bp<CR>
 nnoremap b] :bn<CR>
 
-let g:spaceline_seperate_style= 'none'
-let g:spaceline_colorscheme = 'space'
 
 
 
@@ -808,7 +807,8 @@ let g:floaterm_winblend = 15
 " Configuration example
 hi Floaterm guibg=black
 hi FloatermBorder guibg=normal
-autocmd User Startified setlocal buflisted
+hi FloatermNC guibg=gray
+" autocmd User Startified setlocal buflisted
 let  g:floaterm_keymap_new     =  '<M-f><M-o>'
 ""let  g:floaterm_keymap_next    =  '<C-f><C-n>'
 let g:floaterm_keymap_prev    =   '<M-f><M-p>'
@@ -897,6 +897,8 @@ noremap <leader>vl :tabe .clang-format<CR>:LoadFormatTemplate<CR>
 "set rtp+=/usr/local/opt/fzf
 "set rtp+=/home/linuxbrew/.linuxbrew/opt/fzf
 "set rtp+=/home/david/.linuxbrew/opt/fzf
+" let g:clap_default_external_filter = ["maple", "fzf"]
+let g:clap_theme = 'material_design_dark'
 noremap <silent> <leader>sf :Clap files ++finder=rg --ignore --hidden --files<CR>
 noremap <silent> <leader>sr :Clap grep2<CR>
 noremap <silent> <leader>sh :Clap history<CR>
