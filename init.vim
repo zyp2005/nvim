@@ -39,7 +39,7 @@ if empty(glob('~/.config/nvim/_machine_specific.vim'))
 endif
 source ~/.config/nvim/_machine_specific.vim
 
-
+set vb t_vb=[?5h$<100>[?5l
 
 " ====================
 " === Editor Setup ===
@@ -435,7 +435,10 @@ function! Fcitx2zh()
 	endif
 endfunction
 
-set ttimeoutlen=150
+set ttimeout
+set ttimeoutlen=50
+
+set ruler
 "退出插入模式
 autocmd InsertLeave * call Fcitx2en()
 "进入插入模式
