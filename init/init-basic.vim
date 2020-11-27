@@ -205,16 +205,16 @@ set ttyfast "should make scrolling faster
 set visualbell
 
 " 交换文件
-silent !mkdir -p ~/.config/nvim/tmp/backup
-silent !mkdir -p ~/.config/nvim/tmp/undo
-"silent !mkdir -p ~/.config/nvim/tmp/sessions
-set backupdir=~/.config/nvim/tmp/backup,.
-set directory=~/.config/nvim/tmp/backup,.
-
-if has('persistent_undo')
-	set undofile
-	set undodir=~/.config/nvim/tmp/undo,.
-endif
+" silent !mkdir -p ~/.config/nvim/tmp/backup
+" silent !mkdir -p ~/.config/nvim/tmp/undo
+" "silent !mkdir -p ~/.config/nvim/tmp/sessions
+" set backupdir=~/.config/nvim/tmp/backup,.
+" set directory=~/.config/nvim/tmp/backup,.
+"
+" if has('persistent_undo')
+" 	set undofile
+" 	set undodir=~/.config/nvim/tmp/undo,.
+" endif
 
 " 显示第100列
 "set colorcolumn=100
