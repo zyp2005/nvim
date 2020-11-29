@@ -144,45 +144,14 @@ set softtabstop=4
 "set timeout timeoutlen=1000 ttimeoutlen=1000
 "set notimeout
 
-" 显示行号
-set number
-
 " 在每行前显示相对于光标所在的行的行号。
 set relativenumber
 
 " 高亮光标所在的文本行
 set cursorline
 
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
-
-" 显示空格
-set list        "显示空格
-
-"set listchars=tab:\|\ ,trail:▫
-" tab与空格显示
-set listchars=tab:▸\ ,trail:▫
-
 " 光标上下两侧最少保留的屏幕行数
 set scrolloff=4
-
-" 影响最后一个窗口何时有状态行
-set laststatus=2
-
-" 如果打开，窗口的分割会把新窗口放到当前窗口之右。
-set splitright
-
-" 如果打开，窗口的分割会把新窗口放到当前窗口之下
-set splitbelow
-
-
-" 在屏幕最后一行显示 (部分的) 命令。
-set showcmd
-
-set inccommand=split
-
-set noshowmode
 
 " 允许鼠标
 set mouse=a
@@ -227,28 +196,10 @@ set hidden
 set cmdheight=1
 
 " 如果过了这么多毫秒数以后还没有任何输入，把交换文件写入磁盘
-set updatetime = 1000
+set updatetime=1000
 
 " 允许可视列块模式的虚拟编辑。
 set virtualedit=block
-
-" 始终显示标志列，否则，每次出现/解决诊断时，文本都会偏移。
-if has("patch-8.1.1564")
-	" Recently vim can merge signcolumn and number column into one
-	set signcolumn=number
-else
-	set signcolumn=yes
-endif
-
-" 256色 暗色背景
-set t_Co=256
-set termguicolors
-set background=dark
-
-
-"光标回到上次位置
-au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-
 
 "----------------------------------------------------------------------
 " 设置代码折叠

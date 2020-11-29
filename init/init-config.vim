@@ -97,7 +97,7 @@ set backup
 " set writebackup
 
 " 如果过了这么多毫秒数以后还没有任何输入，把交换文件写入磁盘
-set updatetime = 1000
+set updatetime=1000
 
 
 " 备份文件地址，统一管理
@@ -129,7 +129,7 @@ silent! call mkdir(expand('~/.config/nvim/tmp/undo'), "p", 0755)
 " 会令一些支持 xterm 不完全的终端解析错误，显示为错误的字符，比如 q 字符
 " 如果你确认你的终端支持，不会在一些不兼容的终端上运行该配置，可以注释
 if has('nvim')
-	set guicursor=
+
 elseif (!has('gui_running')) && has('terminal') && has('patch-8.0.1200')
 	let g:termcap_guicursor = &guicursor
 	let g:termcap_t_RS = &t_RS
@@ -188,4 +188,34 @@ augroup InitFileTypesGroup
 
 augroup END
 
+"##### auto fcitx  ###########
+let g:input_toggle = 2
+function! Fcitx2en()
+	let s:input_status = system("fcitx5-remote")
+	if s:input_status == 2
+		let g:input_toggle = 1
+		let l:a = system("fcitx5-remote -c")
+	endif
+endfunction
+
+function! Fcitx2zh()
+	let s:input_status = system("fcitx5-remote")
+	if s:input_status != 2 && g:input_toggle == 1
+		let l:a = system("fcitx5-remote -o")
+		let g:input_toggle = 0
+	endif
+endfunction
+
+set ttimeout
+set ttimeoutlen=50
+
+set ruler
+"退出插入模式
+autocmd InsertLeave * call Fcitx2en()
+"进入插入模式
+autocmd InsertEnter * call Fcitx2zh()
+"##### auto fcitx end ######
+
+" Auto change directory to current dir
+autocmd BufEnter * silent! lcd %:p:h
 
