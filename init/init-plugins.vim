@@ -15,8 +15,8 @@
 "----------------------------------------------------------------------
 if !exists('g:bundle_group')
 	let g:bundle_group = ['basic', 'tags', 'enhanced', 'filetypes', 'textobj']
-	let g:bundle_group += ['tags', 'airline', 'grammer', 'echodoc']
-	let g:bundle_group += ['leaderf']
+	let g:bundle_group += ['tags', 'airline',  'echodoc']
+	let g:bundle_group += ['leaderf',"extra"]
 endif
 
 
@@ -61,13 +61,30 @@ if index(g:bundle_group, 'basic') >= 0
 
 	" 展示开始画面，显示最近编辑过的文件
 
-	" 一次性安装一大堆 colorscheme
+	"  colorscheme
+	Plug 'https://hub.fastgit.org/sainnhe/gruvbox-material'
+	Plug 'https://hub.fastgit.org/rakr/vim-one'
+	let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+	set t_Co=256
+	set termguicolors
+	set background=dark
+	"let g:gruvbox_material_background = 'soft' "hard
+	let g:gruvbox_material_diagnostic_line_highlight = 1
+	"let g:gruvbox_material_current_word = 'bold'
+	let g:gruvbox_material_palette = 'mix'
+	let g:gruvbox_material_background = 'medium'
+	let g:gruvbox_material_enable_italic = 1
+	let g:gruvbox_material_better_performance = 1
+	"let g:gruvbox_material_transparent_background = 1
+	"let g:gruvbox_material_disable_italic_comment = 1
+	let g:gruvbox_material_enable_bold = 1
+	let g:airline_theme='gruvbox_material'
+
 
 	" 支持库，给其他插件用的函数库
 	Plug 'xolox/vim-misc'
 
 	" 用于在侧边符号栏显示 marks （ma-mz 记录的位置）
-	Plug 'kshenoy/vim-signature'
 
 	" 用于在侧边符号栏显示 git/svn 的 diff
 
@@ -98,12 +115,44 @@ endif
 "----------------------------------------------------------------------
 if index(g:bundle_group, 'enhanced') >= 0
 
+	"彩虹括号
+	Plug 'https://hub.fastgit.org/luochen1990/rainbow'
+	let g:rainbow_active = 1
+
+	"中文文档
+	Plug 'https://hub.fastgit.org/yianwillis/vimcdoc'
+
+	"空白检测
+	Plug 'https://hub.fastgit.org/bronson/vim-trailing-whitespace'
+
+	"提供图形字符支持
+	Plug 'https://hub.fastgit.org/ryanoasis/vim-devicons'
+
+	"翻译
+	Plug 'https://hub.fastgit.org/voldikss/vim-translator'
+	""vnoremap <silent> <C-t> :<C-u>Ydv<CR>
+	""nnoremap <silent> <C-t> :<C-u>Ydc<CR>
+	""noremap <silent> <Leader>yd :<C-u>Yde<CR>
+	"" <Leader>t 翻译光标下的文本，在命令行回显
+	nmap <silent> <Leader>ty <Plug>(coc-translator-e)
+	vmap <silent> <Leader>ty <Plug>TranslateV
+	" Leader>w 翻译光标下的文本，在窗口中显示
+	nmap <silent> <Leader>tw <Plug>(coc-translator-p)
+	vmap <silent> <Leader>tw <Plug>TranslateWV
+	" Leader>r 替换光标下的文本为翻译内容
+	nmap <silent> <Leader>tr <Plug>TranslateR
+	vmap <silent> <Leader>tr <Plug>TranslateRV
+	let g:translator_window_max_width = 0.5
+
 	" 用 v 选中一个区域后，ALT_+/- 按分隔符扩大/缩小选区
 	Plug 'terryma/vim-expand-region'
 
 	" 快速文件搜索
-	Plug 'junegunn/fzf'
-
+	Plug 'https://hub.fastgit.org/junegunn/fzf', { 'build': { -> fzf#install() } }
+	Plug 'https://hub.fastgit.org/junegunn/fzf.vim'
+	let g:fzf_preview_window = 'right:50%'
+	let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
+	let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.7 } }
 	" 给不同语言提供字典补全，插入模式下 c-x c-k 触发
 	Plug 'asins/vim-dict'
 
@@ -122,6 +171,9 @@ if index(g:bundle_group, 'enhanced') >= 0
 	map <m-=> <Plug>(expand_region_expand)
 	map <m--> <Plug>(expand_region_shrink)
 endif
+
+
+
 
 
 "----------------------------------------------------------------------
@@ -206,25 +258,35 @@ endif
 if index(g:bundle_group, 'filetypes') >= 0
 
 	" powershell 脚本文件的语法高亮
-	Plug 'pprovost/vim-ps1', { 'for': 'ps1' }
+	Plug 'https://hub.fastgit.org/pprovost/vim-ps1', { 'for': 'ps1' }
 
 	" lua 语法高亮增强
-	Plug 'tbastos/vim-lua', { 'for': 'lua' }
+	Plug 'https://hub.fastgit.org/tbastos/vim-lua', { 'for': 'lua' }
 
 	" C++ 语法高亮增强，支持 11/14/17 标准
 	" Plug 'octol/vim-cpp-enhanced-highlight', { 'for': ['c', 'cpp'] }
 
 	" 额外语法文件
-	Plug 'justinmk/vim-syntax-extra', { 'for': ['c', 'bison', 'flex', 'cpp'] }
+	Plug 'https://hub.fastgit.org/justinmk/vim-syntax-extra', { 'for': ['c', 'bison', 'flex', 'cpp'] }
 
 	" python 语法文件增强
-	Plug 'vim-python/python-syntax', { 'for': ['python'] }
+	Plug 'https://hub.fastgit.org/vim-python/python-syntax', { 'for': ['python'] }
 
 	" rust 语法增强
-	Plug 'rust-lang/rust.vim', { 'for': 'rust' }
+	Plug 'https://hub.fastgit.org/rust-lang/rust.vim', { 'for': 'rust' }
 
 	" vim org-mode 
-	Plug 'jceb/vim-orgmode', { 'for': 'org' }
+	Plug 'https://hub.fastgit.org/jceb/vim-orgmode', { 'for': 'org' }
+
+	"c/c++语言高亮
+	Plug 'https://hub.fastgit.org/jackguo380/vim-lsp-cxx-highlight.git', { 'for': ['c', 'cpp'] }
+
+	"高亮变量名
+	Plug 'https://hub.fastgit.org/jaxbot/semantic-highlight.vim.git'
+
+
+
+
 endif
 
 
@@ -232,21 +294,39 @@ endif
 " airline
 "----------------------------------------------------------------------
 if index(g:bundle_group, 'airline') >= 0
-	Plug 'vim-airline/vim-airline'
-	Plug 'vim-airline/vim-airline-themes'
-	let g:airline_left_sep = ''
-	let g:airline_left_alt_sep = ''
-	let g:airline_right_sep = ''
-	let g:airline_right_alt_sep = ''
-	let g:airline_powerline_fonts = 0
-	let g:airline_exclude_preview = 1
-	let g:airline_section_b = '%n'
-	let g:airline_theme='deus'
-	let g:airline#extensions#branch#enabled = 0
-	let g:airline#extensions#syntastic#enabled = 0
-	let g:airline#extensions#fugitiveline#enabled = 0
-	let g:airline#extensions#csv#enabled = 0
-	let g:airline#extensions#vimagit#enabled = 0
+	Plug 'https://hub.fastgit.org/vim-airline/vim-airline'
+	Plug 'https://hub.fastgit.org/vim-airline/vim-airline-themes'
+	Plug 'https://hub.fastgit.org/zefei/vim-wintabs'
+	Plug 'https://hub.fastgit.org/zefei/vim-wintabs-powerline'
+
+	let g:airline_theme='gruvbox_material'
+	let g:airline_powerline_fonts = 1   " 使用powerline打过补丁的字体
+	let g:airline_section_b = '%{get(g:,"coc_git_status","")}%{get(b:,"coc_git_status","")}%{get(b:,"coc_git_blame","")}'
+	let g:airline_section_a = airline#section#create_left(['mode','%{strftime("%m/%d-%H:%M")}', 'crypt', 'paste', 'keymap', 'spell', 'capslock', 'xkblayout', 'iminsert'])
+	let g:airline_section_c = airline#section#create(['%<', 'file','readonly'])
+	let airline#extensions#coc#error_symbol = 'E:'
+	let airline#extensions#coc#warning_symbol = 'W:'
+	let airline#extensions#coc#stl_format_err = '%E{[%e(#%fe)]}'
+	let airline#extensions#coc#stl_format_warn = '%W{[%w(#%fw)]}'
+
+	let g:wintabs_ui_buffer_name_format = '%o:%t'
+	nmap <M-[> <Plug>(wintabs_previous)
+	nmap <M-]> <Plug>(wintabs_next)
+	nmap <space>wc <Plug>(wintabs_close)
+	nmap <space>wu <Plug>(wintabs_undo)
+	nmap <space>wo <Plug>(wintabs_only)
+	nmap <space>wwc <Plug>(wintabs_close_window)
+	nmap <space>wwo <Plug>(wintabs_only_window)
+	nmap <space>g1 :WintabsGo 1<cr>
+	nmap <space>g2 :WintabsGo 2<cr>
+	nmap <space>g3 :WintabsGo 3<cr>
+	nmap <space>g4 :WintabsGo 4<cr>
+	nmap <space>g5 :WintabsGo 5<cr>
+	nmap <space>g6 :WintabsGo 6<cr>
+	nmap <space>g7 :WintabsGo 7<cr>
+	nmap <space>g8 :WintabsGo 8<cr>
+	nmap <space>g9 :WintabsGo 9<cr>
+	nmap <space>wm :WintabsMove
 endif
 
 

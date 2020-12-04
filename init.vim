@@ -465,32 +465,34 @@ Plug 'https://hub.fastgit.org/justinmk/vim-syntax-extra.git'
 
 
 " Pretty Dress
-Plug 'https://hub.fastgit.org/sainnhe/gruvbox-material'
-Plug 'https://hub.fastgit.org/ryanoasis/vim-devicons'
-Plug 'https://hub.fastgit.org/rakr/vim-one'
+Plug 'https://hub.fastgit.org/sainnhe/gruvbox-material' "s
+Plug 'https://hub.fastgit.org/ryanoasis/vim-devicons' "s
+Plug 'https://hub.fastgit.org/rakr/vim-one' "ss
 "Plug 'hardcoreplayers/oceanic-material')
 
-Plug 'https://hub.fastgit.org/yianwillis/vimcdoc'
+Plug 'https://hub.fastgit.org/yianwillis/vimcdoc' "s
 "Plug 'https://hub.fastgit.org/bronson/vim-trailing-whitespace',{'lzay': 1, 'on_cmd':'FixWhitespce'})
-Plug 'https://hub.fastgit.org/voldikss/vim-translator'
+Plug 'https://hub.fastgit.org/voldikss/vim-translator' "s
 
 " Other visual enhancement
 "Plug 'ryanoasis/vim-devicons')
-Plug 'https://hub.fastgit.org/luochen1990/rainbow'
+Plug 'https://hub.fastgit.org/luochen1990/rainbow' "s
 "Plug 'https://hub.fastgit.org/mg979/vim-xtabline')
 "Plug 'https://hub.fastgit.org/wincent/terminus')
-Plug 'https://hub.fastgit.org/zefei/vim-wintabs'
-Plug 'https://hub.fastgit.org/zefei/vim-wintabs-powerline'
+Plug 'https://hub.fastgit.org/zefei/vim-wintabs' "s
+Plug 'https://hub.fastgit.org/zefei/vim-wintabs-powerline' "s
+
 
 " Status line
-Plug 'https://hub.fastgit.org/vim-airline/vim-airline'
+Plug 'https://hub.fastgit.org/vim-airline/vim-airline' "s
+
 " Plug 'https://hub.fastgit.org/hardcoreplayers/spaceline.vim.git'
 
 " File navigation
 "Plug 'https://hub.fastgit.org/scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 "Plug 'https://hub.fastgit.org/Xuyuanp/nerdtree-git-plugin')
-" Plug 'https://hub.fastgit.org/junegunn/fzf', { 'build': { -> fzf#install() } }
-Plug 'https://hub.fastgit.org/junegunn/fzf.vim'
+Plug 'https://hub.fastgit.org/junegunn/fzf', { 'build': { -> fzf#install() } } "s
+Plug 'https://hub.fastgit.org/junegunn/fzf.vim' "s
 Plug 'https://hub.fastgit.org/pechorin/any-jump.vim'
 Plug 'https://hub.fastgit.org/voldikss/vim-floaterm'
 "Plug 'https://hub.fastgit.org/airblade/vim-rooter'
@@ -1121,15 +1123,15 @@ nmap <space>wu <Plug>(wintabs_undo)
 nmap <space>wo <Plug>(wintabs_only)
 nmap <space>wwc <Plug>(wintabs_close_window)
 nmap <space>wwo <Plug>(wintabs_only_window)
-nmap <space>g1 :WintabsGo 1<cr>
-nmap <space>g2 :WintabsGo 2<cr>
-nmap <space>g3 :WintabsGo 3<cr>
-nmap <space>g4 :WintabsGo 4<cr>
-nmap <space>g5 :WintabsGo 5<cr>
-nmap <space>g6 :WintabsGo 6<cr>
-nmap <space>g7 :WintabsGo 7<cr>
-nmap <space>g8 :WintabsGo 8<cr>
-nmap <space>g9 :WintabsGo 9<cr>
+nmap <space>1 :WintabsGo 1<cr>
+nmap <space>2 :WintabsGo 2<cr>
+nmap <space>3 :WintabsGo 3<cr>
+nmap <space>4 :WintabsGo 4<cr>
+nmap <space>5 :WintabsGo 5<cr>
+nmap <space>6 :WintabsGo 6<cr>
+nmap <space>7 :WintabsGo 7<cr>
+nmap <space>8 :WintabsGo 8<cr>
+nmap <space>9 :WintabsGo 9<cr>
 nmap <space>wm :WintabsMove
 
 " ===
