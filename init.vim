@@ -496,7 +496,7 @@ Plug 'https://hub.fastgit.org/junegunn/fzf.vim' "s
 Plug 'https://hub.fastgit.org/pechorin/any-jump.vim'
 Plug 'https://hub.fastgit.org/voldikss/vim-floaterm'
 "Plug 'https://hub.fastgit.org/airblade/vim-rooter'
-"Plug 'https://hub.fastgit.org/Yggdroot/LeaderF', { 'do': './install.sh' }
+Plug 'https://hub.fastgit.org/Yggdroot/LeaderF', { 'do': './install.sh' }
 "Plug 'https://hub.fastgit.org/liuchengxu/vim-clap', {'build': ':Clap install-binary!' })
 Plug 'https://hub.fastgit.org/liuchengxu/vim-clap'
 " Plug 'https://hub.fastgit.org/vn-ki/coc-clap'
@@ -554,9 +554,9 @@ Plug 'https://hub.fastgit.org/jwarby/antovim.git' " gs切换
 Plug 'https://hub.fastgit.org/tpope/vim-surround' " type yskw' to wrap the word with '' or type cs'` to change 'word' to `word`
 Plug 'https://hub.fastgit.org/gcmt/wildfire.vim' " in Visual mode, type k' to select all text in '', or type k) k] k} kp
 Plug 'https://hub.fastgit.org/junegunn/vim-after-object' " da= to delete what's after =
-Plug 'https://hub.fastgit.org/godlygeek/tabular' " ga, or :Tabularize <regex> to align
+Plug 'https://hub.fastgit.org/godlygeek/tabular' "s     ga, or :Tabularize <regex> to align
 Plug 'https://hub.fastgit.org/tpope/vim-capslock'	" Ctrl+L (insert) to toggle capslock
-Plug 'https://hub.fastgit.org/easymotion/vim-easymotion'
+Plug 'https://hub.fastgit.org/easymotion/vim-easymotion' "ssss
 "Plug 'https://hub.fastgit.org/Konfekt/FastFold')
 "Plug 'https://hub.fastgit.org/junegunn/vim-peekaboo')
 " Plug 'https://hub.fastgit.org/wellle/context.vim'

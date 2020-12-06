@@ -42,17 +42,36 @@ call plug#begin(get(g:, 'bundle_home', '~/.config/nvim/bundles'))
 "----------------------------------------------------------------------
 
 " 全文快速移动，<leader><leader>f{char} 即可触发
-Plug 'easymotion/vim-easymotion'
-
-" 文件浏览器，代替 netrw
+Plug 'https://hub.fastgit.org/easymotion/vim-easymotion'
+let g:EasyMotion_do_mapping = 0
+let g:EasyMotion_do_shade = 0
+let g:EasyMotion_smartcase = 1
+" map ' <Plug>(easymotion-overwin-f2)
+" nmap ' <Plug>(easymotion-overwin-f2)
+"map E <Plug>(easymotion-j)
+"map U <Plug>(easymotion-k)
+"nmap f <Plug>(easymotion-overwin-f)
+"map \; <Plug>(easymotion-prefix)
+"nmap ' <Plug>(easymotion-overwin-f2)
+"map 'l <Plug>(easymotion-bd-jk)
+"nmap 'l <Plug>(easymotion-overwin-line)
+"map  'w <Plug>(easymotion-bd-w)
+"nmap 'w <Plug>(easymotion-overwin-w)
+nmap <space>ef <Plug>(easymotion-overwin-f)
+nmap <space>eF <Plug>(easymotion-overwin-f2)
+nmap <space>el <Plug>(easymotion-overwin-line)
+nmap <space>ew <Plug>(easymotion-overwin-w)
 
 " 表格对齐，使用命令 Tabularize
-Plug 'godlygeek/tabular', { 'on': 'Tabularize' }
+Plug 'https://hub.fastgit.org/godlygeek/tabular', { 'on': 'Tabularize' }
+vmap <space>d :Tabularize /
+nmap <space>d :Tabularize /
 
 " Diff 增强，支持 histogram / patience 等更科学的 diff 算法
-Plug 'chrisbra/vim-diff-enhanced'
-
-
+Plug 'https://hub.fastgit.org/chrisbra/vim-diff-enhanced'
+if &diff
+    let &diffexpr='EnhancedDiff#Diff("git diff", "--diff-algorithm=patience")'
+endif
 
 "----------------------------------------------------------------------
 " 基础插件
