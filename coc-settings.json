@@ -160,18 +160,18 @@
     "elixir": "mix_format",
     "eelixir": "mix_format"
   },
-  "clangd.semanticHighlighting": true
-  //    "languageserver": {
-  //        "ccls": {
-  //            "command": "ccls",
-  //            "filetypes": ["c", "cpp", "objc", "objcpp"],
-  //            "rootPatterns": [".ccls", "compile_commands.json", ".vim/", ".git/", ".hg/"],
-  //            "initializationOptions": {
-  //                "cache": {
-  //                    "directory": "/tmp/ccls"
-  //                },
-  //                "highlight": { "lsRanges" : true }
-  //            }
-  //        }
-  //	}
+  //"clangd.semanticHighlighting": true
+"languageserver": {
+        "ccls": {
+            "command": "ccls",
+            "filetypes": ["c", "cpp", "objc", "objcpp"],
+            "rootPatterns": [".ccls", "compile_commands.json", ".vim/", ".git/", ".hg/"],
+            "initializationOptions": {
+                "cache": {
+                    "directory": "/tmp/ccls"
+                },
+                "highlight": { "lsRanges" : true }
+              }
+          }
+  	}
 }
