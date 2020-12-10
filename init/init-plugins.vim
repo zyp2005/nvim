@@ -101,7 +101,7 @@ if index(g:bundle_group, 'basic') >= 0
 
 
 	" 支持库，给其他插件用的函数库
-	Plug 'xolox/vim-misc'
+	Plug 'https://hub.fastgit.org/xolox/vim-misc.git'
 
 	" 用于在侧边符号栏显示 marks （ma-mz 记录的位置）
 

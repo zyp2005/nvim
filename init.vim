@@ -463,6 +463,21 @@ Plug 'https://hub.fastgit.org/jackguo380/vim-lsp-cxx-highlight.git'
 Plug 'https://hub.fastgit.org/jaxbot/semantic-highlight.vim.git'
 Plug 'https://hub.fastgit.org/justinmk/vim-syntax-extra.git'
 
+	" 根据 quickfix 中匹配到的错误信息，高亮对应文件的错误行
+	" 使用 :RemoveErrorMarkers 命令或者 <space>ha 清除错误
+	Plug 'https://hub.fastgit.org/mh21/errormarker.vim'
+
+	" 使用 ALT+e 会在不同窗口/标签上显示 A/B/C 等编号，然后字母直接跳转
+	Plug 'https://hub.fastgit.org/t9md/vim-choosewin'
+
+
+	" 使用 ALT+E 来选择窗口
+	nmap <m-e> <Plug>(choosewin)
+
+	" 使用 <space>ha 清除 errormarker 标注的错误
+	noremap <silent><space>ha :RemoveErrorMarkers<cr>
+
+
 
 " Pretty Dress
 Plug 'https://hub.fastgit.org/sainnhe/gruvbox-material' "s
