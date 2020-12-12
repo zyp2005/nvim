@@ -1,5 +1,4 @@
 {
-  "list.source.explorerFiles.defaultOptions": ["--strict"],
   "git.addGBlameToVirtualText": true,
   //"git.enableGutters":true,
   //"git.addGBlameToBufferVar":true
@@ -84,7 +83,7 @@
       "expand": true
     }
   ],
-  "explorer.keyMappings": {
+  "explorer.keyMappings.global": {
     "i": false, // cancel default mapkey
 
     "gk": "expandablePrev",

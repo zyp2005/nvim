@@ -452,6 +452,14 @@ autocmd InsertEnter * call Fcitx2zh()
 
 call plug#begin('~/.config/nvim/plugged')
 
+	" 用 v 选中一个区域后，ALT_+/- 按分隔符扩大/缩小选区
+	Plug 'https://hub.fastgit.org/terryma/vim-expand-region'
+
+	" ALT_+/- 用于按分隔符扩大缩小 v 选区
+	map <m-=> <Plug>(expand_region_expand)
+	map <m--> <Plug>(expand_region_shrink)
+
+
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'https://hub.fastgit.org/idanarye/vim-vebugger'
 "Testing my own plugin
@@ -463,19 +471,10 @@ Plug 'https://hub.fastgit.org/jackguo380/vim-lsp-cxx-highlight.git'
 Plug 'https://hub.fastgit.org/jaxbot/semantic-highlight.vim.git'
 Plug 'https://hub.fastgit.org/justinmk/vim-syntax-extra.git'
 
-	" 根据 quickfix 中匹配到的错误信息，高亮对应文件的错误行
-	" 使用 :RemoveErrorMarkers 命令或者 <space>ha 清除错误
-	Plug 'https://hub.fastgit.org/mh21/errormarker.vim'
-
-	" 使用 ALT+e 会在不同窗口/标签上显示 A/B/C 等编号，然后字母直接跳转
-	Plug 'https://hub.fastgit.org/t9md/vim-choosewin'
-
-
-	" 使用 ALT+E 来选择窗口
-	nmap <m-e> <Plug>(choosewin)
-
-	" 使用 <space>ha 清除 errormarker 标注的错误
-	noremap <silent><space>ha :RemoveErrorMarkers<cr>
+" 使用 ALT+e 会在不同窗口/标签上显示 A/B/C 等编号，然后字母直接跳转
+Plug 'https://hub.fastgit.org/t9md/vim-choosewin'
+" 使用 ALT+E 来选择窗口
+nmap <m-e> <Plug>(choosewin)
 
 
 
@@ -486,8 +485,14 @@ Plug 'https://hub.fastgit.org/rakr/vim-one' "ss
 "Plug 'hardcoreplayers/oceanic-material')
 
 Plug 'https://hub.fastgit.org/yianwillis/vimcdoc' "s
-"Plug 'https://hub.fastgit.org/bronson/vim-trailing-whitespace',{'lzay': 1, 'on_cmd':'FixWhitespce'})
+Plug 'https://hub.fastgit.org/ntpeters/vim-better-whitespace.git' "s
+Plug 'https://github.com/nathanaelkane/vim-indent-guides.git'
 Plug 'https://hub.fastgit.org/voldikss/vim-translator' "s
+let g:better_whitespace_enabled=1
+let g:better_whitespace_filetypes_blacklist=['diff', 'gitcommit', 'unite', 'qf', 'help', 'markdown','calendar','dashboard']
+nnoremap <silent><m-w> :StripWhitespace<cr>
+let g:better_whitespace_operator='<m-w>'
+
 
 " Other visual enhancement
 "Plug 'ryanoasis/vim-devicons')
@@ -508,28 +513,28 @@ Plug 'https://hub.fastgit.org/vim-airline/vim-airline' "s
 "Plug 'https://hub.fastgit.org/Xuyuanp/nerdtree-git-plugin')
 Plug 'https://hub.fastgit.org/junegunn/fzf', { 'build': { -> fzf#install() } } "s
 Plug 'https://hub.fastgit.org/junegunn/fzf.vim' "s
-Plug 'https://hub.fastgit.org/pechorin/any-jump.vim'
-Plug 'https://hub.fastgit.org/voldikss/vim-floaterm'
+Plug 'https://hub.fastgit.org/pechorin/any-jump.vim' "s
+Plug 'https://hub.fastgit.org/voldikss/vim-floaterm' "s
 "Plug 'https://hub.fastgit.org/airblade/vim-rooter'
-Plug 'https://hub.fastgit.org/Yggdroot/LeaderF', { 'do': './install.sh' }
+Plug 'https://hub.fastgit.org/Yggdroot/LeaderF', { 'do': './install.sh' } "ss
 "Plug 'https://hub.fastgit.org/liuchengxu/vim-clap', {'build': ':Clap install-binary!' })
 Plug 'https://hub.fastgit.org/liuchengxu/vim-clap'
 " Plug 'https://hub.fastgit.org/vn-ki/coc-clap'
 
 " Taglist
-Plug 'https://hub.fastgit.org/liuchengxu/vista.vim'
+Plug 'https://hub.fastgit.org/liuchengxu/vista.vim' "ss
 
 " Auto Complete
-Plug 'https://hub.fastgit.org/neoclide/coc.nvim', {'branch': 'release'}
-Plug 'https://hub.fastgit.org/Shougo/echodoc.vim.git'
+Plug 'https://hub.fastgit.org/neoclide/coc.nvim', {'branch': 'release'} "ss
+Plug 'https://hub.fastgit.org/Shougo/echodoc.vim.git' "ss
 "Plug 'https://hub.fastgit.org/wellle/tmux-complete.vim')
 
 " Snippets
 "Plug 'https://hub.fastgit.org/SirVer/ultisnips')
-Plug 'https://hub.fastgit.org/honza/vim-snippets'
+Plug 'https://hub.fastgit.org/honza/vim-snippets' "ss
 
 " Undo Tree
-Plug 'https://hub.fastgit.org/mbbill/undotree'
+Plug 'https://hub.fastgit.org/mbbill/undotree' "ss
 
 " Git
 "Plug 'https://hub.fastgit.org/theniceboy/vim-gitignore', { 'for': ['gitignore', 'vim-plug'] }
@@ -606,7 +611,7 @@ Plug 'https://hub.fastgit.org/skywind3000/asyncrun.vim'
 Plug 'https://hub.fastgit.org/itchyny/calendar.vim'
 
 " Other useful utilities
-Plug 'https://hub.fastgit.org/skywind3000/vim-preview.git'
+Plug 'https://hub.fastgit.org/skywind3000/vim-preview.git' "sss
 Plug 'https://hub.fastgit.org/lambdalisue/suda.vim' " do stuff like :sudowrite
 "Plug 'https://hub.fastgit.org/makerj/vim-pdf')
 "Plug 'https://hub.fastgit.org/xolox/vim-session')
@@ -1387,7 +1392,10 @@ let g:dashboard_custom_shortcut={
 
 
 
-
+noremap  <m-u>：PreviewScroll -1 <cr>
+noremap  <m-d>：PreviewScroll + 1 <cr>
+inoremap  <m-u>  <c-\> <co>：PreviewScroll -1 <cr>
+inoremap  <m-d>  <c-\> <co>：PreviewScroll + 1 <cr>
 
 "==
 "== vim-preview
@@ -1658,10 +1666,6 @@ nmap <silent> <LEADER>- <Plug>(coc-diagnostic-prev)
 nmap <silent> <LEADER>= <Plug>(coc-diagnostic-next)
 
 nmap <space>rf <Plug>(coc-refactor)
-
-nnoremap <expr><M-w> coc#util#has_float() ? coc#util#float_scroll(1) : "\<C-f>"
-nnoremap <expr><M-q> coc#util#has_float() ? coc#util#float_scroll(0) : "\<C-b>"
-
 
 
 

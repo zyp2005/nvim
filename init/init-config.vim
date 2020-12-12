@@ -97,7 +97,7 @@ set backup
 " set writebackup
 
 " 如果过了这么多毫秒数以后还没有任何输入，把交换文件写入磁盘
-set updatetime=1000
+set updatetime=100
 
 
 " 备份文件地址，统一管理
