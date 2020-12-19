@@ -452,12 +452,12 @@ autocmd InsertEnter * call Fcitx2zh()
 
 call plug#begin('~/.config/nvim/plugged')
 
-	" 用 v 选中一个区域后，ALT_+/- 按分隔符扩大/缩小选区
-	Plug 'https://hub.fastgit.org/terryma/vim-expand-region'
+" 用 v 选中一个区域后，ALT_+/- 按分隔符扩大/缩小选区
+Plug 'https://hub.fastgit.org/terryma/vim-expand-region'
 
-	" ALT_+/- 用于按分隔符扩大缩小 v 选区
-	map <m-=> <Plug>(expand_region_expand)
-	map <m--> <Plug>(expand_region_shrink)
+" ALT_+/- 用于按分隔符扩大缩小 v 选区
+map <m-=> <Plug>(expand_region_expand)
+map <m--> <Plug>(expand_region_shrink)
 
 
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
@@ -541,22 +541,22 @@ Plug 'https://hub.fastgit.org/mbbill/undotree' "ss
 "Plug 'https://hub.fastgit.org/fszymanski/fzf-gitignore', { 'do': ':UpdateRemotePlugins' }
 "Plug 'https://hub.fastgit.org/mhinz/vim-signify'
 "Plug 'https://hub.fastgit.org/airblade/vim-gitgutter'
-Plug 'https://hub.fastgit.org/tpope/vim-fugitive'
+Plug 'https://hub.fastgit.org/tpope/vim-fugitive' "ss
 
 " Autoformat
-Plug 'https://hub.fastgit.org/Chiel92/vim-autoformat'
+Plug 'https://hub.fastgit.org/Chiel92/vim-autoformat' "ss
 
 " Markdown
-Plug 'https://hub.fastgit.org/iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install' , 'for' :['markdown', 'vim-plug'] }
-Plug 'https://hub.fastgit.org/dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle', 'for': ['text', 'markdown', 'vim-plug'] }
-Plug 'https://hub.fastgit.org/mzlogin/vim-markdown-toc', { 'for': ['gitignore', 'markdown', 'vim-plug'] }
-Plug 'https://hub.fastgit.org/dkarter/bullets.vim'
+Plug 'https://hub.fastgit.org/iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install' , 'for' :['markdown', 'vim-plug'] } "ss
+Plug 'https://hub.fastgit.org/dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle', 'for': ['text', 'markdown', 'vim-plug'] } "ss
+Plug 'https://hub.fastgit.org/mzlogin/vim-markdown-toc', { 'for': ['gitignore', 'markdown', 'vim-plug'] } "ss
+Plug 'https://hub.fastgit.org/dkarter/bullets.vim' "ss
 
 "vimspector
-Plug 'https://hub.fastgit.org/puremourning/vimspector'
+Plug 'https://hub.fastgit.org/puremourning/vimspector' "ss
 
 " Tex
-Plug 'https://hub.fastgit.org/lervag/vimtex'
+Plug 'https://hub.fastgit.org/lervag/vimtex' "ss
 
 "orgmode
 Plug 'https://hub.fastgit.org/jceb/vim-orgmode', {'for': ['vim-plug', 'org']}
@@ -1620,6 +1620,7 @@ let g:coc_global_extensions = [
 			\ 'coc-highlight',
 			\ 'coc-floaterm',
 			\ 'coc-git',
+			\ 'coc-json',
 			\ 'coc-yank']
 
 
@@ -1667,6 +1668,17 @@ nmap <silent> <LEADER>= <Plug>(coc-diagnostic-next)
 
 nmap <space>rf <Plug>(coc-refactor)
 
+if has('nvim-0.4.0') || has('patch-8.2.0750')
+	nnoremap <silent><nowait><expr> <c-j> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-j>\<C-j>\<C-j>\<C-j>\<C-j>"
+	nnoremap <silent><nowait><expr> <c-k> coc#float#has_scroll() ? coc#float#scroll(0) : "\<up>\<up>\<up>\<up>\<up>"
+	inoremap <silent><nowait><expr> <c-j> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+	inoremap <silent><nowait><expr> <c-k> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+	vnoremap <silent><nowait><expr> <c-j> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-j>\<C-j>\<C-j>\<C-j>\<C-j>"
+	vnoremap <silent><nowait><expr> <c-k> coc#float#has_scroll() ? coc#float#scroll(0) : "\<up>\<up>\<up>\<up>\<up>"
+endif
+
+
+
 
 
 
@@ -1679,7 +1691,7 @@ nmap <space>rf <Plug>(coc-refactor)
 "==
 let g:echodoc#enable_at_startup = 1
 let g:echodoc#type = 'echo'
-" To use a custom highlight for the float window,
+" To use a custom highlight for the fLoat window,
 " change Pmenu to your highlight group
 "highlight link EchoDocFloat Pmenu
 

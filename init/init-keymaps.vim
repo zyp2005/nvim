@@ -248,18 +248,18 @@ endif
 
 " ALT+h/l 快速左右按单词移动（正常模式+插入模式）
 inoremap <c-b> <c-left>
-inoremap <m-n> <c-right>
+inoremap <c-n> <c-right>
 " Faster in-line navigation
 noremap <c-n> 5w
 noremap <c-b> 5b
 
 " 命令模式下的相同快捷
-cnoremap <m-b> <c-left>
-cnoremap <m-n> <c-right>
+cnoremap <c-b> <c-left>
+cnoremap <c-n> <c-right>
 
 " ALT+y 删除到行末
-noremap <m-y> d$
-inoremap <m-y> <c-\><c-o>d$
+noremap <c-y> d$
+inoremap <c-y> <c-\><c-o>d$
 
 
 "----------------------------------------------------------------------
