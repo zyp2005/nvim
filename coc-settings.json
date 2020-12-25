@@ -6,7 +6,7 @@
   "git.splitWindowCommand": "below vs",
   "git.showCommitInFloating": true,
   "git.enableGutters": true,
-  "yank.enableCompletion": true,
+  "yank.enableCompletion": false,
   "suggest.maxPreviewWidth": 80,
   "suggest.labelMaxLength": 50,
   "suggest.detailMaxLength": 60,
