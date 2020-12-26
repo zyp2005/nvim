@@ -60,7 +60,7 @@
   "coc.preferences.hoverTarget": "float",
   "coc.preferences.formatOnType": true,
   "coc.preferences.previewAutoClose": true,
-  "list.previewSplitRight": true,
+  "list.previewSplitRight": false,
   "coc.preferences.rootPatterns": [".git", ".hg", ".projections.json", ".root"],
   "todolist.monitor": true,
   "todolist.easyMode": true,
