@@ -46,6 +46,9 @@ LoadScript init/init-keymaps.vim
 " 插件加载
 LoadScript init/init-plugins.vim
 
+"插件配置
+LoadScript init/init-extra.vim
+
 " 界面样式
 LoadScript init/init-style.vim
 
