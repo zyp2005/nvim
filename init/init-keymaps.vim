@@ -123,7 +123,8 @@ noremap '' <Esc>/<++><CR>:nohlsearch<CR>c4l
 " Press ` to change case (instead of ~)
 noremap ` ~
 
-
+" Folding
+noremap <silent> <LEADER>z za
 
 " Call figlet
 "noremap tx :r !figlet
@@ -283,7 +284,7 @@ let g:neoterm_autoscroll = 1
 tnoremap <C-N> <C-\><C-N>
 tnoremap <C-O> <C-\><C-N><C-O>
 tnoremap <C-Q> <C-\><C-N>:q<CR>
-tnoremap <leader> <nop>
+" tnoremap <leader> <nop>
 let g:terminal_color_0  = '#000000'
 let g:terminal_color_1  = '#FF5555'
 let g:terminal_color_2  = '#50FA7B'

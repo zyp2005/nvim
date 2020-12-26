@@ -1,3 +1,7 @@
+
+if index(g:bundle_group, 'quickui') >= 0
+	noremap <space><space> :call quickui#menu#open()<cr>
+endif
 if index(g:bundle_group, 'fzf') >= 0
 	"===
 	"=== fzf
@@ -101,14 +105,14 @@ if index(g:bundle_group, 'editor') >= 0
 	"let g:VM_custom_motions             = {'n': 'h', 'i': 'l', 'u': 'k', 'e': 'j', 'N': '0', 'I': '$', 'h': 'e'}
 	"let g:VM_maps['i']                  = 'k'
 	"let g:VM_maps['I']                  = 'K'
-	let g:VM_maps['Find Under']         = '<C-m>'
-	let g:VM_maps['Find Subword Under'] = '<C-m>'
+	let g:VM_maps['Find Under']         = '<m-m>'
+	let g:VM_maps['Find Subword Under'] = '<m-m>'
 	"let g:VM_maps['Find Next']          = ''
 	"let g:VM_maps['Find Prev']          = ''
 	"let g:VM_maps['Remove Region']      = 'q'
 	"let g:VM_maps['Skip Region']        = '<c-n>'
-	"let g:VM_maps["Undo"]               = 'l'
-	"let g:VM_maps["Redo"]               = '<C-r>'
+	let g:VM_maps["Undo"]               = 'u'
+	let g:VM_maps["Redo"]               = '<C-r>'
 
 	"==
 	"== antovim
@@ -275,12 +279,24 @@ if index(g:bundle_group, 'basic') >= 0
 	let g:floaterm_keymap_prev    =   '<M-f><M-p>'
 	let  g:floaterm_keymap_next    =  '<M-f><M-n>'
 	let  g:floaterm_keymap_kill    =  '<M-f><M-k>'
-	let  g:floaterm_keymap_toggle  =  '<M-t>'
+	let  g:floaterm_keymap_toggle  =  '<M-f><M-h>'
 	nmap <M-f><M-o> :FloatermNew<cr>
 	nmap <space>fl :CocList --auto-preview floaterm<CR>
 	nmap  <space>fr :FloatermNew ranger<CR>
 	nmap  <space>ff :FloatermNew fzf<CR>
 	nmap  <space>fg :FloatermNew lazygit<CR>
+
+function! s:run_floaterm(opts)
+  let cwd = getcwd()
+  let cmd = 'cd ' . shellescape(cwd) . ' && ' . a:opts.cmd
+  execute 'FloatermNew --position=topright --height=0.4 --width=0.5 --title=floaterm_runner --autoclose=0 ' . cmd
+  " Back to the normal mode
+  " stopinsert
+endfunction
+
+let g:asyncrun_runner = get(g:, 'asyncrun_runner', {})
+let g:asyncrun_runner.floaterm = function('s:run_floaterm')
+let g:asynctasks_term_pos = 'floaterm'
 
 
 	"===
@@ -408,68 +424,6 @@ if index(g:bundle_group, 'enhanced') >= 0
 	let g:better_whitespace_filetypes_blacklist=['diff', 'gitcommit', 'unite', 'qf', 'help', 'markdown','calendar','dashboard']
 	nnoremap <silent><m-w> :StripWhitespace<cr>
 	let g:better_whitespace_operator='<m-w>'
-
-
-	"===
-	"=== any-jump.vim
-	"===
-	" Normal mode: Jump to definition under cursore
-	nnoremap <space>jj :AnyJump<CR>
-	" Visual mode: jump to selected text in visual mode
-	xnoremap <space>jj :AnyJumpVisual<CR>
-	" Show line numbers in search rusults
-	let g:any_jump_list_numbers = 1
-	" Auto search references
-	let g:any_jump_references_enabled = 1
-	" Auto group results by filename
-	let g:any_jump_grouping_enabled = 0
-	" Amount of preview lines for each search result
-	let g:any_jump_preview_lines_count = 5
-	" Max search results, other results can be opened via [a]
-	let g:any_jump_max_search_results = 10
-	" Prefered search engine: rg or ag
-	let g:any_jump_search_prefered_engine = 'rg'
-
-	" Search results list styles:
-	" - 'filename_first'
-	" - 'filename_last'
-	let g:any_jump_results_ui_style = 'filename_first'
-	" Any-jump window size & position options
-	let g:any_jump_window_width_ratio  = 0.6
-	let g:any_jump_window_height_ratio = 0.6
-	let g:any_jump_window_top_offset   = 4
-	" Customize any-jump colors with extending default color scheme:
-	let g:any_jump_colors = { "help": "Comment" }
-	" Or override all default colors
-	let g:any_jump_colors = {
-				\"plain_text":         "Comment",
-				\"preview":            "Comment",
-				\"preview_keyword":    "Operator",
-				\"heading_text":       "Function",
-				\"heading_keyword":    "Identifier",
-				\"group_text":         "Comment",
-				\"group_name":         "Function",
-				\"more_button":        "Operator",
-				\"more_explain":       "Comment",
-				\"result_line_number": "Comment",
-				\"result_text":        "Statement",
-				\"result_path":        "String",
-				\"help":               "Comment"
-				\}
-	" Disable default any-jump keybindings (default: 0)
-	let g:any_jump_disable_default_keybindings = 0
-	" Remove comments line from search results (default: 1)
-	let g:any_jump_remove_comments_from_results = 1
-	" Custom ignore files
-	" default is: ['*.tmp', '*.temp']
-	let g:any_jump_ignored_files = ['*.tmp', '*.temp']
-	" Search references only for current file type
-	" (default: false, so will find keyword in all filetypes)
-	let g:any_jump_references_only_for_current_filetype = 0
-	" Disable search engine ignore vcs untracked files
-	" (default: false, search engine will ignore vcs untracked files)
-	let g:any_jump_disable_vcs_ignore = 0
-	let g:any_jump_disable_default_keybindings = 1
 
 
 	"===

@@ -179,6 +179,11 @@
         },
         "highlight": { "lsRanges": true }
       }
-    }
+    },
+  "lua": {
+    "command": "lua-lsp",
+    "filetypes": ["lua"],
+    "rootPatterns": [".git/"]
+  }
   }
 }

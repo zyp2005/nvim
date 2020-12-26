@@ -18,7 +18,7 @@ if !exists('g:bundle_group')
 	let g:bundle_group += [ 'airline',  'echodoc','fzf']
 	let g:bundle_group += ['Leaderf','extra','coc','debug','vimtex']
 	let g:bundle_group += ['calender','editor','general_writing','asyncrun']
-	let g:bundle_group += ['vista']
+	let g:bundle_group += ['vista','quickui']
 endif
 
 
@@ -43,6 +43,9 @@ call plug#begin(get(g:, 'bundle_home', '~/.config/nvim/bundles'))
 " 默认插件
 "----------------------------------------------------------------------
 
+if index(g:bundle_group, 'quickui') >= 0
+	Plug 'https://github.com/skywind3000/vim-quickui.git'
+endif
 
 if index(g:bundle_group, 'fzf') >= 0
 	Plug 'https://hub.fastgit.org/junegunn/fzf', { 'build': { -> fzf#install() } }
