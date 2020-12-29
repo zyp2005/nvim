@@ -35,7 +35,7 @@ set showtabline=2
 set list
 
 " tab与空格显示
-set listchars=tab:▸\ ,trail:▫
+" set listchars=tab:▸\ ,trail:▫
 
 " 右下角显示命令
 set showcmd
