@@ -18,7 +18,7 @@ if !exists('g:bundle_group')
 	let g:bundle_group += [ 'airline',  'echodoc','fzf']
 	let g:bundle_group += ['Leaderf','extra','coc','debug','vimtex']
 	let g:bundle_group += ['calender','editor','general_writing','asyncrun']
-	let g:bundle_group += ['vista','quickui']
+	let g:bundle_group += ['vista']
 endif
 
 
@@ -37,8 +37,8 @@ endfunc
 " 在 ~/.vim/bundles 下安装插件
 "----------------------------------------------------------------------
 call plug#begin(get(g:, 'bundle_home', '~/.config/nvim/bundles'))
-
-
+Plug 'https://github.com/neovim/nvim-lspconfig.git'
+Plug 'https://github.com/nvim-lua/completion-nvim.git'
 "----------------------------------------------------------------------
 " 默认插件
 "----------------------------------------------------------------------
@@ -118,19 +118,17 @@ endif
 
 
 "----------------------------------------------------------------------
-" 基础插件
+"   础插件
 "----------------------------------------------------------------------
 if index(g:bundle_group, 'basic') >= 0
 
-	" 全文快速移动，<space><leader>f{char} 即可触发
-	Plug 'https://hub.fastgit.org/easymotion/vim-easymotion'
-
-
-	" 展示开始画面
+	"   文快速移动，<space><leader>f{char}   可触发
+	Plug 'https://hub.fastgit.org/easymotion/vim-easymotion',{'on':['<Plug>(easymotion-overwin-f','<Plug>(easymotion-overwin-f2)','<Plug>(easymotion-overwin-line)','<Plug>(easymotion-overwin-w)']}
+	"   示开始画面
 	Plug 'https://hub.fastgit.org/hardcoreplayers/dashboard-nvim.git'
 
-	"浮动终端
-	Plug 'https://hub.fastgit.org/voldikss/vim-floaterm' "s
+	"  动终端
+	Plug 'https://hub.fastgit.org/voldikss/vim-floaterm',{'on':'FloatermNew'}
 
 
 	Plug 'https://hub.fastgit.org/lambdalisue/suda.vim' " do stuff like :sudowrite
@@ -139,26 +137,26 @@ if index(g:bundle_group, 'basic') >= 0
 	Plug 'https://hub.fastgit.org/sainnhe/gruvbox-material'
 	Plug 'https://hub.fastgit.org/rakr/vim-one'
 
-	" 支持库，给其他插件用的函数库
+	"   持库，  其他插件用的函数库
 	Plug 'https://hub.fastgit.org/xolox/vim-misc.git'
 
-	" 使用 ALT+e 会在不同窗口/标签上显示 A/B/C 等编号，然后字母直接跳转
+	"   用 ALT+e   在不同窗口/  签上显示 A/B/C   编号，  后字母直接跳转
 	Plug 't9md/vim-choosewin'
 
-	" 提供基于 TAGS 的定义预览，函数参数预览，quickfix 预览
-	Plug 'https://hub.fastgit.org/skywind3000/vim-preview'
+	"   供基于 TAGS   定义预览，  数参数预览，quickfix   览
+	Plug 'https://hub.fastgit.org/skywind3000/vim-preview',{'on':'PreviewQuickfix'}
 
-	" Git 支持
+	" Git   持
 	Plug 'https://hub.fastgit.org/tpope/vim-fugitive'
 
-	" 片段
+	"   段
 	Plug 'https://hub.fastgit.org/honza/vim-snippets'
 
 endif
 
 
 "----------------------------------------------------------------------
-" 增强插件
+"   强插件
 "----------------------------------------------------------------------
 if index(g:bundle_group, 'enhanced') >= 0
 
@@ -169,7 +167,7 @@ if index(g:bundle_group, 'enhanced') >= 0
 	Plug 'https://hub.fastgit.org/chrisbra/vim-diff-enhanced'
 
 	" Autoformat
-	Plug 'https://hub.fastgit.org/Chiel92/vim-autoformat'
+	Plug 'https://hub.fastgit.org/Chiel92/vim-autoformat',{'on':'Autoformat'}
 
 	" Undo Tree
 	Plug 'https://hub.fastgit.org/mbbill/undotree'
@@ -187,7 +185,7 @@ if index(g:bundle_group, 'enhanced') >= 0
 	Plug 'https://hub.fastgit.org/ryanoasis/vim-devicons'
 
 	"翻译
-	Plug 'https://hub.fastgit.org/voldikss/vim-translator'
+	Plug 'https://hub.fastgit.org/voldikss/vim-translator',{'on':['<Plug>(coc-translator-e)','<Plug>TranslateV','<Plug>(coc-translator-p)','<Plug>TranslateWV','<Plug>TranslateR','<Plug>TranslateRV']}
 
 	" 用 v 选中一个区域后，ALT_+/- 按分隔符扩大/缩小选区
 	Plug 'terryma/vim-expand-region'
@@ -285,8 +283,8 @@ if index(g:bundle_group, 'filetypes') >= 0
 	Plug 'https://hub.fastgit.org/iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install' , 'for' :['markdown', 'vim-plug'] }
 	Plug 'https://hub.fastgit.org/dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle', 'for': ['text', 'markdown', 'vim-plug'] }
 	Plug 'https://hub.fastgit.org/mzlogin/vim-markdown-toc', { 'for': ['gitignore', 'markdown', 'vim-plug'] }
-	Plug 'https://hub.fastgit.org/dkarter/bullets.vim'
-	endif
+	Plug 'https://hub.fastgit.org/dkarter/bullets.vim',{ 'for': ['markdown', 'vim-plug'] }
+endif
 
 
 "----------------------------------------------------------------------
@@ -330,9 +328,12 @@ endif
 "----------------------------------------------------------------------
 if index(g:bundle_group, 'Leaderf') >= 0
 	" 如果 vim 支持 python 则启用  Leaderf
-		Plug 'https://hub.fastgit.org/Yggdroot/leaderF', { 'do': './install.sh' }
+	Plug 'https://hub.fastgit.org/Yggdroot/leaderF', { 'do': './install.sh' }
 endif
 
+"----------------------------------------------------------------------
+" coc.nvim : lsp客户端
+"----------------------------------------------------------------------
 if index(g:bundle_group, 'coc') >= 0
 	Plug 'https://hub.fastgit.org/neoclide/coc.nvim', {'branch': 'release'} "ss
 
