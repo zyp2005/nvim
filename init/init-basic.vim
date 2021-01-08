@@ -95,10 +95,10 @@ endif
 "----------------------------------------------------------------------
 " 语法高亮设置
 "----------------------------------------------------------------------
-if has('syntax')
-	syntax enable
-	syntax on
-endif
+" if has('syntax')
+" 	syntax enable
+" 	syntax on
+" endif
 
 
 "----------------------------------------------------------------------
@@ -183,8 +183,8 @@ set visualbell
 " set directory=~/.config/nvim/tmp/backup,.
 "
 " if has('persistent_undo')
-" 	set undofile
-" 	set undodir=~/.config/nvim/tmp/undo,.
+"	set undofile
+"	set undodir=~/.config/nvim/tmp/undo,.
 " endif
 
 " 显示第100列
