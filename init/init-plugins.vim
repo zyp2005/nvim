@@ -44,6 +44,8 @@ if dein#load_state('/home/zyp/.config/nvim/dein')
 	" 默认插件
 	"----------------------------------------------------------------------
 
+	call dein#add('https://github.com/haya14busa/dein-command.vim.git')
+
 	if index(g:bundle_group, 'quickui') >= 0
 		call dein#add('https://github.com/skywind3000/vim-quickui.git')
 	endif
