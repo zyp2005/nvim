@@ -286,17 +286,17 @@ if index(g:bundle_group, 'basic') >= 0
 	nmap  <space>ff :FloatermNew fzf<CR>
 	nmap  <space>fg :FloatermNew lazygit<CR>
 
-function! s:run_floaterm(opts)
-  let cwd = getcwd()
-  let cmd = 'cd ' . shellescape(cwd) . ' && ' . a:opts.cmd
-  execute 'FloatermNew --position=topright --height=0.4 --width=0.5 --title=floaterm_runner --autoclose=0 ' . cmd
-  " Back to the normal mode
-  " stopinsert
-endfunction
+	function! s:run_floaterm(opts)
+		let cwd = getcwd()
+		let cmd = 'cd ' . shellescape(cwd) . ' && ' . a:opts.cmd
+		execute 'FloatermNew --position=topright --height=0.4 --width=0.5 --title=floaterm_runner --autoclose=0 ' . cmd
+		" Back to the normal mode
+		" stopinsert
+	endfunction
 
-let g:asyncrun_runner = get(g:, 'asyncrun_runner', {})
-let g:asyncrun_runner.floaterm = function('s:run_floaterm')
-let g:asynctasks_term_pos = 'floaterm'
+	let g:asyncrun_runner = get(g:, 'asyncrun_runner', {})
+	let g:asyncrun_runner.floaterm = function('s:run_floaterm')
+	let g:asynctasks_term_pos = 'floaterm'
 
 
 	"===
@@ -432,6 +432,24 @@ if index(g:bundle_group, 'enhanced') >= 0
 	" ALT_+/- 用于按分隔符扩大缩小 v 选区
 	map <m-=> <Plug>(expand_region_expand)
 	map <m--> <Plug>(expand_region_shrink)
+
+
+	"===
+	"=== vim-bookmarks
+	"===
+	nmap <silent> <space>mm <Plug>BookmarkToggle
+	nmap <silent><space>mi <Plug>BookmarkAnnotate
+	nmap <space>ml <Plug>BookmarkShowAll
+	nmap <space>mn <Plug>BookmarkNext
+	nmap <space>mb <Plug>BookmarkPrev
+	nmap <space>mcc <Plug>BookmarkClear
+	nmap <space>mca <Plug>BookmarkClearAll
+	nmap <space>mg <Plug>BookmarkMoveToLine
+	let g:bookmark_no_default_key_mappings = 1
+	let g:bookmark_highlight_lines = 1
+	" let g:bookmark_auto_save = 1
+	" let g:bookmark_save_per_working_dir = 1
+
 endif
 
 
@@ -803,13 +821,13 @@ if index(g:bundle_group, 'coc') >= 0
 	"===
 	"=== bookmark
 	"===
-	nmap <silent> <space>mm :CocCommand bookmark.toggle<cr>
-	nmap <silent> <space>mi :CocCommand bookmark.annotate<cr>
-	nmap <silent> <space>mb :CocCommand bookmark.prev<cr>
-	nmap <silent> <space>mn :CocCommand bookmark.next<cr>
-	nmap <silent> <space>mcc :CocCommand bookmark.clearForCurrentFile<cr>
-	nmap <silent> <space>mca :CocCommand bookmark.clearForAllFiles<cr>
-	nmap <silent> <space>ms :CocList -A bookmark<cr>
+	" nmap <silent> <space>mm :CocCommand bookmark.toggle<cr>
+	" nmap <silent> <space>mi :CocCommand bookmark.annotate<cr>
+	" nmap <silent> <space>mb :CocCommand bookmark.prev<cr>
+	" nmap <silent> <space>mn :CocCommand bookmark.next<cr>
+	" nmap <silent> <space>mcc :CocCommand bookmark.clearForCurrentFile<cr>
+	" nmap <silent> <space>mca :CocCommand bookmark.clearForAllFiles<cr>
+	" nmap <silent> <space>ms :CocList -A bookmark<cr>
 
 
 
@@ -862,7 +880,7 @@ if index(g:bundle_group, 'coc') >= 0
 	" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
 	" position. Coc only does snippet and additional edit on confirm.
 	" <cr> could be remapped by other vim plugin, try `:verbose imap <CR>`.
-		inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+	inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 	" inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
 	"			\: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 

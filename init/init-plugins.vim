@@ -155,6 +155,9 @@ if dein#load_state('/home/zyp/.config/nvim/dein')
 		"   段
 		call dein#add('https://hub.fastgit.org/honza/vim-snippets')
 
+		"书签
+		call dein#add('https://hub.fastgit.org/MattesGroeger/vim-bookmarks.git')
+
 	endif
 
 
