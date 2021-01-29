@@ -1,19 +1,19 @@
 
 "General settins{{{
-set mouse=nv                 " Disable mouse in command-line mode
-set report=0                 " Don't report on line changes
-set errorbells               " Trigger bell on error
-set visualbell               " Use visual bell instead of beeping
-set hidden                   " hide buffers when abandoned instead of unload
-set fileformats=unix,dos,mac " Use Unix as the standard file type
-set magic                    " For regular expressions turn magic on
-set path+=**                 " Directories to search when using gf and friends
+set mouse=nv                 " 在命令行模式下禁用鼠标
+set report=0                 " 不要报告在线更改
+set errorbells               " 触发错误提示
+set visualbell               " 用视觉铃声代替蜂鸣声
+set hidden                   " 放弃而不是卸载时隐藏缓冲区
+set fileformats=unix,dos,mac " 使用unix作为标准文件类型
+set magic                    " 为正则表达式打开magic
+set path+=**                 " 使用gf和朋友时要搜索的目录
 set isfname-==               " Remove =, detects filename in var=/foo/bar
-set virtualedit=block        " Position cursor anywhere in visual block
-set synmaxcol=2500           " Don't syntax highlight long lines
-set formatoptions+=1         " Don't break lines after a one-letter word
-set formatoptions-=t         " Don't auto-wrap text
-set formatoptions-=o         " Disable comment-continuation (normal 'o'/'O')
+set virtualedit=block        "允许可视列块模式的虚拟编辑
+set synmaxcol=2500           " 不要用语法突出显示长行
+set formatoptions+=1         " 一个字母的单词后不要换行
+set formatoptions-=t         " 不要自动换行
+set formatoptions-=o         " 禁用评论继续 (normal 'o'/'O')
 if has('patch-7.3.541')
 	set formatoptions+=j       " Remove comment leader when joining lines
 endif
@@ -23,7 +23,7 @@ if has('vim_starting')
 	scriptencoding utf-8
 endif
 
-" What to save for views and sessions:
+" 保存用于视图和会话的内容:
 set viewoptions=folds,cursor,curdir,slash,unix
 set sessionoptions=curdir,help,tabpages,winsize
 
@@ -46,11 +46,11 @@ if has('clipboard')
 	set clipboard& clipboard+=unnamedplus
 endif
 
-" Wildmenu {{{
+" wildmenu {{{
 " --------
 if has('wildmenu')
 	if ! has('nvim')
-		set wildmode=list:longest
+		set wildmode=list:full
 	endif
 
 	" if has('nvim')
@@ -70,7 +70,7 @@ if has('wildmenu')
 endif
 " }}}
 
-" Vim Directories {{{
+" vim目录 {{{
 " ---------------
 set nobackup
 set nowritebackup
@@ -79,10 +79,10 @@ set directory=$DATA_PATH/swap//,$DATA_PATH,~/tmp,/var/tmp,/tmp
 set undodir=$DATA_PATH/undo//,$DATA_PATH,~/tmp,/var/tmp,/tmp
 set backupdir=$DATA_PATH/backup/,$DATA_PATH,~/tmp,/var/tmp,/tmp
 set viewdir=$DATA_PATH/view/
-" Use the coc-spell-checker to do this
+" 使用coc-spell-checker执行此操作
 " set spellfile=$VIM_PATH/spell/en.utf-8.add
 
-" History saving
+" 历史保存
 set history=2000
 
 if has('nvim') && ! has('win32') && ! has('win64')
@@ -100,7 +100,7 @@ augroup user_persistent_undo
 	au BufWritePre *.bak           setlocal noundofile
 augroup END
 
-" If sudo, disable vim swap/backup/undo/shada/viminfo writing
+" 如果是sudo，请禁用vim swap / backup / undo / shada / viminfo编写
 if $SUDO_USER !=# '' && $USER !=# $SUDO_USER
 		\ && $HOME !=# expand('~'.$USER)
 		\ && $HOME ==# expand('~'.$SUDO_USER)
@@ -115,13 +115,13 @@ if $SUDO_USER !=# '' && $USER !=# $SUDO_USER
 	endif
 endif
 
-" Secure sensitive information, disable backup files in temp directories
+" 保护敏感信息，禁用临时目录中的备份文件
 if exists('&backupskip')
 	set backupskip+=/tmp/*,$TMPDIR/*,$TMP/*,$TEMP/*,*/shm/*,/private/var/*
 	set backupskip+=.vault.vim
 endif
 
-" Disable swap/undo/viminfo/shada files in temp directories or shm
+" 禁用临时目录或shm中的swap / undo / viminfo / shada文件
 augroup user_secure
 	autocmd!
 	silent! autocmd BufNewFile,BufReadPre
@@ -131,20 +131,20 @@ augroup END
 
 " }}}
 
-" Tabs and Indents {{{
+" 制表符和缩进 {{{
 " ----------------
-set textwidth=80    " Text width maximum chars before wrapping
-set noexpandtab     " Don't expand tabs to spaces
-set tabstop=2       " The number of spaces a tab is
-set shiftwidth=2    " Number of spaces to use in auto(indent)
-set softtabstop=-1  " Automatically keeps in sync with shiftwidth
-set smarttab        " Tab insert blanks according to 'shiftwidth'
-set autoindent      " Use same indenting on new lines
-set smartindent     " Smart autoindenting on new lines
-set shiftround      " Round indent to multiple of 'shiftwidth'
+set textwidth=80    " 换行前文字宽度最大字符
+set noexpandtab     " 不要将制表符扩展到空格
+set tabstop=4       " 制表符的空格数
+set shiftwidth=4    " 缩进宽度
+set softtabstop=-1  " 自动与shiftwidth保持同步
+set smarttab        " tab根据'shiftwidth'插入空白
+set autoindent      " 在新行上使用相同的缩进
+set smartindent     " 在新行上智能自动缩进
+set shiftround      " 将缩进舍入为“ shiftwidth”的倍数
 
 if exists('&breakindent')
-	set breakindentopt=shift:2,min:20
+	set breakindentopt=shift:4,min:20
 endif
 
 " }}}
@@ -152,23 +152,23 @@ endif
 " Timing {{{
 " ------
 set timeout ttimeout
-set timeoutlen=500   " Time out on mappings
-set ttimeoutlen=10   " Time out on key codes
-set updatetime=100   " Idle time to write swap and trigger CursorHold
-set redrawtime=1500  " Time in milliseconds for stopping display redraw
+set timeoutlen=500   " 映射超时
+set ttimeoutlen=10   " 按键密码超时
+set updatetime=100   " 空闲时间来写交换并触发游标保持
+set redrawtime=1500  " 停止显示重绘的时间（以毫秒为单位）
 
 " }}}
 
-" Searching {{{
+" 搜索 {{{
 " ---------
-set ignorecase    " Search ignoring case
-set smartcase     " Keep case when searching with *
-set infercase     " Adjust case in insert completion mode
-set incsearch     " Incremental search
-set wrapscan      " Searches wrap around the end of the file
-set hlsearch      " Highlight search results
+set ignorecase    " 搜索忽略大小写
+set smartcase     " *时请注意大小写
+set infercase     " 在插入完成模式下调整大小写
+set incsearch     " 增量搜索
+set wrapscan      " 搜索环绕文件末尾
+set hlsearch      " 突出显示搜索结果
 
-set complete=.,w,b,k  " C-n completion: Scan buffers, windows and dictionary
+set complete=.,w,b,k  " c-n完成：扫描缓冲区，窗口和字典
 
 if exists('+inccommand')
 	set inccommand=nosplit
@@ -184,19 +184,19 @@ endif
 
 " }}}
 
-" Behavior {{{
+" 行为 {{{
 " --------
-set autoread                    " Auto readfile
-set nowrap                      " No wrap by default
-set linebreak                   " Break long lines at 'breakat'
-set breakat=\ \	;:,!?           " Long lines break chars
-set nostartofline               " Cursor in same column for few commands
-set whichwrap+=h,l,<,>,[,],~    " Move to following line on certain keys
-set splitbelow splitright       " Splits open bottom right
-set switchbuf=useopen,vsplit    " Jump to the first open window
-set backspace=indent,eol,start  " Intuitive backspacing in insert mode
-set diffopt=filler,iwhite       " Diff mode: show fillers, ignore whitespace
-set completeopt=menu,menuone    " Always show menu, even for one item
+set autoread                    " 自动读取文件
+set nowrap                      " 默认长行不回绕
+set linebreak                   " 在breakket的设置下打开回绕
+set breakat=\ \	;:,!?           " 回绕默认字符
+set nostartofline               " 光标定位在同一列中的几个命令
+set whichwrap+=h,l,<,>,[,],~    " 移至某些键的下一行
+set splitbelow splitright       " 右下分割
+set switchbuf=useopen,vsplit    " 跳到第一个打开的窗口
+set backspace=indent,eol,start  " 插入模式下直观的退格
+set diffopt=filler,iwhite       " 差异模式：显示填充符，忽略空格
+set completeopt=menu,menuone    " 总是显示菜单，即使是一个
 set completeopt+=noselect,noinsert
 
 if exists('+completepopup')
@@ -215,18 +215,19 @@ if has('patch-8.1.0360') || has('nvim-0.4')
 endif
 " }}}
 
-" Editor UI {{{
-set termguicolors       " Enable true color
-set number              " Show number
-set relativenumber      " Show relative number
-set noshowmode          " Don't show mode on bottom
-set noruler             " Disable default status ruler
+
+" 编辑器ui {{{
+set termguicolors       " 启用真彩色
+set number              " 显示行号
+set relativenumber      " 显示相对编号
+set noshowmode          " 不要在底部显示模式
+set noruler             " 禁用默认状态标尺
 set shortmess=aFc
-set scrolloff=2         " Keep at least 2 lines above/below
-set fillchars+=vert:\|  " add a bar for vertical splits
+set scrolloff=4         " Keep at least 2 lines above/below
+" set fillchars+=vert:\|  " 添加垂直分割条
 set fcs=eob:\           " hide ~ tila
 set list
-set listchars=tab:»·,nbsp:+,trail:·,extends:→,precedes:←
+set listchars=tab:\|\ ,nbsp:+,trail:·,extends:→,precedes:←  " 设置分隔符可视
 set title
 " Title length.
 set titlelen=95
@@ -235,31 +236,33 @@ let &g:titlestring="
       \ %{expand('%:p:~:.')}%(%m%r%w%)
       \ %<\[%{fnamemodify(getcwd(), ':~')}\] - Neovim"
 
-set showmatch           " Jump to matching bracket
-set matchpairs+=<:>     " Add HTML brackets to pair matching
-set matchtime=1         " Tenths of a second to show the matching paren
+set showmatch           " 跳转到匹配的括号
+set matchpairs+=<:>     " 添加html括号以配对
+set matchtime=1         " 十分之一秒显示匹配的括号
 
-set showtabline=2       " Always show the tabs line
-set winwidth=30         " Minimum width for active window
-set winminwidth=10      " Minimum width for inactive windows
+set showtabline=2       " 总是显示状态栏
+set winwidth=30         " 活动窗口的最小宽度
+set winminwidth=10      " 非活动窗口的最小宽度
 " set winheight=4         " Minimum height for active window
-set winminheight=1      " Minimum height for inactive window
-set pumheight=15        " Pop-up menu's line height
-set helpheight=12       " Minimum help window height
-set previewheight=12    " Completion preview height
+set winminheight=1      " 非活动窗口的最小高度
+set pumheight=15        " 弹出菜单的行高
+set helpheight=12       " 最小帮助窗口高度
+set previewheight=12    " 完成预览高度
 
-set showcmd             " Show command in status line
-set cmdheight=2         " Height of the command line
-set cmdwinheight=5      " Command-line lines
-set noequalalways       " Don't resize windows on split or close
-set laststatus=2        " Always show a status line
-"set colorcolumn=+0      " Column highlight at textwidth's max character-limit
+
+set showcmd             " 在状态行中显示命令
+set cmdheight=1         " 命令行高度
+set cmdwinheight=7      " 命令行
+set noequalalways       " 不在拆分或关闭时调整窗口大小
+set laststatus=2        " 始终显示状态行
+"set colorcolumn=+0      " 文字高亮显示在textwidth的最大字符数限制处
 set display=lastline
 
 if has('folding') && has('vim_starting')
 	set foldenable
 	set foldmethod=indent
 	set foldlevelstart=99
+	set indentexpr=
 endif
 
 if has('nvim-0.4')
@@ -277,7 +280,7 @@ if exists('+previewpopup')
 	set previewpopup=height:10,width:60
 endif
 
-" Pseudo-transparency for completion menu and floating windows
+" 完成菜单和浮动窗口的伪透明性
 if &termguicolors
 	if exists('&pumblend')
 		set pumblend=10

@@ -153,7 +153,7 @@ function! s:use_dein()
 			call dein#save_state()
 		endif
 
-		" Update or install plugins if a change detected
+		" 如果检测到更改，请更新或安装插件
 		if dein#check_install()
 			if ! has('nvim')
 				set nomore
@@ -164,12 +164,12 @@ function! s:use_dein()
 
 	filetype plugin indent on
 
-	" Only enable syntax when vim is starting
+	" 仅在vim启动时启用语法
 	if has('vim_starting')
 		syntax enable
 	endif
 
-	" Trigger source event hooks
+	" 触发源事件挂钩
 	call dein#call_hook('source')
 	call dein#call_hook('post_source')
 endfunction
@@ -177,7 +177,7 @@ endfunction
 function! s:parse_config_files()
 	let l:merged = []
 	try
-		" Merge all lists of plugins together
+		" 合并所有插件列表
 		for l:cfg_file in s:config_paths
 			let l:merged = extend(l:merged, s:load_config(l:cfg_file))
 		endfor
@@ -190,8 +190,8 @@ function! s:parse_config_files()
 		echomsg 'Caught: ' v:exception
 	endtry
 
-	" If there's more than one config file source,
-	" de-duplicate plugins by repo key.
+	" 如果有多个配置文件源，
+	" 通过回购密钥重复删除插件。
 	if len(s:config_paths) > 1
 		call s:dedupe_plugins(l:merged)
 	endif
@@ -216,7 +216,7 @@ function! s:dedupe_plugins(list)
 	return reverse(l:list)
 endfunction
 
-" General utilities, mainly for dealing with user configuration parsing
+" 通用实用程序，主要用于处理用户配置解析
 " ---
 
 function! s:error(msg)
@@ -246,11 +246,11 @@ function! s:load_config(filename)
 endfunction
 
 function! s:str2list(expr)
-	" Convert string to list
+	" 将字符串转换为列表
 	return type(a:expr) ==# v:t_list ? a:expr : split(a:expr, '\n')
 endfunction
 
-" YAML related
+" YAML 相关的
 " ---
 
 let g:yaml2json_method = ''
@@ -286,16 +286,16 @@ endfunction
 
 function! s:find_yaml2json_method()
 	if exists('*json_decode')
-		" First, try to decode YAML using a CLI tool named yaml2json, there's many
+		" 首先，尝试使用名为yaml2json的cli工具解码yaml, there's many
 		if executable('yaml2json') && s:test_yaml2json()
 			return 'yaml2json'
 		elseif executable('yq')
 			return 'yq'
-		" Or, try ruby. Which is installed on every macOS by default
-		" and has yaml built-in.
+		" 或者，尝试红宝石。默认情况下在每个macOS上安装
+		" 并内置yaml。
 		elseif executable('ruby') && s:test_ruby_yaml()
 			return 'ruby'
-		" Or, fallback to use python3 and PyYAML
+		" 或者，回退以使用python3和pyyaml
 		elseif executable('python') && s:test_python_yaml()
 			return 'python'
 		endif
@@ -305,7 +305,7 @@ function! s:find_yaml2json_method()
 endfunction
 
 function! s:test_yaml2json()
-	" Test yaml2json capabilities
+	" 测试yaml2json功能
 	try
 		let result = system('yaml2json', "---\ntest: 1")
 		if v:shell_error != 0
@@ -319,13 +319,13 @@ function! s:test_yaml2json()
 endfunction
 
 function! s:test_ruby_yaml()
-	" Test Ruby YAML capabilities
+	" 测试ruby yaml功能
 	call system("ruby -e 'require \"json\"; require \"yaml\"'")
 	return (v:shell_error == 0) ? 1 : 0
 endfunction
 
 function! s:test_python_yaml()
-	" Test Python YAML capabilities
+	" 测试python yaml功能
 	call system("python -c 'import sys,yaml,json'")
 	return (v:shell_error == 0) ? 1 : 0
 endfunction

@@ -1,40 +1,40 @@
 
 augroup user_plugin_filetype "{{{
   autocmd!
-  " Reload vim config automatically
+  " 自动重新加载vim配置
   autocmd BufWritePost $VIM_PATH/{*.vim,*.yaml,vimrc} nested
         \ source $MYVIMRC | redraw
 
-  " Reload Vim script automatically if setlocal autoread
+  " 如果setlocal autoread自动重载vim脚本
   autocmd BufWritePost,FileWritePost *.vim nested
         \ if &l:autoread > 0 | source <afile> |
         \   echo 'source ' . bufname('%') |
         \ endif
 
-  " Update filetype on save if empty
+  " 保存时更新文件类型（如果为空）
   autocmd BufWritePost * nested
         \ if &l:filetype ==# '' || exists('b:ftdetect')
         \ |   unlet! b:ftdetect
         \ |   filetype detect
         \ | endif
 
-  " Highlight current line only on focused window
+  " 仅在焦点窗口上突出显示当前行
   autocmd WinEnter,InsertLeave * if &ft !~# '^\(denite\|clap_\)' |
     \ set cursorline | endif
 
   autocmd WinLeave,InsertEnter * if &ft !~# '^\(denite\|clap_\)' |
     \ set nocursorline | endif
 
-  " Automatically set read-only for files being edited elsewhere
+  " 自动为在其他位置编辑的文件设置只读
   autocmd SwapExists * nested let v:swapchoice = 'o'
 
-  " Equalize window dimensions when resizing vim window
+  " 调整vim窗口大小时均衡窗口尺寸
   autocmd VimResized * tabdo wincmd =
 
-  " Force write shada on leaving nvim
+  " 在离开nvim时强制写shada
   autocmd VimLeave * if has('nvim') | wshada! | else | wviminfo! | endif
 
-  " Check if file changed when its window is focus, more eager than 'autoread'
+  " 检查文件是否在焦点对准窗口时更改，而不是“自动读取”
   autocmd FocusGained * checktime
 
   autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | execute "normal! g'\"" | endif

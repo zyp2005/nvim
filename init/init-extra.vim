@@ -993,7 +993,6 @@ if index(g:bundle_group, 'coc') >= 0
 				\ 'coc-tasks',
 				\ 'coc-todolist',
 				\ 'coc-translator',
-				\ 'coc-tsserver',
 				\ 'coc-vimlsp',
 				\ 'coc-highlight',
 				\ 'coc-floaterm',
