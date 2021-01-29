@@ -4,13 +4,6 @@ if &compatible
 	" vint: +ProhibitSetNoCompatible
 endif
 
-" 将主配置目录设置为父目录
-let $VIM_PATH = fnamemodify(resolve(expand('<sfile>:p')), ':h:h')
-let $THINKVIM = expand($HOME.'/.thinkvim.d')
-
-" 设置用户配置文件
-let s:user_init_config = expand($THINKVIM.'/init.vim')
-
 " 加载插件
 let g:loaded_gzip = 1
 let g:loaded_tar = 1
@@ -52,12 +45,10 @@ if has('vim_starting')
 
 endif
 
-call utils#source_file($VIM_PATH,'core/packman.vim')
-call utils#source_file($VIM_PATH,'core/general.vim')
-call utils#source_file($VIM_PATH,'core/filetype.vim')
+" call utils#source_file($VIM_PATH,'core/packman.vim')
+" call utils#source_file($VIM_PATH,'core/general.vim')
+" call utils#source_file($VIM_PATH,'core/filetype.vim')
 
-" Load user init config
-call utils#check_source(s:user_init_config)
 
 " disable all keymaps of plugins
 let g:thinkvim_disable_mappings = 0
@@ -67,12 +58,7 @@ let g:thinkvim_disable_pmaping = []
 " Load key map
 call utils#source_file($VIM_PATH,'keybinds/keybinds.vim')
 
-" Initialize user favorite colorscheme
-call theme#init()
-
-if exists("*UserInit")
-	call UserInit()
-endif
+"theme
 
 set secure
 

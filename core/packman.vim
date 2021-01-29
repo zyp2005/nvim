@@ -11,16 +11,6 @@ augroup END
 " 初始化选项
 let s:package_manager = 'dein'
 
-" 将主配置目录设置为父目录
-let $VIM_PATH =
-	\ get(g:, 'etc_vim_path',
-	\   exists('*stdpath') ? stdpath('config') :
-	\   ! empty($MYVIMRC) ? fnamemodify(expand($MYVIMRC), ':h') :
-	\   ! empty($VIMCONFIG) ? expand($VIMCONFIG) :
-	\   ! empty($VIM_PATH) ? expand($VIM_PATH) :
-	\   fnamemodify(resolve(expand('<sfile>:p')), ':h:h')
-	\ )
-
 " 将数据/缓存目录设置为 $XDG_CACHE_HOME/vim
 let $DATA_PATH =
 	\ expand(($XDG_CACHE_HOME ? $XDG_CACHE_HOME : '~/.cache') . '/vim')
@@ -35,22 +25,6 @@ let s:config_paths = get(g:, 'etc_config_paths', [
 	\ ])
 
 let s:user_plugins=expand($VIM_PATH.'/core/plugins.yaml')
-
-function! s:load_plugins(plugin_files)
-	" 检查用户插件
-	if filereadable(a:plugin_files)
-		let content = readfile(a:plugin_files)
-		if empty(content)
-			" 过滤不存在的配置路径
-			call filter(s:config_paths, 'filereadable(v:val)')
-		else
-			call filter(s:config_paths, 'filereadable(v:val)')
-			call add(s:config_paths,a:plugin_files)
-		endif
-	else
-		call filter(s:config_paths, 'filereadable(v:val)')
-	endif
-endfunction
 
 function! s:main()
 	call s:load_plugins(s:user_plugins)
@@ -130,11 +104,6 @@ function! s:use_dein()
 
 	" 初始化dein.vim（软件包管理器）
 	if dein#load_state(l:cache_path)
-		let l:rc = s:parse_config_files()
-		if empty(l:rc)
-			call s:error('Empty plugin list')
-			return
-		endif
 
 		" 开始传播文件路径和插件预设
 		call dein#begin(l:cache_path, extend([expand('<sfile>')], s:config_paths))
@@ -142,10 +111,6 @@ function! s:use_dein()
 			call dein#add(plugin['repo'], extend(plugin, {}, 'keep'))
 		endfor
 
-		" 添加任何本地 ./dev 插件
-		if isdirectory($VIM_PATH . '/dev')
-			call dein#local($VIM_PATH . '/dev', { 'frozen': 1, 'merged': 0 })
-		endif
 		call dein#end()
 
 		" 保存缓存状态以加快启动速度
@@ -174,81 +139,11 @@ function! s:use_dein()
 	call dein#call_hook('post_source')
 endfunction
 
-function! s:parse_config_files()
-	let l:merged = []
-	try
-		" 合并所有插件列表
-		for l:cfg_file in s:config_paths
-			let l:merged = extend(l:merged, s:load_config(l:cfg_file))
-		endfor
-	catch /.*/
-		call s:error(
-			\ 'Unable to read configuration files at ' . string(s:config_paths))
-		echoerr v:exception
-		echomsg 'Error parsing user configuration file(s).'
-		echoerr 'Please run: pip3 install --user PyYAML'
-		echomsg 'Caught: ' v:exception
-	endtry
 
-	" 如果有多个配置文件源，
-	" 通过回购密钥重复删除插件。
-	if len(s:config_paths) > 1
-		call s:dedupe_plugins(l:merged)
-	endif
-	return l:merged
-endfunction
-
-function! s:dedupe_plugins(list)
-	let l:list = reverse(a:list)
-	let l:i = 0
-	let l:seen = {}
-	while i < len(l:list)
-		let l:key = list[i]['repo']
-		if l:key !=# '' && has_key(l:seen, l:key)
-			call remove(l:list, i)
-		else
-			if l:key !=# ''
-				let l:seen[l:key] = 1
-			endif
-			let l:i += 1
-		endif
-	endwhile
-	return reverse(l:list)
-endfunction
 
 " 通用实用程序，主要用于处理用户配置解析
 " ---
 
-function! s:error(msg)
-	for l:mes in s:str2list(a:msg)
-		echohl WarningMsg | echomsg '[config/init] ' . l:mes | echohl None
-	endfor
-endfunction
-
-function! s:debug(msg)
-	for l:mes in s:str2list(a:msg)
-		echohl WarningMsg | echomsg '[config/init] ' . l:mes | echohl None
-	endfor
-endfunction
-
-function! s:load_config(filename)
-	" Parse YAML/JSON config file
-	if a:filename =~# '\.json$'
-		" Parse JSON with built-in json_decode
-		let l:json = readfile(a:filename)
-		return has('nvim') ? json_decode(l:json) : json_decode(join(l:json))
-	elseif a:filename =~# '\.ya\?ml$'
-		" Parse YAML with common command-line utilities
-		return s:load_yaml(a:filename)
-	endif
-	call s:error('Unknown config file format ' . a:filename)
-	return ''
-endfunction
-
-function! s:str2list(expr)
-	" 将字符串转换为列表
-	return type(a:expr) ==# v:t_list ? a:expr : split(a:expr, '\n')
-endfunction
 
 " YAML 相关的
 " ---
