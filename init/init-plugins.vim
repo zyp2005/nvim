@@ -25,12 +25,6 @@ endif
 "----------------------------------------------------------------------
 " 计算当前 vim-init 的子路径
 "----------------------------------------------------------------------
-let s:home = fnamemodify(resolve(expand('<sfile>:p')), ':h:h')
-
-function! s:path(path)
-	let path = expand(s:home . '/' . a:path )
-	return substitute(path, '\\', '/', 'g')
-endfunc
 
 
 "----------------------------------------------------------------------
@@ -131,7 +125,17 @@ if dein#load_state('/home/zyp/.config/nvim/dein')
 		call dein#add('https://hub.fastgit.org/hardcoreplayers/dashboard-nvim.git')
 
 		"  动终端
-		call dein#add('https://hub.fastgit.org/voldikss/vim-floaterm',{'on_cmd':'FloatermNew'})
+		call dein#add('https://hub.fastgit.org/voldikss/vim-floaterm',{
+					\'on_cmd':'FloatermNew',
+					\ 'hook_source': "
+					\let g:floaterm_width = 0.7\n
+					\let g:floaterm_height = 0.7\n
+					\let g:floaterm_winblend = 15\n
+					\hi Floaterm guibg=black\n
+					\hi FloatermBorder guibg=normal\n
+					\hi FloatermNC guibg=black\n
+					\"})
+
 
 
 		call dein#add('https://hub.fastgit.org/lambdalisue/suda.vim') " do stuff like :sudowrite
@@ -375,3 +379,5 @@ function! Fcitx2zh()
 	endif
 endfunction
 
+autocmd VimEnter * call dein#call_hook('post_source')
+call dein#call_hook('source')

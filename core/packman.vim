@@ -135,96 +135,10 @@ function! s:use_dein()
 	endif
 
 	" 触发源事件挂钩
-	call dein#call_hook('source')
-	call dein#call_hook('post_source')
+	" call dein#call_hook('source')
+	" call dein#call_hook('post_source')
 endfunction
 
 
-
-" 通用实用程序，主要用于处理用户配置解析
-" ---
-
-
-" YAML 相关的
-" ---
-
-let g:yaml2json_method = ''
-
-function! s:load_yaml(filename)
-	if empty(g:yaml2json_method)
-		let g:yaml2json_method = s:find_yaml2json_method()
-	endif
-
-	if g:yaml2json_method ==# 'ruby'
-		let l:cmd = "ruby -e 'require \"json\"; require \"yaml\"; ".
-			\ "print JSON.generate YAML.load \$stdin.read'"
-	elseif g:yaml2json_method ==# 'python'
-		let l:cmd = "python -c 'import sys,yaml,json; y=yaml.safe_load(sys.stdin.read()); print(json.dumps(y))'"
-	elseif g:yaml2json_method ==# 'yq'
-		let l:cmd = 'yq r -j -'
-	else
-		let l:cmd = g:yaml2json_method
-	endif
-
-	try
-		let l:raw = readfile(a:filename)
-		return json_decode(system(l:cmd, l:raw))
-	catch /.*/
-		call s:error([
-			\ string(v:exception),
-			\ 'Error loading ' . a:filename,
-			\ 'Caught: ' . string(v:exception),
-			\ 'Please run: pip install --user PyYAML',
-			\ ])
-	endtry
-endfunction
-
-function! s:find_yaml2json_method()
-	if exists('*json_decode')
-		" 首先，尝试使用名为yaml2json的cli工具解码yaml, there's many
-		if executable('yaml2json') && s:test_yaml2json()
-			return 'yaml2json'
-		elseif executable('yq')
-			return 'yq'
-		" 或者，尝试红宝石。默认情况下在每个macOS上安装
-		" 并内置yaml。
-		elseif executable('ruby') && s:test_ruby_yaml()
-			return 'ruby'
-		" 或者，回退以使用python3和pyyaml
-		elseif executable('python') && s:test_python_yaml()
-			return 'python'
-		endif
-		call s:error('Unable to find a proper YAML parsing utility')
-	endif
-	call s:error('Please upgrade to neovim +v0.1.4 or vim: +v7.4.1304')
-endfunction
-
-function! s:test_yaml2json()
-	" 测试yaml2json功能
-	try
-		let result = system('yaml2json', "---\ntest: 1")
-		if v:shell_error != 0
-			return 0
-		endif
-		let result = json_decode(result)
-		return result.test
-	catch
-	endtry
-	return 0
-endfunction
-
-function! s:test_ruby_yaml()
-	" 测试ruby yaml功能
-	call system("ruby -e 'require \"json\"; require \"yaml\"'")
-	return (v:shell_error == 0) ? 1 : 0
-endfunction
-
-function! s:test_python_yaml()
-	" 测试python yaml功能
-	call system("python -c 'import sys,yaml,json'")
-	return (v:shell_error == 0) ? 1 : 0
-endfunction
-
-call s:main()
 
 " vim: set ts=2 sw=2 tw=80 noet :
