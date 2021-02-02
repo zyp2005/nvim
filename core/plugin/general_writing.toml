@@ -1,0 +1,17 @@
+#
+#
+#
+
+[[plugins]]
+repo = 'https://hub.fastgit.org/junegunn/goyo.vim'
+on_cmd = 'Goyo'
+hook_add = 'map <space>gy :Goyo<CR>'
+
+
+[[plugins]]
+repo = 'https://hub.fastgit.org/reedes/vim-wordy'
+
+
+[[plugins]]
+repo = 'https://hub.fastgit.org/ron89/thesaurus_query.vim'
+hook_source = 'source $NVIM_PATH/modules/general_writing/thesaurus_query.vim'
