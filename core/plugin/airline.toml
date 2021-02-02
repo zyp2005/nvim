@@ -1,0 +1,17 @@
+# ------------------------------------------------------
+# 状态栏
+# ------------------------------------------------------
+
+[[plugins]]
+repo = 'https://hub.fastgit.org/vim-airline/vim-airline'
+hook_source = 'source $NVIM_PATH/modules/airline/airline.vim'
+
+[[plugins]]
+repo = 'https://hub.fastgit.org/vim-airline/vim-airline-themes'
+
+[[plugins]]
+repo = 'https://hub.fastgit.org/zefei/vim-wintabs'
+hook_source = 'source $NVIM_PATH/modules/airline/vim-wintabs.vim'
+
+[[plugins]]
+repo = 'https://hub.fastgit.org/zefei/vim-wintabs-powerline'

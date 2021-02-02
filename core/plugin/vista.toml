@@ -1,0 +1,6 @@
+# ------------------------------------------------------
+#
+# ------------------------------------------------------
+[[plugins]]
+repo = 'https://hub.fastgit.org/liuchengxu/vista.vim'
+hook_source = 'source $NVIM_PATH/modules/vista/vista.vim'

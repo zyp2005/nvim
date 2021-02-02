@@ -1,0 +1,8 @@
+#
+#
+#
+
+[[plugins]]
+repo = 'https://hub.fastgit.org/lervag/vimtex'
+on_ft = 'tex'
+hook_source = 'source $NVIM_PATH/modules/vimtex/vimtex.vim'

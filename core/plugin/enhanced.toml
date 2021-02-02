@@ -1,0 +1,50 @@
+# ------------------------------------------------------
+# 增强插件
+# ------------------------------------------------------
+
+# 表格对齐，使用命令 Tabularize
+[[plugins]]
+repo = 'https://hub.fastgit.org/godlygeek/tabular'
+on_cmd = 'Tabularize'
+hook_add = 'source $NVIM_PATH/modules/enhanced/tabular_add.vim'
+
+#格式化
+[[plugins]]
+repo = 'https://hub.fastgit.org/Chiel92/vim-autoformat'
+on_cmd = ['Autoformat','tabe']
+hook_add = '''
+	noremap <space>vl :tabe .clang-format<CR>:LoadFormatTemplate<CR>
+	nnoremap <space>\ :Autoformat<CR>
+'''
+hook_source = 'source $NVIM_PATH/modules/enhanced/vim-autoformat.vim'
+
+# 修改树
+[[plugins]]
+repo = 'https://hub.fastgit.org/mbbill/undotree'
+hook_add = 'noremap <space>u :UndotreeToggle<CR>'
+hook_source = 'source $NVIM_PATH/modules/enhanced/undotree.vim'
+
+# 彩虹括号
+[[plugins]]
+repo = 'https://hub.fastgit.org/luochen1990/rainbow'
+hook_add = 'source $NVIM_PATH/modules/enhanced/tranbow.vim'
+
+# 中文文档
+[[plugins]]
+repo = 'https://hub.fastgit.org/yianwillis/vimcdoc'
+
+# 空白检测
+[[plugins]]
+repo = 'https://hub.fastgit.org/ntpeters/vim-better-whitespace.git'
+hook_source = 'source $NVIM_PATH/modules/enhanced/vim-whitespace.vim'
+
+# 提供图形字符支持
+[[plugins]]
+repo = 'https://hub.fastgit.org/ryanoasis/vim-devicons'
+
+# 翻译
+[[plugins]]
+repo = 'https://hub.fastgit.org/voldikss/vim-translator'
+on_map = '<Plug>'
+hook_add = 'source $NVIM_PATH/modules/enhanced/vim-translator_add.vim'
+

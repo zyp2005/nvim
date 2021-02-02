@@ -1,0 +1,7 @@
+# ------------------------------------------------------
+# echodoc：搭配 YCM/deoplete 在底部显示函数参数
+# ------------------------------------------------------
+
+[[plugins]]
+repo = 'https://hub.fastgit.org/Shougo/echodoc.vim.git'
+hook_source = 'source $NVIM_PATH/modules/echodoc/echodoc.vim'

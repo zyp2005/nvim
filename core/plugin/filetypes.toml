@@ -1,0 +1,63 @@
+# ------------------------------------------------------
+# 文件类型扩展
+# ------------------------------------------------------
+
+#toml
+[[plugins]]
+repo = 'https://github.com/cespare/vim-toml.git'
+on_ft = 'toml'
+
+#powershell 脚本文件的语法高亮
+[[plugins]]
+repo = 'https://hub.fastgit.org/pprovost/vim-ps1'
+on_ft = 'ps1'
+
+#lua 语法高亮增强
+[[plugins]]
+repo = 'https://hub.fastgit.org/tbastos/vim-lua'
+on_ft = 'lua'
+
+#额外语法文件
+[[plugins]]
+repo = 'https://hub.fastgit.org/justinmk/vim-syntax-extra'
+on_ft = ['c', 'bison', 'flex', 'cpp']
+
+#python 语法文件增强
+[[plugins]]
+repo = 'https://hub.fastgit.org/vim-python/python-syntax'
+on_ft = 'python'
+
+#rust 语法增强
+[[plugins]]
+repo = 'https://hub.fastgit.org/rust-lang/rust.vim'
+on_ft = 'rust'
+
+#vim org-mode
+[[plugins]]
+repo = 'https://hub.fastgit.org/jceb/vim-orgmode'
+on_ft = 'org'
+
+#c/c++语言高亮
+[[plugins]]
+repo = 'https://hub.fastgit.org/jackguo380/vim-lsp-cxx-highlight.git'
+on_ft = ['c', 'cpp']
+
+# markdown
+[[plugins]]
+repo = 'https://hub.fastgit.org/iamcco/markdown-preview.nvim'
+build = 'sh -c "cd app & yarn install"'
+on_ft = ['markdown', 'vim-plug']
+
+[[plugins]]
+repo = 'https://hub.fastgit.org/dhruvasagar/vim-table-mode'
+on_cmd = 'TableModeToggle'
+on_ft = ['markdown', 'vim-plug','text']
+
+
+[[plugins]]
+repo = 'https://hub.fastgit.org/mzlogin/vim-markdown-toc'
+on_ft = ['gitignore', 'markdown', 'vim-plug']
+
+[[plugins]]
+repo = 'https://hub.fastgit.org/dkarter/bullets.vim'
+on_ft = ['markdown', 'vim-plug']

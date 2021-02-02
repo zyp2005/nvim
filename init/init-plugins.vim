@@ -262,6 +262,8 @@ if dein#load_state('/home/zyp/.config/nvim/dein')
 	"----------------------------------------------------------------------
 	if index(g:bundle_group, 'filetypes') >= 0
 
+
+		call dein#add('https://github.com/cespare/vim-toml.git',{'on_ft':'toml'})
 		" powershell 脚本文件的语法高亮
 		call dein#add('https://hub.fastgit.org/pprovost/vim-ps1', { 'on_ft': 'ps1' })
 

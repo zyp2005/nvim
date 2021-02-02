@@ -252,17 +252,29 @@ if index(g:bundle_group, 'basic') >= 0
 				\ '          |___/|_|                          ',
 				\ ]
 	nmap <space>nn :<C-u>DashboardNewFile<CR>
-	let g:dashboard_custom_shortcut={
-				\ 'last_session' : 'no map',
-				\ 'find_history' : 'SPC s h',
-				\ 'find_file' : 'SPC s f',
-				\ 'new_file' : 'SPC c n',
-				\ 'change_colorscheme' : 'SPC s c',
-				\ 'find_word' : 'SPC s r',
-				\ 'book_marks' : 'SPC m s',
-				\ }
-
-
+	let g:dashboard_custom_section = {
+   \ 'last_session'        :{
+      \ 'description': ['  Reload last session                   no     '],
+      \ 'command': 'SessionLoad'},
+   \ 'find_history'        :{
+      \ 'description': ['  Recently opened files                 no     '],
+      \ 'command': 'DashboardFindHistory'},
+   \ 'find_file'           :{
+      \ 'description': ['  Find File                             no     '],
+      \ 'command': 'DashboardFindFile'},
+   \ 'change_colorscheme'  :{
+      \ 'description': ['  Change Colorscheme                    no     '],
+      \ 'command': 'DashboardChangeColorscheme'},
+   \ 'find_word'           :{
+      \ 'description': ['  Find word                             no     '],
+      \ 'command': 'DashboardFindWord'},
+   \ 'book_marks'          :{
+      \ 'description': ['  Jump to bookmark                      SPC m l'],
+      \ 'command': 'BookmarkShowAll'},
+   \ 'open_personal'       :{
+      \ 'description': ['  Open Personal Config File             no     '],
+      \ 'command': 'Clap personalconf'},
+   \}
 	"===
 	"=== vim-floaterm
 	"===

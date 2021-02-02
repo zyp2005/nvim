@@ -1,0 +1,10 @@
+# ------------------------------------------------------
+# 日历
+# ------------------------------------------------------
+
+[[plugins]]
+repo = 'https://hub.fastgit.org/itchyny/calendar.vim'
+on_cmd = 'Calendar'
+hook_add = 'noremap \c :Calendar<CR>:q<cr>:Calendar -view=clock -position=tab<CR>'
+hook_source = 'source $NVIM_PATH/modules/calendar/calendar.vim'
+

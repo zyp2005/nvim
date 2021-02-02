@@ -1,0 +1,80 @@
+# ------------------------------------------------------
+# 基础插件
+# ------------------------------------------------------
+
+# 文本快速移动
+[[plugins]]
+repo = 'https://hub.fastgit.org/easymotion/vim-easymotion'
+on_map = '<Plug>'
+hook_add = '''
+	nmap <space>ef <Plug>(easymotion-overwin-f)
+	nmap <space>eF <Plug>(easymotion-overwin-f2)
+	nmap <space>el <Plug>(easymotion-overwin-line)
+	nmap <space>ew <Plug>(easymotion-overwin-w)
+'''
+hook_source = 'source $NVIM_PATH/modules/basic/vim-easymotion.vim'
+
+# 显示开始画面
+[[plugins]]
+repo = 'https://hub.fastgit.org/hardcoreplayers/dashboard-nvim.git'
+hook_source = 'source $NVIM_PATH/modules/basic/dashboard-nvim.vim'
+
+# 浮动终端
+[[plugins]]
+repo = 'https://hub.fastgit.org/voldikss/vim-floaterm'
+hook_add = '''
+	let  g:floaterm_keymap_new     =  '<M-f><M-o>'
+	let g:floaterm_keymap_prev    =   '<M-f><M-p>'
+	let  g:floaterm_keymap_next    =  '<M-f><M-n>'
+	let  g:floaterm_keymap_kill    =  '<M-f><M-k>'
+	let  g:floaterm_keymap_toggle  =  '<M-f><M-h>'
+	nmap <M-f><M-o> :FloatermNew<cr>
+	nmap <space>fl :CocList --auto-preview floaterm<CR>
+	nmap  <space>fr :FloatermNew ranger<CR>
+	nmap  <space>ff :FloatermNew fzf<CR>
+	nmap  <space>fg :FloatermNew lazygit<CR>
+'''
+hook_source = ' source $NVIM_PATH/modules/basic/vim-floaterm.vim'
+
+
+# 颜色主题
+[[plugins]]
+repo = 'https://hub.fastgit.org/sainnhe/gruvbox-material'
+hook_source = 'source $NVIM_PATH/modules/basic/gruvbox-material.vim'
+[[plugins]]
+repo = 'https://hub.fastgit.org/rakr/vim-one'
+
+# ALT+e 窗口移动
+[[plugins]]
+repo = 'https://hub.fastgit.org/t9md/vim-choosewin'
+on_map = '<Plug>'
+hook_add = 'nmap <m-e> <Plug>(choosewin)'
+
+# 更强的quickfix
+[[plugins]]
+repo = 'https://hub.fastgit.org/skywind3000/vim-preview'
+on_cmd = 'PreviewQuickfix'
+hook_add = 'source $NVIM_PATH/modules/basic/vim-preview_add.vim'
+
+# git支持
+[[plugins]]
+repo = 'https://hub.fastgit.org/tpope/vim-fugitive'
+
+# 文本片段
+[[plugins]]
+repo = 'https://hub.fastgit.org/honza/vim-snippets'
+lazy = 1
+
+# 书签
+[[plugins]]
+repo = 'https://hub.fastgit.org/MattesGroeger/vim-bookmarks.git'
+on_map = '<Plug>'
+hook_add = 'source $NVIM_PATH/modules/basic/vim-bookmarks_add.vim'
+hook_source = 'let g:bookmark_no_default_key_mappings = 1'
+
+# 用sw使sudo保存
+[[plugins]]
+repo = 'https://hub.fastgit.org/lambdalisue/suda.vim'
+on_cmd = 'sw'
+hook_add = 'source $NVIM_PATH/modules/basic/suda_add.vim'
+

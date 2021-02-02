@@ -1,0 +1,18 @@
+# ------------------------------------------------------
+# 异步运行程序
+# ------------------------------------------------------
+
+[[plugins]]
+repo = 'https://hub.fastgit.org/skywind3000/asynctasks.vim'
+on_cmd = 'AsyncTask'
+hook_add = '''
+	noremap <silent><space><F3> :AsyncTask file-build<cr>
+	noremap <silent><space><F5> :AsyncTask file-run<cr>
+'''
+hook_source = 'source $NVIM_PATH/modules/asyncrun/asyncrun.vim'
+depends = ['asyncrun.vim','vim-floaterm']
+
+
+[[plugins]]
+repo = 'https://hub.fastgit.org/skywind3000/asyncrun.vim'
+on_cmd = 'AsyncTask'

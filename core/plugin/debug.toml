@@ -1,0 +1,21 @@
+# -------------------------------------------------------
+# 调试
+# -------------------------------------------------------
+
+[[plugins]]
+repo = 'https://hub.fastgit.org/puremourning/vimspector'
+hook_add = '''
+	noremap <space>vs :tabe .vimspector.json<CR>:LoadVimSpectorJsonTemplate<CR>
+'''
+hook_source = 'source $NVIM_PATH/modules/debug/vimspector.vim'
+
+[[plugins]]
+repo = 'https://hub.fastgit.org/idanarye/vim-vebugger'
+hook_source = 'source $NVIM_PATH/modules/debug/vedebugger.vim'
+
+[[plugins]]
+repo = 'https://hub.fastgit.org/Shougo/vimproc.vim'
+build = 'make'
+
+
+
