@@ -27,30 +27,27 @@ exec 'set rtp+='.s:path
 " 将 ~/.vim 目录加入 runtimepath (有时候 vim 不会自动帮你加入）
 " set rtp+=~/.vim
 
-
-
-
 " 模块加载
 "----------------------------------------------------------------------
 
 " 加载基础配置
-LoadScript init/init-basic.vim
+LoadScript core/init-basic.vim
 
 " 加载扩展配置
-LoadScript init/init-config.vim
+LoadScript core/init-config.vim
 
 " 设定 tabsize
-LoadScript init/init-tabsize.vim
+LoadScript core/init-tabsize.vim
 
 " 自定义按键
-LoadScript init/init-keymaps.vim
+LoadScript core/init-keymaps.vim
 
 " 插件加载
-LoadScript init/init-plugins.vim
+LoadScript core/init-plugins.vim
 
 "插件配置
-LoadScript init/init-extra.vim
+LoadScript core/init-extra.vim
 
 " 界面样式
-LoadScript init/init-style.vim
+LoadScript core/init-style.vim
 

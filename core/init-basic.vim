@@ -170,7 +170,6 @@ set mouse=a
 
 "保存用于视图和会话的内容:
 set viewoptions=cursor,folds,slash,unix
-set sessionoptions=blank,buffers,curdir,folds,help,options,tabpages,winsize,terminal
 
 " 超过78个词换行
 set tw=78
