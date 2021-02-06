@@ -20,11 +20,22 @@ set shiftwidth=4
 set tabstop=4
 
 " 禁止展开 tab (noexpandtab)
-set noet
+set noexpandtab
 
 " 如果后面设置了 expandtab 那么展开 tab 为多少字符
 set softtabstop=4
 
+" 在新行上使用相同的缩进
+set autoindent
+
+ " 在新行上智能自动缩进
+set smartindent
+
+if exists('&breakindent')
+	set breakindentopt=shift:4,min:20
+endif
+
+set whichwrap+=<,>,[,],~    " 移至某些键的下一行
 
 augroup PythonTab
 	au!

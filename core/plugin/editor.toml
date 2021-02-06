@@ -1,0 +1,63 @@
+#p
+#p
+#p
+
+#自动括号
+[[plugins]]
+repo = 'https://hub.fastgit.org/jiangmiao/auto-pairs'
+
+# 多光标
+[[plugins]]
+repo = 'https://hub.fastgit.org/mg979/vim-visual-multi'
+on_map = '<Plug>'
+hook_source = 'source $NVIM_PATH/modules/editor/vim-visual-multi.vim'
+
+# 注释
+[[plugins]]
+repo = 'https://hub.fastgit.org/tomtom/tcomment_vim'
+hook_add = 'source $NVIM_PATH/modules/editor/tcomment_vim_add.vim'
+
+
+# 快速替换
+[[plugins]]
+repo = 'https://hub.fastgit.org/jwarby/antovim.git'
+on_cmd = 'Antovim'
+hook_add = 'source $NVIM_PATH/modules/editor/antovim_add.vim'
+
+# 快速操作type yskw' to wrap the word with '' or type cs'` to change 'word' to `word`
+[[plugins]]
+repo = 'https://hub.fastgit.org/tpope/vim-surround'
+
+# 选中块in Visual mode, type i' to select all text in '', or type k) k] k} kp
+[[plugins]]
+repo = 'https://hub.fastgit.org/gcmt/wildfire.vim'
+
+# da= to delete what's after =
+[[plugins]]
+repo = 'https://hub.fastgit.org/junegunn/vim-after-object'
+hook_source = 'source $NVIM_PATH/modules/editor/vim-after-object.vim'
+
+# [[plugins]]
+# repo = 'https://hub.fastgit.org/Konfekt/FastFold'
+
+# [[plugins]]
+# repo = 'https://hub.fastgit.org/wellle/context.vim'
+
+[[plugins]]
+repo = 'https://hub.fastgit.org/rhysd/clever-f.vim'
+
+[[plugins]]
+repo = 'https://hub.fastgit.org/chrisbra/NrrwRgn'
+on_cmd = 'NR'
+hook_add = 'noremap <space>nm :NR<CR>'
+hook_source = 'source $NVIM_PATH/modules/editor/NrrwRgn.vim'
+
+
+[[plugins]]
+repo = 'https://hub.fastgit.org/brooth/far.vim'
+on_cmd = ['F','Far','Fardo']
+hook_add = '''
+	noremap <space>FF :F  **/*<left><left><left><left><left>
+	noremap <space>FD :Far  **/*<left><left><left><left><left>
+'''
+hook_source = 'source $NVIM_PATH/modules/editor/Far.vim'

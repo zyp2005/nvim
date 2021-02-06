@@ -13,6 +13,9 @@
 " 显示设置
 "----------------------------------------------------------------------
 
+"不要用语法突出显示长行
+set synmaxcol=2500
+
 " 总是显示状态栏
 set laststatus=2
 
@@ -44,13 +47,37 @@ set showcmd
 " 先注释掉，默认已经为真了，如果这里再设置一遍会影响 echodoc 插件
 set noshowmode
 
-" 水平切割窗口时，默认在右边显示新窗口
-set splitright
-
-" 垂直切割，窗口的分割会把新窗口放到当前窗口之下
-set splitbelow
+" 右下分割
+set splitbelow splitright
 
 set inccommand=split
+
+set winwidth=30         " 活动窗口的最小宽度
+set winminwidth=10      " 非活动窗口的最小宽度
+set winminheight=1      " 非活动窗口的最小高度
+set pumheight=15        " 弹出菜单的行高
+set helpheight=12       " 最小帮助窗口高度
+set previewheight=12    " 完成预览高度
+
+if has('conceal') && v:version >= 703
+	" 用于代码段完整标记
+	set conceallevel=2 concealcursor=niv
+endif
+
+if exists('+previewpopup')
+	set previewpopup=height:10,width:60
+endif
+
+" 完成菜单和浮动窗口的伪透明性
+if &termguicolors
+	if exists('&pumblend')
+		set pumblend=10
+	endif
+	if exists('&winblend')
+		set winblend=10
+	endif
+endif
+
 
 "----------------------------------------------------------------------
 " 颜色主题：色彩文件位于 colors 目录中
@@ -295,6 +322,14 @@ set tabline=%!Vim_NeatTabLine()
 set guitablabel=%{Vim_NeatGuiTabLabel()}
 set guitabtooltip=%{Vim_NeatGuiTabTip()}
 
+set title
+" Title length.
+set titlelen=95
+" Title string.
+let &g:titlestring="
+      \ %{expand('%:p:~:.')}%(%m%r%w%)
+      \ %<\[%{fnamemodify(getcwd(), ':~')}\] - Neovim"
+
 "设置python与默认浏览器
 let has_machine_specific_file = 1
 if empty(glob('~/.config/nvim/_machine_specific.vim'))
@@ -302,4 +337,5 @@ if empty(glob('~/.config/nvim/_machine_specific.vim'))
 	silent! exec "!cp ~/.config/nvim/default_configs/_machine_specific_default.vim ~/.config/nvim/_machine_specific.vim"
 endif
 source ~/.config/nvim/_machine_specific.vim
+
 

@@ -71,7 +71,24 @@ function! s:use_dein()
 	if dein#load_state(l:cache_path)
 
 		" 开始传播文件路径和插件预设
-		call dein#begin(l:cache_path, extend([expand('<sfile>')], s:config_paths))
+		call dein#begin(l:cache_path)
+			call dein#load_toml($NVIM_PATH.'/core/plugin/basic.toml')
+			call dein#load_toml($NVIM_PATH.'/core/plugin/airline.toml')
+			call dein#load_toml($NVIM_PATH.'/core/plugin/asyncrun.toml')
+			call dein#load_toml($NVIM_PATH.'/core/plugin/calender.toml')
+			call dein#load_toml($NVIM_PATH.'/core/plugin/coc.toml')
+			call dein#load_toml($NVIM_PATH.'/core/plugin/debug.toml')
+			call dein#load_toml($NVIM_PATH.'/core/plugin/echo.toml')
+			call dein#load_toml($NVIM_PATH.'/core/plugin/editor.toml')
+			call dein#load_toml($NVIM_PATH.'/core/plugin/enhanced.toml')
+			call dein#load_toml($NVIM_PATH.'/core/plugin/filetypes.toml')
+			call dein#load_toml($NVIM_PATH.'/core/plugin/fzf.toml')
+			call dein#load_toml($NVIM_PATH.'/core/plugin/general_writing.toml')
+			call dein#load_toml($NVIM_PATH.'/core/plugin/Leaderf.toml')
+			call dein#load_toml($NVIM_PATH.'/core/plugin/quickui.toml')
+			call dein#load_toml($NVIM_PATH.'/core/plugin/textobj.toml')
+			call dein#load_toml($NVIM_PATH.'/core/plugin/vimtex.toml')
+			call dein#load_toml($NVIM_PATH.'/core/plugin/vista.toml')
 
 		call dein#end()
 
@@ -98,74 +115,11 @@ function! s:use_dein()
 
 	" 触发源事件挂钩
 	call dein#call_hook('source')
-	call dein#call_hook('post_source')
 	autocmd VimEnter * call dein#call_hook('post_source')
 endfunction
 
 
 call s:main()
-
-
-
-
-
-
-
-
-
-
-
-
-"----------------------------------------------------------------------
-" 在 ~/.vim/bundles 下安装插件
-"----------------------------------------------------------------------
-set runtimepath+=/home/zyp/.config/nvim/dein/repos/github.com/Shougo/dein.vim
-	call dein#begin('/home/zyp/.config/nvim/dein')
-
-	"----------------------------------------------------------------------
-	" 默认插件
-	"----------------------------------------------------------------------
-
-	call dein#add('https://github.com/haya14busa/dein-command.vim.git')
-
-
-	if index(g:bundle_group, 'editor') >= 0
-
-		call dein#add('https://hub.fastgit.org/jiangmiao/auto-pairs')
-		call dein#add('https://hub.fastgit.org/mg979/vim-visual-multi')
-		call dein#add('https://hub.fastgit.org/tomtom/tcomment_vim') " 在<space> cn中注释行
-		call dein#add('https://hub.fastgit.org/jwarby/antovim.git') " gs切换
-		call dein#add('https://hub.fastgit.org/tpope/vim-surround') " type yskw' to wrap the word with '' or type cs'` to change 'word' to `word`
-		call dein#add('https://hub.fastgit.org/gcmt/wildfire.vim') " in Visual mode, type i' to select all text in '', or type k) k] k} kp
-		call dein#add('https://hub.fastgit.org/junegunn/vim-after-object') " da= to delete what's after =
-		" call dein#add('https://hub.fastgit.org/tpope/vim-capslock'	" Ctrl+L (insert) to toggle capslock
-		"call dein#add('https://hub.fastgit.org/Konfekt/FastFold')
-		"call dein#add('https://hub.fastgit.org/junegunn/vim-peekaboo')
-		" call dein#add('https://hub.fastgit.org/wellle/context.vim'
-		"call dein#add('https://hub.fastgit.org/svermeulen/vim-subversive')
-		" call dein#add('https://hub.fastgit.org/theniceboy/argtextobj.vim'
-		call dein#add('https://hub.fastgit.org/rhysd/clever-f.vim')
-		call dein#add('https://hub.fastgit.org/chrisbra/NrrwRgn')
-		" Find & Replace
-		call dein#add('https://hub.fastgit.org/brooth/far.vim', { 'on_cmd': ['F', 'Far', 'Fardo'] })
-		" call dein#add('https://hub.fastgit.org/AndrewRadev/splitjoin.vim'
-
-	endif
-
-
-
-	if index(g:bundle_group, 'debug') >= 0
-
-		call dein#add('https://hub.fastgit.org/puremourning/vimspector')
-		call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
-		call dein#add('https://hub.fastgit.org/idanarye/vim-vebugger')
-
-
-	endif
-
-
-
-
 
 
 "##### auto fcitx  ###########

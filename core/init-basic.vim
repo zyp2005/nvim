@@ -31,8 +31,10 @@ set cindent
 " Windows 禁用 ALT 操作菜单（使得 ALT 可以用到 Vim里）
 set winaltkeys=no
 
-"不自动换行(长行全部显示)
-set wrap
+"长行不全部显示
+set nowrap
+set linebreak   " 在breakket的设置下打开回绕
+set breakat=\ \	;:,!?           " 回绕默认字符
 
 " 打开功能键超时检测（终端下功能键为一串 ESC 开头的字符串）
 set ttimeout
@@ -78,6 +80,8 @@ if has('multi_byte')
 
 	" 打开文件时自动尝试下面顺序的编码
 	set fileencodings=ucs-bom,utf-8,gbk,gb18030,big5,euc-jp,latin1
+
+	scriptencoding utf-8
 endif
 
 
@@ -105,11 +109,17 @@ endif
 " 其他设置
 "----------------------------------------------------------------------
 
+"为正则表达式打开magic
+set magic                    " 为正则表达式打开magic
+
 " 显示匹配的括号
 set showmatch
 
 " 显示括号匹配的时间
-set matchtime=2
+set matchtime=1
+
+" 添加html括号以配对
+set matchpairs+=<:>     " 添加html括号以配对
 
 " 显示最后一行
 set display=lastline
@@ -158,8 +168,9 @@ set scrolloff=4
 " 允许鼠标
 set mouse=a
 
-
+"保存用于视图和会话的内容:
 set viewoptions=cursor,folds,slash,unix
+set sessionoptions=blank,buffers,curdir,folds,help,options,tabpages,winsize,terminal
 
 " 超过78个词换行
 set tw=78
@@ -174,6 +185,8 @@ set ttyfast "should make scrolling faster
 
 " 使用可视响铃代替鸣叫
 set visualbell
+set errorbells               " 触发错误提示
+
 
 " 交换文件
 " silent !mkdir -p ~/.config/nvim/tmp/backup
@@ -225,6 +238,8 @@ endif
 "----------------------------------------------------------------------
 set suffixes=.bak,~,.o,.h,.info,.swp,.obj,.pyc,.pyo,.egg-info,.class
 
+
+set wildignorecase
 set wildignore=*.o,*.obj,*~,*.exe,*.a,*.pdb,*.lib "stuff to ignore when tab completing
 set wildignore+=*.so,*.dll,*.swp,*.egg,*.jar,*.class,*.pyc,*.pyo,*.bin,*.dex
 set wildignore+=*.zip,*.7z,*.rar,*.gz,*.tar,*.gzip,*.bz2,*.tgz,*.xz    " MacOSX/Linux
