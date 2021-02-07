@@ -548,8 +548,8 @@ function! s:remove_triggers(name)
     execute 'silent! delc' cmd
   endfor
   for map in s:triggers[a:name].map
-    execute 'silent! unmap' map
-    execute 'silent! iunmap' map
+    execute 'silent! unnoremap' map
+    execute 'silent! iunnoremap' map
   endfor
   call remove(s:triggers, a:name)
 endfunction
@@ -838,7 +838,7 @@ function! s:prepare(...)
   call s:assign_name()
 
   for k in ['<cr>', 'L', 'o', 'X', 'd', 'dd']
-    execute 'silent! unmap <buffer>' k
+    execute 'silent! unnoremap <buffer>' k
   endfor
   setlocal buftype=nofile bufhidden=wipe nobuflisted nolist noswapfile nowrap cursorline modifiable nospell
   if exists('+colorcolumn')
@@ -2251,7 +2251,7 @@ function! s:clean(force)
     else
       call setline(4, 'Cancelled.')
       nnoremap <silent> <buffer> d :set opfunc=<sid>delete_op<cr>g@
-      nmap     <silent> <buffer> dd d_
+      nnoremap     <silent> <buffer> dd d_
       xnoremap <silent> <buffer> d :<c-u>call <sid>delete_op(visualmode(), 1)<cr>
       echo 'Delete the lines (d{motion}) to delete the corresponding directories'
     endif
@@ -2516,10 +2516,10 @@ function! s:diff()
   if cnts[0] || cnts[1]
     nnoremap <silent> <buffer> <plug>(plug-preview) :silent! call <SID>preview_commit()<cr>
     if empty(maparg("\<cr>", 'n'))
-      nmap <buffer> <cr> <plug>(plug-preview)
+      nnoremap <buffer> <cr> <plug>(plug-preview)
     endif
     if empty(maparg('o', 'n'))
-      nmap <buffer> o <plug>(plug-preview)
+      nnoremap <buffer> o <plug>(plug-preview)
     endif
   endif
   if cnts[0]

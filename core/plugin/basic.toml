@@ -10,7 +10,6 @@ hook_add = '''
 	nmap <space>ef <Plug>(easymotion-overwin-f)
 	nmap <space>eF <Plug>(easymotion-overwin-f2)
 	nmap <space>el <Plug>(easymotion-overwin-line)
-	nmap <space>ew <Plug>(easymotion-overwin-w)
 '''
 hook_source = 'source $NVIM_PATH/modules/basic/vim-easymotion.vim'
 
@@ -22,6 +21,7 @@ hook_source = 'source $NVIM_PATH/modules/basic/dashboard-nvim.vim'
 # 浮动终端
 [[plugins]]
 repo = 'https://hub.fastgit.org/voldikss/vim-floaterm'
+on_cmd = 'FloatermNew'
 hook_add = '''
 	let  g:floaterm_keymap_new     =  '<M-f><M-o>'
 	let g:floaterm_keymap_prev    =   '<M-f><M-p>'
@@ -63,18 +63,18 @@ repo = 'https://hub.fastgit.org/tpope/vim-fugitive'
 # 文本片段
 [[plugins]]
 repo = 'https://hub.fastgit.org/honza/vim-snippets'
-lazy = 1
 
 # 书签
 [[plugins]]
 repo = 'https://hub.fastgit.org/MattesGroeger/vim-bookmarks.git'
-on_map = '<Plug>'
+on_event = 'VimEnter'
+on_map = '<Plug>Bookmark'
 hook_add = 'source $NVIM_PATH/modules/basic/vim-bookmarks_add.vim'
 hook_source = 'let g:bookmark_no_default_key_mappings = 1'
 
 # 用sw使sudo保存
 [[plugins]]
 repo = 'https://hub.fastgit.org/lambdalisue/suda.vim'
-on_cmd = 'sw'
+on_event = 'FileChangedRO'
 hook_add = 'source $NVIM_PATH/modules/basic/suda_add.vim'
 

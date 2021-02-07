@@ -3,11 +3,11 @@
 # ------------------------------------------------------
 
 [[plugins]]
-repo = 'https://hub.fastgit.org/vim-airline/vim-airline'
-hook_source = 'source $NVIM_PATH/modules/airline/airline.vim'
+repo = 'https://hub.fastgit.org/itchyny/lightline.vim'
+hook_source = 'source $NVIM_PATH/modules/airline/lightline.vim'
 
 [[plugins]]
-repo = 'https://hub.fastgit.org/vim-airline/vim-airline-themes'
+repo = 'https://hub.fastgit.org/shinchu/lightline-gruvbox.vim'
 
 [[plugins]]
 repo = 'https://hub.fastgit.org/zefei/vim-wintabs'

@@ -5,4 +5,5 @@ let g:far#mapping = {
 			\ "replace_undo" : ["l"],
 			\ }
 let g:far#auto_preview = 1
+let g:far#enable_undo = 1
 

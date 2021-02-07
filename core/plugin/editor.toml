@@ -9,12 +9,13 @@ repo = 'https://hub.fastgit.org/jiangmiao/auto-pairs'
 # 多光标
 [[plugins]]
 repo = 'https://hub.fastgit.org/mg979/vim-visual-multi'
-on_map = '<Plug>'
+on_map = ['\\\','<C-m>','<C-up>','<C-down>']
 hook_source = 'source $NVIM_PATH/modules/editor/vim-visual-multi.vim'
 
 # 注释
 [[plugins]]
 repo = 'https://hub.fastgit.org/tomtom/tcomment_vim'
+on_map = ['g>c','g>','g<','g<c']
 hook_add = 'source $NVIM_PATH/modules/editor/tcomment_vim_add.vim'
 
 
@@ -30,18 +31,19 @@ repo = 'https://hub.fastgit.org/tpope/vim-surround'
 
 # 选中块in Visual mode, type i' to select all text in '', or type k) k] k} kp
 [[plugins]]
-repo = 'https://hub.fastgit.org/gcmt/wildfire.vim'
-
-# da= to delete what's after =
-[[plugins]]
-repo = 'https://hub.fastgit.org/junegunn/vim-after-object'
-hook_source = 'source $NVIM_PATH/modules/editor/vim-after-object.vim'
+repo = 'https://hub.fastgit.org/terryma/vim-expand-region'
+on_map = '<Plug>'
+hook_add = '''
+	map <m-=> <Plug>(expand_region_expand)
+	map <m--> <Plug>(expand_region_shrink)
+'''
 
 # [[plugins]]
 # repo = 'https://hub.fastgit.org/Konfekt/FastFold'
 
 # [[plugins]]
 # repo = 'https://hub.fastgit.org/wellle/context.vim'
+# hook_post_source = 'source $NVIM_PATH/modules/editor/context.vim'
 
 [[plugins]]
 repo = 'https://hub.fastgit.org/rhysd/clever-f.vim'
@@ -49,7 +51,7 @@ repo = 'https://hub.fastgit.org/rhysd/clever-f.vim'
 [[plugins]]
 repo = 'https://hub.fastgit.org/chrisbra/NrrwRgn'
 on_cmd = 'NR'
-hook_add = 'noremap <space>nm :NR<CR>'
+hook_add = 'noremap <space>nr :NR<CR>'
 hook_source = 'source $NVIM_PATH/modules/editor/NrrwRgn.vim'
 
 

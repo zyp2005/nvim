@@ -17,7 +17,7 @@
   "suggest.defaultSortMethod": "alphabetical",
   "suggest.autoTrigger": "always",
   "suggest.numberSelect": true,
-  "suggest.maxCompleteItemCount": 20,
+  "suggest.maxCompleteItemCount": 50,
   "suggest.echodocSupport": true,
   "suggest.minTriggerInputLength": 1,
   "suggest.completionItemKindLabels": {

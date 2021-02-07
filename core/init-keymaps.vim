@@ -152,7 +152,7 @@ noremap \s :%s//<left>
 vnoremap \s :s//<left>
 
 " press F7 to show hlgroup
-map <F7> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+noremap <F7> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
 			\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
 			\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
@@ -173,10 +173,10 @@ inoremap <c-_> <c-k>
 " 详见：http://www.skywind.me/blog/archives/2021
 "----------------------------------------------------------------------
 " insert move
-imap <M-h> <left>
-imap <M-l> <right>
-imap <M-j> <down>
-imap <M-k> <up>
+inoremap <M-h> <left>
+inoremap <M-l> <right>
+inoremap <M-j> <down>
+inoremap <M-k> <up>
 
 "----------------------------------------------------------------------
 " 命令模式的快速移动

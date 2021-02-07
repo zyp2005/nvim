@@ -15,4 +15,4 @@ depends = ['asyncrun.vim','vim-floaterm']
 
 [[plugins]]
 repo = 'https://hub.fastgit.org/skywind3000/asyncrun.vim'
-on_cmd = 'AsyncTask'
+on_cmd = ['AsyncTask','AsyncRun']

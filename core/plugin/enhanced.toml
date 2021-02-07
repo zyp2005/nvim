@@ -45,6 +45,6 @@ repo = 'https://hub.fastgit.org/ryanoasis/vim-devicons'
 # 翻译
 [[plugins]]
 repo = 'https://hub.fastgit.org/voldikss/vim-translator'
-on_map = '<Plug>'
+on_map = '<Plug>Translate'
 hook_add = 'source $NVIM_PATH/modules/enhanced/vim-translator_add.vim'
 

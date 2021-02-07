@@ -55,7 +55,7 @@ set inccommand=split
 set winwidth=30         " 活动窗口的最小宽度
 set winminwidth=10      " 非活动窗口的最小宽度
 set winminheight=1      " 非活动窗口的最小高度
-set pumheight=15        " 弹出菜单的行高
+set pumheight=9        " 弹出菜单的行高
 set helpheight=12       " 最小帮助窗口高度
 set previewheight=12    " 完成预览高度
 

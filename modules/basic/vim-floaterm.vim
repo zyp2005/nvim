@@ -17,15 +17,5 @@ hi FloatermBorder guibg=normal
 hi FloatermNC guibg=gray
 " autocmd User Startified setlocal buflisted
 
-function! s:run_floaterm(opts)
-	let cwd = getcwd()
-	let cmd = 'cd ' . shellescape(cwd) . ' && ' . a:opts.cmd
-	execute 'FloatermNew --position=topright --height=0.4 --width=0.5 --title=floaterm_runner --autoclose=0 ' . cmd
-	" Back to the normal mode
-	" stopinsert
-endfunction
 
-let g:asyncrun_runner = get(g:, 'asyncrun_runner', {})
-let g:asyncrun_runner.floaterm = function('s:run_floaterm')
-let g:asynctasks_term_pos = 'floaterm'
 
