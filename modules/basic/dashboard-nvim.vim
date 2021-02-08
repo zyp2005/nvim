@@ -14,19 +14,19 @@ nmap <space>nn :<C-u>DashboardNewFile<CR>
 let g:dashboard_custom_section = {
 			\ 'last_session'        :{
 			\ 'description': ['  Reload last session                   no     '],
-			\ 'command': 'SessionLoad'},
+			\ 'command': 'CocList sessions'},
 			\ 'find_history'        :{
 			\ 'description': ['  Recently opened files                 no     '],
-			\ 'command': 'DashboardFindHistory'},
+			\ 'command': 'CocList mru'},
 			\ 'find_file'           :{
 			\ 'description': ['  Find File                             no     '],
-			\ 'command': 'DashboardFindFile'},
+			\ 'command': 'CocList files'},
 			\ 'change_colorscheme'  :{
 			\ 'description': ['  Change Colorscheme                    no     '],
-			\ 'command': 'DashboardChangeColorscheme'},
+			\ 'command': 'CocList colors'},
 			\ 'find_word'           :{
 			\ 'description': ['  Find word                             no     '],
-			\ 'command': 'DashboardFindWord'},
+			\ 'command': 'CocList grep'},
 			\ 'book_marks'          :{
 			\ 'description': ['  Jump to bookmark                      SPC m l'],
 			\ 'command': 'BookmarkShowAll'},

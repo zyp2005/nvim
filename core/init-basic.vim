@@ -180,6 +180,10 @@ set shortmess+=c
 " 逗号分隔的选项列表，用于插入模式的补全
 set completeopt=longest,noinsert,menuone,noselect,preview
 
+" session
+set sessionoptions+=globals
+
+
 set ttyfast "should make scrolling faster
 
 " 使用可视响铃代替鸣叫

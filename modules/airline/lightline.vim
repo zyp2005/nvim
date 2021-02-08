@@ -17,10 +17,14 @@ let g:lightline = {
 	\ 'active': {
 	\   'left': [ [ 'mode', 'paste' ],
 	\             [ 'git','readonly', 'filename', 'modified'],['method' ] ],
-	\ 'right': [ ['cocstatus'],
+	\   'right': [ ['cocstatus'],
 	\            [ 'lineinfo' ],
 	\            [ 'fileformat', 'fileencoding', 'filetype']],
 	\ },
+	\ 'inactive': {
+	\  'left': [['filename']],
+	\  'right': [],
+	\},
 	\ 'component_function': {
 	\   'cocstatus': 'coc#status',
 	\   'method': 'NearestMethodOrFunction',
