@@ -6,10 +6,10 @@ nmap <space>gh <Plug>(coc-git-chunkinfo)
 ":CocCommand git.showCommit 显示当前块的提交。
 nmap <space>gc <Plug>(coc-git-commit)
 " create text object for git chunks
-"omap ig <Plug>(coc-git-chunk-inner)
-"xmap ig <Plug>(coc-git-chunk-inner)
-"omap ag <Plug>(coc-git-chunk-outer)
-"xmap ag <Plug>(coc-git-chunk-outer)
+omap ig <Plug>(coc-git-chunk-inner)
+xmap ig <Plug>(coc-git-chunk-inner)
+omap ag <Plug>(coc-git-chunk-outer)
+xmap ag <Plug>(coc-git-chunk-outer)
 ":CocCommand git.chunkUndo 撤消当前块。
 nmap <space>gu :CocCommand git.chunkUndo<CR>
 ":CocCommand git.chunkStage 暂存当前块。
