@@ -16,13 +16,12 @@
 " vim: set ts=4 sw=4 tw=78 noet :
 
 " Set <LEADER> as <SPACE>, ; as :
-noremap ; :
 if has('vim_starting')
 	" 全局映射 "{{{
 	" 使用空格键作为leader键,;作为第二leader键
 	" 加载插件之前需要！
 	let g:mapleader="\<Space>"
-	let g:maplocalleader=';'
+	" let g:maplocalleader=';'
 
 	" 释放键映射前缀，完全退出以使用插件.
 	nnoremap <Space>  <Nop>
@@ -32,7 +31,7 @@ if has('vim_starting')
 	nnoremap ;        <Nop>
 	xnoremap ;        <Nop>
 endif
-
+noremap ; :
 
 " Save & quit
 noremap Q :q<CR>
