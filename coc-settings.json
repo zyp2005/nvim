@@ -1,9 +1,11 @@
 {
   "git.addGBlameToVirtualText": true,
-  //"git.enableGutters":true,
-  //"git.addGBlameToBufferVar":true
-  "git.signOffset": 2,
+  //"git.addGBlameToBufferVar":true,
   "git.splitWindowCommand": "below vs",
+  "git.addedSign.text": "┃",
+  "git.changedSign.text": "┃",
+  "git.removedSign.text": "┃",
+  "git.changeRemovedSign.text": "┃",
   "git.showCommitInFloating": true,
   "git.enableGutters": true,
   "yank.enableCompletion": false,
