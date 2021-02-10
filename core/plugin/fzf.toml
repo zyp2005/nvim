@@ -4,3 +4,4 @@
 
 [[plugins]]
 repo = 'https://hub.fastgit.org/junegunn/fzf.vim'
+hook_source = 'source $NVIM_PATH/modules/fzf/fzf.vim'
