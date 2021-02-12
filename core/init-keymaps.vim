@@ -34,9 +34,9 @@ endif
 noremap ; :
 
 " Save & quit
-noremap Q :q<CR>
-noremap <C-q> :qa<CR>
-noremap S :w<CR>
+" noremap Q :q<CR>
+" nnoremap <C-q> :qa<CR>
+" noremap S :w<CR>
 
 "map R :source $MYVIMRC<CR>
 

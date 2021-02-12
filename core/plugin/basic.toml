@@ -50,18 +50,18 @@ repo = 'https://hub.fastgit.org/t9md/vim-choosewin'
 on_map = '<Plug>'
 hook_add = 'nmap <m-e> <Plug>(choosewin)'
 
-[[plugins]]
-repo = 'https://hub.fastgit.org/kevinhwang91/nvim-bqf.git'
-hook_source = 'source $NVIM_PATH/modules/basic/nvim-bqf.vim'
-on_func = ['Coc_qf_diagnostic','Coc_qf_jump2loc']
-on_ft = 'qf'
-hook_add = '''
-let g:coc_enable_locationlist = 0
-augroup Coc
-    autocmd!
-    autocmd User CocLocationsChange ++nested call Coc_qf_jump2loc(g:coc_jump_locations)
-augroup END
-'''
+# [[plugins]]
+# repo = 'https://hub.fastgit.org/kevinhwang91/nvim-bqf.git'
+# hook_source = 'source $NVIM_PATH/modules/basic/nvim-bqf.vim'
+# on_func = ['Coc_qf_diagnostic','Coc_qf_jump2loc']
+# on_ft = 'qf'
+# hook_add = '''
+# let g:coc_enable_locationlist = 0
+# augroup Coc
+#     autocmd!
+#     autocmd User CocLocationsChange ++nested call Coc_qf_jump2loc(g:coc_jump_locations)
+# augroup END
+# '''
 
 # git支持
 [[plugins]]
