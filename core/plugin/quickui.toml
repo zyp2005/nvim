@@ -3,3 +3,9 @@
 #
 [[plugins]]
 repo = 'https://github.com/skywind3000/vim-quickui.git'
+hook_source = '''
+augroup MyQuickfixPreview
+  au!
+  au FileType qf noremap <silent><buffer> p :call quickui#tools#preview_quickfix()<cr>
+augroup END
+'''

@@ -9,7 +9,7 @@ repo = 'https://hub.fastgit.org/jiangmiao/auto-pairs'
 # 多光标
 [[plugins]]
 repo = 'https://hub.fastgit.org/mg979/vim-visual-multi'
-on_map = ['\\\','<C-m>','<C-up>','<C-down>']
+on_map = ['\\\','<m-m>','<C-up>','<C-down>']
 hook_source = 'source $NVIM_PATH/modules/editor/vim-visual-multi.vim'
 
 # 注释

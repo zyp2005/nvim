@@ -50,11 +50,18 @@ repo = 'https://hub.fastgit.org/t9md/vim-choosewin'
 on_map = '<Plug>'
 hook_add = 'nmap <m-e> <Plug>(choosewin)'
 
-# 更强的quickfix
 [[plugins]]
-repo = 'https://hub.fastgit.org/skywind3000/vim-preview'
-on_cmd = 'PreviewQuickfix'
-hook_add = 'source $NVIM_PATH/modules/basic/vim-preview_add.vim'
+repo = 'https://hub.fastgit.org/kevinhwang91/nvim-bqf.git'
+hook_source = 'source $NVIM_PATH/modules/basic/nvim-bqf.vim'
+on_func = ['Coc_qf_diagnostic','Coc_qf_jump2loc']
+on_ft = 'qf'
+hook_add = '''
+let g:coc_enable_locationlist = 0
+augroup Coc
+    autocmd!
+    autocmd User CocLocationsChange ++nested call Coc_qf_jump2loc(g:coc_jump_locations)
+augroup END
+'''
 
 # git支持
 [[plugins]]
@@ -67,7 +74,6 @@ repo = 'https://hub.fastgit.org/honza/vim-snippets'
 # 书签
 [[plugins]]
 repo = 'https://hub.fastgit.org/MattesGroeger/vim-bookmarks.git'
-on_event = 'VimEnter'
 on_map = '<Plug>Bookmark'
 hook_add = 'source $NVIM_PATH/modules/basic/vim-bookmarks_add.vim'
 hook_source = 'let g:bookmark_no_default_key_mappings = 1'

@@ -21,6 +21,7 @@ hook_source = 'source $NVIM_PATH/modules/enhanced/vim-autoformat.vim'
 # 修改树
 [[plugins]]
 repo = 'https://hub.fastgit.org/mbbill/undotree'
+on_map = 'UndotreeToggle'
 hook_add = 'noremap <space>u :UndotreeToggle<CR>'
 hook_source = 'source $NVIM_PATH/modules/enhanced/undotree.vim'
 

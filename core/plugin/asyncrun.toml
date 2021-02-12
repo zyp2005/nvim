@@ -9,10 +9,12 @@ hook_add = '''
 	noremap <silent><space><F3> :AsyncTask file-build<cr>
 	noremap <silent><space><F5> :AsyncTask file-run<cr>
 '''
-hook_source = 'source $NVIM_PATH/modules/asyncrun/asyncrun.vim'
+hook_source = 'source $NVIM_PATH/modules/asyncrun/asyctask.vim'
 depends = ['asyncrun.vim','vim-floaterm']
 
 
 [[plugins]]
 repo = 'https://hub.fastgit.org/skywind3000/asyncrun.vim'
-on_cmd = ['AsyncTask','AsyncRun']
+on_func = 'asyncrun#quickfix_toggle()'
+hook_add = 'nnoremap <M-q> :call asyncrun#quickfix_toggle(6)<cr>'
+hook_source = 'source $NVIM_PATH/modules/asyncrun/asyncrun.vim'
