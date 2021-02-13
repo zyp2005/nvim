@@ -28,8 +28,6 @@ hook_source = 'source $NVIM_PATH/modules/enhanced/undotree.vim'
 # 彩虹括号
 [[plugins]]
 repo = 'https://hub.fastgit.org/luochen1990/rainbow'
-event = 'BufReadPost'
-hook_add = 'source $NVIM_PATH/modules/enhanced/tranbow.vim'
 
 # 中文文档
 [[plugins]]

@@ -70,7 +70,6 @@ repo = 'https://hub.fastgit.org/tpope/vim-fugitive'
 # 文本片段
 [[plugins]]
 repo = 'https://hub.fastgit.org/honza/vim-snippets'
-event = 'BufReadPost'
 
 # 书签
 [[plugins]]
