@@ -4,4 +4,5 @@
 
 [[plugins]]
 repo = 'https://hub.fastgit.org/Shougo/echodoc.vim.git'
+on_event = 'InsertEnter'
 hook_source = 'source $NVIM_PATH/modules/echodoc/echodoc.vim'

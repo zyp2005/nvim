@@ -213,8 +213,6 @@ set hidden
 " 命令行使用的屏幕行数。
 set cmdheight=1
 
-" 如果过了这么多毫秒数以后还没有任何输入，把交换文件写入磁盘
-set updatetime=1000
 
 " 允许可视列块模式的虚拟编辑。
 set virtualedit=block

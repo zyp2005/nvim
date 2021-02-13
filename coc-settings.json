@@ -190,5 +190,7 @@
     "filetypes": ["lua"],
     "rootPatterns": [".git/"]
   }
-  }
+  },
+  "session.directory": "~/.cache/nvim/session/",
+  "session.saveOnVimLeave": true
 }
