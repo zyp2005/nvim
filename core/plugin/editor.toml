@@ -5,6 +5,7 @@
 #自动括号
 [[plugins]]
 repo = 'https://hub.fastgit.org/jiangmiao/auto-pairs'
+event = 'BufReadPost'
 
 # 多光标
 [[plugins]]
@@ -28,6 +29,7 @@ hook_add = 'source $NVIM_PATH/modules/editor/antovim_add.vim'
 # 快速操作type yskw' to wrap the word with '' or type cs'` to change 'word' to `word`
 [[plugins]]
 repo = 'https://hub.fastgit.org/tpope/vim-surround'
+event = 'BufReadPost'
 
 # 选中块in Visual mode, type i' to select all text in '', or type k) k] k} kp
 [[plugins]]
@@ -47,6 +49,7 @@ hook_add = '''
 
 [[plugins]]
 repo = 'https://hub.fastgit.org/rhysd/clever-f.vim'
+event = 'BufReadPost'
 
 [[plugins]]
 repo = 'https://hub.fastgit.org/chrisbra/NrrwRgn'

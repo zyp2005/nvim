@@ -18,6 +18,7 @@ hook_add = 'map <space>gy :Goyo<CR>'
 
 [[plugins]]
 repo = 'https://hub.fastgit.org/psliwka/vim-smoothie.git'
+event = 'BufReadPost'
 
 [[plugins]]
 repo = 'https://hub.fastgit.org/rhysd/accelerated-jk.git'

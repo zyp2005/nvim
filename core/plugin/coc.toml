@@ -4,7 +4,7 @@
 [[plugins]]
 repo = 'https://hub.fastgit.org/neoclide/coc.nvim'
 rev = 'release'
-on_event = 'VimEnter'
+on_event = 'BufEnter'
 hook_source = '''
 	source $NVIM_PATH/modules/coc/coc.vim
 	source $NVIM_PATH/modules/coc/git.vim
