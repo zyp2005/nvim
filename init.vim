@@ -2,7 +2,7 @@
 "
 " init.vim - initialize config
 "
-" Created by zypi005 on 2020/12/26
+" Created by zyp2005 on 2020/12/26
 " Last Modified: 2018/05/30 18:26:34
 "
 "======================================================================
