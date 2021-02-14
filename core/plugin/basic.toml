@@ -84,3 +84,10 @@ repo = 'https://hub.fastgit.org/lambdalisue/suda.vim'
 on_event = 'FileChangedRO'
 hook_add = 'source $NVIM_PATH/modules/basic/suda_add.vim'
 
+#缩进
+[[plugins]]
+repo = 'https://github.com/Yggdroot/indentLine.git'
+hook_add = '''
+let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+let g:indentLine_fileType = ['c','cpp','vim']
+'''

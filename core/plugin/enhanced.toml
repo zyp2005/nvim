@@ -11,12 +11,20 @@ hook_add = 'source $NVIM_PATH/modules/enhanced/tabular_add.vim'
 #格式化
 [[plugins]]
 repo = 'https://hub.fastgit.org/Chiel92/vim-autoformat'
-on_cmd = ['Autoformat','tabe']
+on_cmd = ['Autoformat','tabe','LoadFormatTemplate']
 hook_add = '''
 	noremap <space>vl :tabe .clang-format<CR>:LoadFormatTemplate<CR>
 	nnoremap <space>\ :Autoformat<CR>
 '''
 hook_source = 'source $NVIM_PATH/modules/enhanced/vim-autoformat.vim'
+
+[[plugins]]
+repo = 'https://hub.fastgit.org/sbdchd/neoformat.git'
+hook_add = '''
+let g:neoformat_basic_format_align = 1
+let g:neoformat_basic_format_retab = 0
+let g:neoformat_basic_format_trim = 1
+'''
 
 # 修改树
 [[plugins]]
