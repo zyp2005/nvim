@@ -19,17 +19,22 @@
 " " ALT+m 全局 tags 模糊匹配
 " noremap <m-m> :LeaderfTag<cr>
 
+"
+" let g:Lf_WindowPosition = 'popup'
+
+let g:Lf_PreviewInPopup = 1
+
 " 最大历史文件保存 2048 个
 let g:Lf_MruMaxFiles = 2048
 
 " " ui 定制
-" let g:Lf_StlSeparator = { 'left': '', 'right': '', 'font': '' }
+let g:Lf_StlSeparator = { 'left': '', 'right': '', 'font': '' }
 "
 " " 如何识别项目目录，从当前文件目录向父目录递归知道碰到下面的文件/目录
 let g:Lf_RootMarkers = ['.project', '.root', '.svn', '.git']
 let g:Lf_WorkingDirectoryMode = 'Ac'
 let g:Lf_WindowHeight = 0.30
-let g:Lf_CacheDirectory = expand('~/.config/nvim/cache')
+let g:Lf_CacheDirectory = expand('~/.cache/nvim/leaderf')
 
 " 显示绝对路径
 let g:Lf_ShowRelativePath = 0
@@ -45,11 +50,21 @@ let g:Lf_WildIgnore = {
 
 " MRU 文件忽略扩展名
 let g:Lf_MruFileExclude = ['*.so', '*.exe', '*.py[co]', '*.sw?', '~$*', '*.bak', '*.tmp', '*.dll']
-let g:Lf_StlColorscheme = 'powerline'
+" let g:Lf_StlColorscheme = 'powerline'
 
 " 禁用 function/buftag 的预览功能，可以手动用 p 预览
-let g:Lf_PreviewResult = {'Function':0, 'BufTag':0}
-
+let g:Lf_PreviewResult = {
+            \ 'File': 0,
+            \ 'Buffer': 0,
+            \ 'Mru': 0,
+            \ 'Tag': 0,
+            \ 'BufTag': 1,
+            \ 'Function': 1,
+            \ 'Line': 0,
+            \ 'Colorscheme': 0,
+            \ 'Rg': 0,
+            \ 'Gtags': 0
+            \}
 " 使用 ESC 键可以直接退出 Leaderf 的 normal 模式
 let g:Lf_NormalMap = {
 			\ "File":   [["<ESC>", ':exec g:Lf_py "fileExplManager.quit()"<CR>']],

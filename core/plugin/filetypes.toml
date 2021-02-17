@@ -4,7 +4,7 @@
 
 #toml
 [[plugins]]
-repo = 'https://github.com/cespare/vim-toml.git'
+repo = 'https://hub.fastgit.org/cespare/vim-toml.git'
 on_ft = 'toml'
 
 #powershell 脚本文件的语法高亮

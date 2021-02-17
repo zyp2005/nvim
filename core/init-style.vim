@@ -61,7 +61,8 @@ set previewheight=12    " 完成预览高度
 
 if has('conceal') && v:version >= 703
 	" 用于代码段完整标记
-	set conceallevel=2 concealcursor=niv
+	set conceallevel=2
+    " set concealcursor=niv
 endif
 
 if exists('+previewpopup')

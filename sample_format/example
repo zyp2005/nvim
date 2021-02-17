@@ -1,0 +1,9 @@
+# We'll use defaults from the LLVM style, but with 4 columns indentation.
+BasedOnStyle: LLVM
+IndentWidth: 4
+#连续调整多行
+AlignConsecutiveAssignments: true
+#对齐注释
+AlignTrailingComments: true
+#用于大括号换行样式
+BreakBeforeBraces: Allman
