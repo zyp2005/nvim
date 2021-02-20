@@ -31,20 +31,9 @@ nmap k <Plug>(accelerated_jk_gk)
 [[plugins]]
 repo = 'https://hub.fastgit.org/junegunn/vim-easy-align.git'
 
-# [[plugins]]
-# repo = 'https://hub.fastgit.org/xolox/vim-notes.git'
-#
-# [[plugins]]
-# repo = 'https://hub.fastgit.org/xolox/vim-misc.git'
-#
-# [[plugins]]
-# repo = 'https://hub.fastgit.org/vimwiki/vimwiki.git'
-# hook_source = '''
-# let wiki = {
-#     \'path': '~/my_wiki/',
-#     \'nested_syntaxes': {'python': 'python', 'c++': 'cpp'},
-#     \'automatic_nested_syntaxes': 1
-#     \}
-#   let g:vimwiki_list = [wiki]
-#
-# '''
+[[plugins]]
+repo = 'https://hub.fastgit.org/xolox/vim-notes.git'
+
+[[plugins]]
+repo = 'https://hub.fastgit.org/xolox/vim-misc.git'
+
