@@ -7,6 +7,11 @@
 # hook_source = 'source $NVIM_PATH/modules/fzf/fzf.vim'
 
 [[plugins]]
+repo = 'https://hub.fastgit.org/junegunn/fzf'
+build = './install --all'
+
+
+[[plugins]]
 repo = 'https://hub.fastgit.org/mhinz/vim-grepper.git'
 hook_add = '''
 let g:grepper = {

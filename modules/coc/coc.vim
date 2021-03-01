@@ -189,3 +189,9 @@ if has('nvim-0.4.0') || has('patch-8.2.0750')
 	vnoremap <silent><nowait><expr> <c-k> coc#float#has_scroll() ? coc#float#scroll(0) : "\<up>\<up>\<up>\<up>\<up>"
 endif
 
+  nmap <silent> <C-c> <Plug>(coc-cursors-position)
+  nmap <silent> <C-d> <Plug>(coc-cursors-word)
+  xmap <silent> <C-d> <Plug>(coc-cursors-range)
+  " use normal command like `<leader>xi(`
+  nmap <leader>x  <Plug>(coc-cursors-operator)
+  " `)`
