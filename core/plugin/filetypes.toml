@@ -48,27 +48,27 @@ repo = 'https://hub.fastgit.org/iamcco/markdown-preview.nvim'
 build = 'sh -c "cd app & yarn install"'
 on_ft = ['markdown', 'vim-plug']
 hook_source = '''
-let g:mkdp_open_to_the_world = 1
-let g:mkdp_open_ip = '112.114.21.165'
-let g:mkdp_port = 8080
-function! g:EchoUrl(url)
-    :echo a:url
- endfunction
- let g:mkdp_browserfunc = 'g:EchoUrl'
-let g:mkdp_echo_preview_url = 1
-let g:mkdp_preview_options = {
-    \ 'mkit': 1,
-    \ 'katex': 1,
-    \ 'uml': 1,
-    \ 'maid': 1,
-    \ 'disable_sync_scroll': 0,
-    \ 'sync_scroll_type': 'middle',
-    \ 'hide_yaml_meta': 1,
-    \ 'sequence_diagrams': {},
-    \ 'flowchart_diagrams': {},
-    \ 'content_editable': v:false,
-    \ 'disable_filename': 0
-    \ }
+"let g:mkdp_open_to_the_world = 1
+"let g:mkdp_open_ip = '112.114.21.165'
+"let g:mkdp_port = 8080
+"function! g:EchoUrl(url)
+"    :echo a:url
+" endfunction
+" let g:mkdp_browserfunc = 'g:EchoUrl'
+"let g:mkdp_echo_preview_url = 1
+"let g:mkdp_preview_options = {
+"    \ 'mkit': 1,
+"    \ 'katex': 1,
+"    \ 'uml': 1,
+"    \ 'maid': 1,
+"    \ 'disable_sync_scroll': 0,
+"    \ 'sync_scroll_type': 'middle',
+"    \ 'hide_yaml_meta': 1,
+"    \ 'sequence_diagrams': {},
+"    \ 'flowchart_diagrams': {},
+"    \ 'content_editable': v:false,
+"    \ 'disable_filename': 0
+"    \ }
 
 
 '''
