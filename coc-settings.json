@@ -79,7 +79,7 @@
   "todolist.autoUpload": true,
   "explorer.position": "left",
   "explorer.width": 30,
-  "explorer.icon.enableNerdfont": false,
+  "explorer.icon.enableNerdfont": true,
   "explorer.icon.enableVimDevicons": false,
   "explorer.sources": [
     {
