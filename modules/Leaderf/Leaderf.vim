@@ -20,7 +20,14 @@
 " noremap <m-m> :LeaderfTag<cr>
 
 "
-" let g:Lf_WindowPosition = 'popup'
+let g:Lf_WindowPosition = 'bottom'
+
+let g:Lf_StlSeparator = { 'left': '', 'right': '' }
+
+let g:Lf_PopupPreviewPosition = 'bottom'
+let g:Lf_PreviewHorizontalPosition = 'right'
+
+let g:Lf_PopupColorscheme = 'default'
 
 let g:Lf_PreviewInPopup = 1
 
@@ -37,7 +44,7 @@ let g:Lf_WindowHeight = 0.30
 let g:Lf_CacheDirectory = expand('~/.cache/nvim/leaderf')
 
 " 显示绝对路径
-let g:Lf_ShowRelativePath = 0
+let g:Lf_ShowRelativePath = 1
 
 " 隐藏帮助
 let g:Lf_HideHelp = 1
@@ -54,7 +61,7 @@ let g:Lf_MruFileExclude = ['*.so', '*.exe', '*.py[co]', '*.sw?', '~$*', '*.bak',
 
 " 禁用 function/buftag 的预览功能，可以手动用 p 预览
 let g:Lf_PreviewResult = {
-            \ 'File': 0,
+            \ 'File': 1,
             \ 'Buffer': 0,
             \ 'Mru': 0,
             \ 'Tag': 0,
@@ -62,7 +69,7 @@ let g:Lf_PreviewResult = {
             \ 'Function': 1,
             \ 'Line': 0,
             \ 'Colorscheme': 0,
-            \ 'Rg': 0,
+            \ 'Rg': 1,
             \ 'Gtags': 0
             \}
 " 使用 ESC 键可以直接退出 Leaderf 的 normal 模式

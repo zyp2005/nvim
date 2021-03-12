@@ -17,21 +17,21 @@ let g:dashboard_custom_section = {
 			\ 'command': 'CocList sessions'},
 			\ 'find_history'        :{
 			\ 'description': ['  Recently opened files                 no     '],
-			\ 'command': 'CocList mru'},
+			\ 'command': 'Leaderf mru'},
 			\ 'find_file'           :{
 			\ 'description': ['  Find File                             no     '],
-			\ 'command': 'CocList files'},
+			\ 'command': 'Leaderf file'},
 			\ 'change_colorscheme'  :{
 			\ 'description': ['  Change Colorscheme                    no     '],
-			\ 'command': 'CocList colors'},
+			\ 'command': 'Leaderf colorscheme'},
 			\ 'find_word'           :{
 			\ 'description': ['  Find word                             no     '],
-			\ 'command': 'CocList grep'},
+			\ 'command': 'Leaderf rg'},
 			\ 'book_marks'          :{
 			\ 'description': ['  Jump to bookmark                      SPC m l'],
 			\ 'command': 'BookmarkShowAll'},
 			\ 'open_personal'       :{
 			\ 'description': ['  Open Personal Config File             no     '],
-			\ 'command': 'Clap personalconf'},
+			\ 'command': 'CocList files ~/.config/nvim'},
 			\}
 

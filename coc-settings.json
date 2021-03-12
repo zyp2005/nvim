@@ -23,6 +23,8 @@
   "suggest.numberSelect": true,
   "suggest.maxCompleteItemCount": 50,
   "Lua.workspace.preloadFileSize": 100,
+  "git.topRemovedSign.text": "‾",
+  "list.source.tags.command": "ctags -R .",
   "Lua.workspace.ignoreDir": [
       ".vscode"
   ],
