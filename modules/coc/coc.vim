@@ -155,12 +155,9 @@ nmap <silent> gr <Plug>(coc-references)
 
 nmap <space>rn <Plug>(coc-rename)
 nmap tt :CocCommand explorer<CR>
-" coctodolist
-nnoremap <space>tn :CocCommand todolist.create<CR>
-nnoremap <space>tl :CocList todolist<CR>
-nnoremap <space>tu :CocCommand todolist.download<CR>:CocCommand todolist.upload<CR>
+
 " coc-tasks
-noremap <silent> <space>ts :CocList tasks<CR>
+noremap <silent> <space>ct :AsyncTask<CR>:CocList tasks<CR>
 " coc-snippets
 " Use <C-l> for trigger snippet expand.
 imap <C-l> <Plug>(coc-snippets-expand)

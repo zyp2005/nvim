@@ -22,6 +22,7 @@ hook_source = 'source $NVIM_PATH/modules/basic/dashboard-nvim.vim'
 [[plugins]]
 repo = 'https://hub.fastgit.org/voldikss/vim-floaterm'
 on_cmd = 'FloatermNew'
+on_map = '<leader>/'
 hook_add = '''
 	let  g:floaterm_keymap_new     =  '<M-f><M-o>'
 	let g:floaterm_keymap_prev    =   '<M-f><M-p>'
@@ -66,6 +67,7 @@ hook_add = 'nmap <m-e> <Plug>(choosewin)'
 # git支持
 [[plugins]]
 repo = 'https://hub.fastgit.org/tpope/vim-fugitive'
+hook_add = 'nnoremap \g :Git '
 
 # 文本片段
 [[plugins]]

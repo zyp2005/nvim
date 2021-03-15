@@ -17,5 +17,20 @@ hi FloatermBorder guibg=normal
 hi FloatermNC guibg=gray
 " autocmd User Startified setlocal buflisted
 
+" Opening a terminal window
+if has('nvim') == 1
+    nnoremap <leader>/ :FloatermNew<cr>
+elseif has('vim') == 1
+    noremap <leader>/ :call Term()<CR>
+    func! Term()
+        set splitbelow
+        :split
+        :res +5
+        :term
+        :startinsert
+    endfunction
+endif
+
+
 
 

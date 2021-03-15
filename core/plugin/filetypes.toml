@@ -88,9 +88,5 @@ repo = 'https://hub.fastgit.org/dkarter/bullets.vim'
 on_ft = ['markdown', 'vim-plug']
 
 [[plugins]]
-repo = 'https://hub.fastgit.org/demonlord1997/markdown-org.git'
-on_ft = 'markdown'
-
-[[plugins]]
 repo = 'https://hub.fastgit.org/joker1007/vim-markdown-quote-syntax.git'
 on_ft = 'markdown'

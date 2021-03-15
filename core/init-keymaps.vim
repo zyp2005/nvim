@@ -41,7 +41,7 @@ noremap ; :
 "map R :source $MYVIMRC<CR>
 
 " Open the vimrc file anytime
-noremap <LEADER>rc :e ~/.config/nvim/init.vim<CR>
+" noremap <LEADER>rc :e ~/.config/nvim/init.vim<CR>
 
 " make Y to copy till the end of the line
 nnoremap Y y$
@@ -88,6 +88,10 @@ noremap s<Right> :set splitright<CR>:vsplit<CR>    "右分屏
 noremap s<Left> :set nosplitright<CR>:vsplit<CR>:set splitright<CR> "左分屏
 noremap s<Up> :set nosplitbelow<CR>:split<CR>:set splitbelow<CR>"上分屏
 noremap s<Down> :set splitbelow<CR>:split<CR>   "下分屏
+noremap sl :set splitright<CR>:vsplit<CR>    "右分屏
+noremap sh :set nosplitright<CR>:vsplit<CR>:set splitright<CR> "左分屏
+noremap sk :set nosplitbelow<CR>:split<CR>:set splitbelow<CR>"上分屏
+noremap sj :set splitbelow<CR>:split<CR>   "下分屏
 
 " Resize splits with arrow keys
 noremap <M-up> :res +5<CR>
@@ -119,17 +123,6 @@ nnoremap g= g+
 nnoremap \t :tabe<CR>:-tabmove<CR>:term sh -c 'sakura'<CR><C-\><C-N>:q<CR>
 
 
-" Opening a terminal window
-noremap <leader>/ :call Term()<CR>
-func! Term()
-	set splitbelow
-	:split
-	:res +5
-	:term
-	:startinsert
-endfunction
-
-
 " Press space twice to jump to the next '<++>' and edit it
 noremap '' <Esc>/<++><CR>:nohlsearch<CR>c4l
 
@@ -140,8 +133,6 @@ noremap ` ~
 " Folding
 noremap <silent> <LEADER>z za
 
-" Call figlet
-"noremap tx :r !figlet
 
 noremap <LEADER>- :lN<CR>
 noremap <LEADER>= :lne<CR>
@@ -154,16 +145,6 @@ vnoremap \s :s//<left>
 noremap <F7> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
 			\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
 			\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
-
-
-
-"----------------------------------------------------------------------
-" INSERT 模式下使用 EMACS 键位
-"----------------------------------------------------------------------
-inoremap <c-a> <home>
-inoremap <c-e> <end>
-inoremap <c-d> <del>
-inoremap <c-_> <c-k>
 
 
 "----------------------------------------------------------------------
@@ -184,27 +165,7 @@ cnoremap <c-h> <left>
 cnoremap <c-j> <down>
 cnoremap <c-k> <up>
 cnoremap <c-l> <right>
-cnoremap <c-a> <home>
-cnoremap <c-e> <end>
-cnoremap <c-f> <c-d>
-cnoremap <c-b> <left>
-cnoremap <c-d> <del>
-cnoremap <c-_> <c-k>
 
-
-"----------------------------------------------------------------------
-" <leader>+数字键 切换tab
-"----------------------------------------------------------------------
-" noremap <silent><leader>1 1gt<cr>
-" noremap <silent><leader>2 2gt<cr>
-" noremap <silent><leader>3 3gt<cr>
-" noremap <silent><leader>4 4gt<cr>
-" noremap <silent><leader>5 5gt<cr>
-" noremap <silent><leader>6 6gt<cr>
-" noremap <silent><leader>7 7gt<cr>
-" noremap <silent><leader>8 8gt<cr>
-" noremap <silent><leader>9 9gt<cr>
-" noremap <silent><leader>0 10gt<cr>
 
 
 "----------------------------------------------------------------------
@@ -283,10 +244,14 @@ inoremap <c-y> <c-\><c-o>d$
 " bash/zsh 及带文本界面的程序中都是重要键位需要保留，不能 tnoremap 的
 "----------------------------------------------------------------------
 " Use <space> + new arrow keys for moving the cursor around windows
-noremap <LEADER><Right> <C-w>l<left> "右切屏
-noremap <LEADER><Left> <C-w>h<left><left>  "左切屏
-noremap <LEADER><Up> <C-w>k<left><left><left><left><left>     "上切屏
-noremap <LEADER><Down> <C-w>j<left><left><left>   "下切屏
+noremap <LEADER><right> <C-w>l<left> "右切屏
+noremap <LEADER><left> <C-w>h<left><left>  "左切屏
+noremap <LEADER><up> <C-w>k<left><left><left><left><left>     "上切屏
+noremap <LEADER><down> <C-w>j<left><left><left>   "下切屏
+noremap <LEADER>l <C-w>l<left> "右切屏
+noremap <LEADER>h <C-w>h<left><left>  "左切屏
+noremap <LEADER>k <C-w>k<left><left><left><left><left>     "上切屏
+noremap <LEADER>j <C-w>j<left><left><left>   "下切屏
 " inoremap <m-H> <esc><c-w>h
 " inoremap <m-L> <esc><c-w>l
 " inoremap <m-J> <esc><c-w>j
@@ -314,21 +279,3 @@ let g:terminal_color_11 = '#F4F99D'
 let g:terminal_color_12 = '#CAA9FA'
 let g:terminal_color_13 = '#FF92D0'
 let g:terminal_color_14 = '#9AEDFE'
-
-
-
-"----------------------------------------------------------------------
-" 编译运行 C/C++ 项目
-" 详细见：http://www.skywind.me/blog/archives/2084
-"----------------------------------------------------------------------
-
-" 自动打开 quickfix window ，高度为 6
-let g:asyncrun_open = 6
-" 任务结束时候响铃提醒
-let g:asyncrun_bell = 1
-
-" 设置 F10 打开/关闭 Quickfix 窗口
-nnoremap <F10> :call asyncrun#quickfix_toggle(6)<cr>
-
-
-

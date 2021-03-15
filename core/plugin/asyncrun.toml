@@ -15,6 +15,11 @@ depends = ['asyncrun.vim','vim-floaterm']
 
 [[plugins]]
 repo = 'https://hub.fastgit.org/skywind3000/asyncrun.vim'
+on_cmd = ['AsyncRun']
 on_func = 'asyncrun#quickfix_toggle()'
-hook_add = 'nnoremap <M-q> :call asyncrun#quickfix_toggle(6)<cr>'
+hook_add = '''
+nnoremap <M-q> :call asyncrun#quickfix_toggle(6)<cr>
+ca run AsyncRun
+'''
+
 hook_source = 'source $NVIM_PATH/modules/asyncrun/asyncrun.vim'
