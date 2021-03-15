@@ -25,7 +25,7 @@ let g:Lf_WindowPosition = 'bottom'
 let g:Lf_StlSeparator = { 'left': '', 'right': '' }
 
 let g:Lf_PopupPreviewPosition = 'bottom'
-let g:Lf_PreviewHorizontalPosition = 'right'
+let g:Lf_PreviewHorizontalPosition = 'left'
 
 let g:Lf_PopupColorscheme = 'default'
 
