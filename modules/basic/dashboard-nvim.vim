@@ -10,7 +10,6 @@ let g:dashboard_custom_header = [
 			\ '           __/ | |                          ',
 			\ '          |___/|_|                          ',
 			\ ]
-nmap <space>nn :<C-u>DashboardNewFile<CR>
 let g:dashboard_custom_section = {
 			\ 'last_session'        :{
 			\ 'description': ['  Reload last session                   no     '],

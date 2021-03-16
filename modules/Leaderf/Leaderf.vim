@@ -25,11 +25,11 @@ let g:Lf_WindowPosition = 'bottom'
 let g:Lf_StlSeparator = { 'left': '', 'right': '' }
 
 let g:Lf_PopupPreviewPosition = 'bottom'
-let g:Lf_PreviewHorizontalPosition = 'left'
+let g:Lf_PreviewHorizontalPosition = 'right'
 
 let g:Lf_PopupColorscheme = 'default'
 
-let g:Lf_PreviewInPopup = 1
+let g:Lf_PreviewInPopup = 0
 
 " 最大历史文件保存 2048 个
 let g:Lf_MruMaxFiles = 2048

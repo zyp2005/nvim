@@ -51,7 +51,7 @@ repo = 'https://hub.fastgit.org/rhysd/clever-f.vim'
 [[plugins]]
 repo = 'https://hub.fastgit.org/chrisbra/NrrwRgn'
 on_cmd = 'NR'
-hook_add = 'noremap <space>nr :NR<CR>'
+hook_add = 'noremap <space>n :NR<CR>'
 hook_source = 'source $NVIM_PATH/modules/editor/NrrwRgn.vim'
 
 

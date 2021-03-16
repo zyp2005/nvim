@@ -1,6 +1,6 @@
 "" <space>t 翻译光标下的文本，在命令行回显
-nmap <silent> <space>ty <Plug>Translate
-vmap <silent> <space>ty <Plug>TranslateV
+nmap <silent> <space>tt <Plug>Translate
+vmap <silent> <space>tt <Plug>TranslateV
 " space>w 翻译光标下的文本，在窗口中显示
 nmap <silent> <space>tw <Plug>TranslateW
 vmap <silent> <space>tw <Plug>TranslateWV
