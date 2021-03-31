@@ -29,7 +29,7 @@ let g:Lf_PreviewHorizontalPosition = 'right'
 
 let g:Lf_PopupColorscheme = 'default'
 
-let g:Lf_PreviewInPopup = 0
+let g:Lf_PreviewInPopup = 1
 
 " 最大历史文件保存 2048 个
 let g:Lf_MruMaxFiles = 2048
@@ -61,15 +61,15 @@ let g:Lf_MruFileExclude = ['*.so', '*.exe', '*.py[co]', '*.sw?', '~$*', '*.bak',
 
 " 禁用 function/buftag 的预览功能，可以手动用 p 预览
 let g:Lf_PreviewResult = {
-            \ 'File': 1,
+            \ 'File': 0,
             \ 'Buffer': 0,
             \ 'Mru': 0,
             \ 'Tag': 0,
-            \ 'BufTag': 1,
-            \ 'Function': 1,
+            \ 'BufTag': 0,
+            \ 'Function': 0,
             \ 'Line': 0,
             \ 'Colorscheme': 0,
-            \ 'Rg': 1,
+            \ 'Rg': 0,
             \ 'Gtags': 0
             \}
 " 使用 ESC 键可以直接退出 Leaderf 的 normal 模式

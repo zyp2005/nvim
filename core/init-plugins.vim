@@ -72,7 +72,7 @@ function! s:use_dein()
 
 		" 开始传播文件路径和插件预设
 		call dein#begin(l:cache_path)
-			call dein#load_toml($NVIM_PATH.'/core/plugin/basic.toml')
+		    call dein#load_toml($NVIM_PATH.'/core/plugin/basic.toml')
 			call dein#load_toml($NVIM_PATH.'/core/plugin/airline.toml')
 			call dein#load_toml($NVIM_PATH.'/core/plugin/asyncrun.toml')
 			call dein#load_toml($NVIM_PATH.'/core/plugin/calendar.toml')
@@ -89,7 +89,6 @@ function! s:use_dein()
 			call dein#load_toml($NVIM_PATH.'/core/plugin/textobj.toml')
 			call dein#load_toml($NVIM_PATH.'/core/plugin/vimtex.toml')
 			call dein#load_toml($NVIM_PATH.'/core/plugin/vista.toml')
-
 		call dein#end()
 
 		" 保存缓存状态以加快启动速度
