@@ -33,16 +33,6 @@ if has('vim_starting')
 endif
 noremap ; :
 
-" Save & quit
-" noremap Q :q<CR>
-" nnoremap <C-q> :qa<CR>
-" noremap S :w<CR>
-
-"map R :source $MYVIMRC<CR>
-
-" Open the vimrc file anytime
-" noremap <LEADER>rc :e ~/.config/nvim/init.vim<CR>
-
 " make Y to copy till the end of the line
 nnoremap Y y$
 
@@ -64,11 +54,6 @@ noremap <silent> <c-j> 5j
 noremap <silent> <c-h> 0
 " <c-l> key: go to the end of the line
 noremap <silent> <c-l> $
-
-
-" Ctrl + U or E will move up/down the view port without moving the cursor
-noremap B 5<C-y>
-noremap N 5<C-e>
 
 " ===
 " === Searching
@@ -222,17 +207,6 @@ endif
 " ALT 键移动增强
 "----------------------------------------------------------------------
 
-" ALT+h/l 快速左右按单词移动（正常模式+插入模式）
-inoremap <c-b> <c-left>
-inoremap <c-n> <c-right>
-" Faster in-line navigation
-noremap <c-n> 5w
-noremap <c-b> 5b
-
-" 命令模式下的相同快捷
-cnoremap <c-b> <c-left>
-cnoremap <c-n> <c-right>
-
 " ALT+y 删除到行末
 noremap <c-y> d$
 inoremap <c-y> <c-\><c-o>d$
@@ -261,7 +235,6 @@ noremap <LEADER>j <C-w>j<left><left><left>   "下切屏
 let g:neoterm_autoscroll = 1
 " autocmd TermOpen term://* startinsert
 tnoremap <C-N> <C-\><C-N>
-tnoremap <C-O> <C-\><C-N><C-O>
 tnoremap <C-Q> <C-\><C-N>:q<CR>
 " tnoremap <leader> <nop>
 let g:terminal_color_0  = '#000000'

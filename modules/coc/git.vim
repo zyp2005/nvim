@@ -4,7 +4,7 @@ nmap <space>g= <Plug>(coc-git-nextchunk)
 ":CocCommand git.chunkInfo 在光标下显示块信息。
 nmap <space>gh <Plug>(coc-git-chunkinfo)
 ":CocCommand git.showCommit 显示当前块的提交。
-nmap <space>gc <Plug>(coc-git-commit)
+nmap <space>gsc <Plug>(coc-git-commit)
 " create text object for git chunks
 omap ig <Plug>(coc-git-chunk-inner)
 xmap ig <Plug>(coc-git-chunk-inner)
@@ -23,7 +23,7 @@ nmap <space>gf :CocCommand git.foldUnchanged<CR>
 ":CocCommand git.toggleGutters 在符号列中切换git gutter。
 nmap <space>gt :CocCommand git.toggleGutters<CR>
 
-nmap <space>sc :CocList commits<CR>
+nmap <space>gc :CocList commits<CR>
 nmap <space>ga :CocList gstatus<CR>
 nmap <space>gb :CocList branches<CR>
 

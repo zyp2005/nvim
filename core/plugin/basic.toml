@@ -94,3 +94,8 @@ hook_add = '''
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 let g:indentLine_fileType = ['c','cpp','vim']
 '''
+
+#
+[[plugins]]
+repo = 'https://hub.fastgit.org/liuchengxu/vim-which-key.git'
+hook_source = 'source $NVIM_PATH/modules/basic/vim-which-key.vim'
