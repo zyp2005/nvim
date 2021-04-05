@@ -21,6 +21,7 @@ set laststatus=2
 
 " 总是显示行号
 set number
+set numberwidth=4
 
 " 始终显示标志列，否则，每次出现/解决诊断时，文本都会偏移。
 if has("patch-8.1.1564")
