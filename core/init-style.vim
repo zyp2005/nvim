@@ -50,7 +50,9 @@ set noshowmode
 " 右下分割
 set splitbelow splitright
 
-set inccommand=split
+if has('nvim')
+    set inccommand=split
+endif
 
 set winwidth=30         " 活动窗口的最小宽度
 set winminwidth=10      " 非活动窗口的最小宽度
