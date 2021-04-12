@@ -27,23 +27,24 @@ vim.api.nvim_set_option('autoindent',true)
 vim.api.nvim_set_option('cindent',true)
 
 -- Windows 禁用 ALT 操作菜单（使得 ALT 可以用到 Vim里）
-vim.api.nvim_set_option('winaltkeys=no
+vim.api.nvim_set_option('winaltkeys', 'no')
 
 --长行不全部显示
-vim.api.nvim_set_option('nowrap
-vim.api.nvim_set_option('linebreak   -- 在breakket的设置下打开回绕
-vim.api.nvim_set_option('breakat=\ \	;:,!?           -- 回绕默认字符
+vim.api.nvim_set_option('wrap', false)
+vim.api.nvim_set_option('linebreak', true)   -- 在breakket的设置下打开回绕
+vim.api.nvim_set_option('breakat', '\\	;:,!?')           -- 回绕默认字符
 
 -- 打开功能键超时检测（终端下功能键为一串 ESC 开头的字符串）
-vim.api.nvim_set_option('ttimeout
+vim.api.nvim_set_option('ttimeout', true)
 
 -- 功能键超时检测 50 毫秒
-vim.api.nvim_set_option('ttimeoutlen=50
+vim.api.nvim_set_option('ttimeoutlen', 50)
 
 -- 显示光标位置
-vim.api.nvim_set_option('ruler
+vim.api.nvim_set_option('ruler', true)
 
 let &t_ut=''
+
 -- 自动切换目录
 vim.api.nvim_set_option('autochdir
 
