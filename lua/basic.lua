@@ -69,29 +69,30 @@ vim.o.incsearch = true
 -- 编码设置
 ------------------------------------------------------------------------
 
-if has('multi_byte')
+if vim.fn.has('multi_byte')
+then
 	-- 内部工作编码
-	vim.o.encoding=utf-8
+	vim.o.encoding='utf-8'
 
 	-- 文件默认编码
-	vim.o.fileencoding=utf-8
+	vim.o.fileencoding='utf-8'
 
 	-- 打开文件时自动尝试下面顺序的编码
-	vim.o.fileencodings=ucs-bom,utf-8,gbk,gb18030,big5,euc-jp,latin1
+	vim.o.fileencodings='ucs-bom,utf-8,gbk,gb18030,big5,euc-jp,latin1'
 
-	scriptencoding utf-8
-endif
+	scriptencoding = 'utf-8'
+end
 
 
 ------------------------------------------------------------------------
 -- 允许 Vim 自带脚本根据文件类型自动设置缩进等
 ------------------------------------------------------------------------
-if has('autocmd')
-	filetype indent on
-	filetype plugin on
-	filetype plugin indent on
-	filetype plugin indent on
-endif
+if vim.fn.has('autocmd')
+	filetype = 'indent on'
+	filetype = 'plugin on'
+	filetype = 'plugin indent on'
+	filetype = 'plugin indent on'
+end
 
 
 ------------------------------------------------------------------------
