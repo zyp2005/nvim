@@ -16,7 +16,7 @@
 if !exists('g:bundle_group')
 	let g:bundle_group = ['basic','enhanced', 'filetypes', 'textobj']
 	let g:bundle_group += [ 'airline',  'echodoc','fzf']
-	let g:bundle_group += ['Leaderf','extra','coc','debug','vimtex']
+	let g:bundle_group += ['Leaderf','extra','lsp','debug','vimtex']
 	let g:bundle_group += ['calender','editor','general_writing','asyncrun']
 	let g:bundle_group += ['vista']
 endif
@@ -76,7 +76,7 @@ function! s:use_dein()
 			call dein#load_toml($NVIM_PATH.'/core/plugin/airline.toml')
 			call dein#load_toml($NVIM_PATH.'/core/plugin/asyncrun.toml')
 			call dein#load_toml($NVIM_PATH.'/core/plugin/calendar.toml')
-			call dein#load_toml($NVIM_PATH.'/core/plugin/coc.toml')
+			call dein#load_toml($NVIM_PATH.'/core/plugin/lsp.toml')
 			call dein#load_toml($NVIM_PATH.'/core/plugin/debug.toml')
 			call dein#load_toml($NVIM_PATH.'/core/plugin/echo.toml')
 			call dein#load_toml($NVIM_PATH.'/core/plugin/editor.toml')

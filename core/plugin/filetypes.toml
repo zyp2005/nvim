@@ -37,11 +37,6 @@ on_ft = 'rust'
 repo = 'https://hub.fastgit.org/jceb/vim-orgmode'
 on_ft = 'org'
 
-#c/c++语言高亮
-[[plugins]]
-repo = 'https://hub.fastgit.org/jackguo380/vim-lsp-cxx-highlight.git'
-on_ft = ['c', 'cpp']
-
 # markdown
 [[plugins]]
 repo = 'https://hub.fastgit.org/iamcco/markdown-preview.nvim'
