@@ -1,6 +1,3 @@
-#
-#
-#
 [[plugins]]
 repo = 'https://hub.fastgit.org/skywind3000/vim-quickui.git'
 on_ft = 'qf'
