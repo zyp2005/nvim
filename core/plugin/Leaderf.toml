@@ -2,11 +2,11 @@
 # leaderF：CtrlP / FZF 的超级代替者，文件模糊匹配，tags/函数名 选择
 # -------------------------------------------------------
 
-# [[plugins]]
-# repo = 'https://hub.fastgit.org/Yggdroot/leaderF'
-# build = './install.sh'
-# on_cmd = 'Leaderf'
-# hook_source = 'source $NVIM_PATH/modules/Leaderf/Leaderf.vim'
+[[plugins]]
+repo = 'https://hub.fastgit.org/Yggdroot/leaderF'
+build = './install.sh'
+on_cmd = 'Leaderf'
+hook_source = 'source $NVIM_PATH/modules/Leaderf/Leaderf.vim'
 
 [[plugins]]
 repo = 'https://hub.fastgit.org/nvim-lua/popup.nvim'
