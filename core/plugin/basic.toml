@@ -77,6 +77,9 @@ repo = 'https://github.com/rafamadriz/friendly-snippets.git'
 
 [[plugins]]
 repo = 'https://github.com/SirVer/ultisnips.git'
+hook_source = '''
+let g:UltiSnipsExpandTrigger = "<c-l>"
+'''
 
 # 书签
 [[plugins]]
