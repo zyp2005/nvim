@@ -4,7 +4,8 @@
 
 #自动括号
 [[plugins]]
-repo = 'https://hub.fastgit.org/jiangmiao/auto-pairs'
+repo = 'https://github.com/cohama/lexima.vim.git'
+
 
 # 多光标
 [[plugins]]

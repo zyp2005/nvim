@@ -69,6 +69,15 @@ hook_add = 'nnoremap \g :Git '
 repo = 'https://hub.fastgit.org/honza/vim-snippets'
 hook_source = 'source $NVIM_PATH/modules/basic/vim-snippets.vim'
 
+[[plugins]]
+repo = 'https://github.com/hrsh7th/vim-vsnip.git'
+
+[[plugins]]
+repo = 'https://github.com/rafamadriz/friendly-snippets.git'
+
+[[plugins]]
+repo = 'https://github.com/SirVer/ultisnips.git'
+
 # 书签
 [[plugins]]
 repo = 'https://hub.fastgit.org/MattesGroeger/vim-bookmarks.git'
