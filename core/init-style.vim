@@ -88,10 +88,10 @@ endif
 set background=dark
 
 " 允许 256 色
-set t_Co=256
+" set t_Co=256
 
 "真彩色，floaterm正常运行
-set termguicolors
+" set termguicolors
 
 " 设置颜色主题，会在所有 runtimepaths 的 colors 目录寻找同名配置
 color gruvbox-material
