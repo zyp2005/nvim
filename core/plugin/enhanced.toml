@@ -49,4 +49,9 @@ on_map = '<Plug>Translate'
 hook_add = 'source $NVIM_PATH/modules/enhanced/vim-translator_add.vim'
 
 [[plugins]]
-repo = 'https://github.com/norcalli/nvim-colorizer.lua.git'
+repo = 'https://hub.fastgit.org/norcalli/nvim-colorizer.lua.git'
+hook_post_source = '''
+lua << EOF
+require'colorizer'.setup()
+EOF
+'''
