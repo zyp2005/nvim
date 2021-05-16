@@ -66,20 +66,10 @@ hook_add = 'nnoremap \g :Git '
 
 # 文本片段
 [[plugins]]
-repo = 'https://hub.fastgit.org/honza/vim-snippets'
-hook_source = 'source $NVIM_PATH/modules/basic/vim-snippets.vim'
-
-[[plugins]]
 repo = 'https://github.com/hrsh7th/vim-vsnip.git'
 
 [[plugins]]
 repo = 'https://github.com/rafamadriz/friendly-snippets.git'
-
-[[plugins]]
-repo = 'https://github.com/SirVer/ultisnips.git'
-hook_source = '''
-let g:UltiSnipsExpandTrigger = "<c-l>"
-'''
 
 # 书签
 [[plugins]]
