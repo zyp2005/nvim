@@ -30,7 +30,7 @@ nnoremap <silent><leader>- :Lspsaga diagnostic_jump_prev<CR>
 '''
 
 [[plugins]]
-repo = 'https://hub.fastgit.org/hrsh7th/nvim-compe.git'
+repo = 'https://github.com/hrsh7th/nvim-compe.git'
 hook_source = '''
 lua << EOF
 vim.o.completeopt = "menuone,noselect"

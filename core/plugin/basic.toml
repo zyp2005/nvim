@@ -93,7 +93,7 @@ let g:indentLine_fileType = ['c','cpp','vim']
 '''
 
 [[plugins]]
-repo = 'https://hub.fastgit.org/kyazdani42/nvim-tree.lua.git'
+repo = 'https://github.com/kyazdani42/nvim-tree.lua.git'
 hook_source = '''
 let g:nvim_tree_ignore = [ '.git', 'node_modules', '.cache' ] "empty by default
 let g:nvim_tree_auto_open = 1 "0 by default, opens the tree when typing `vim $DIR` or `vim`
@@ -121,7 +121,46 @@ let g:nvim_tree_show_icons = {
 " default will show icon by default if no icon is provided
 " default shows no icon by default
 nnoremap tt :NvimTreeToggle<CR>
+lua << EOF
+	local tree_cb = require'nvim-tree.config'.nvim_tree_callback
+	vim.g.nvim_tree_bindings = {
+	  ["<CR>"] = ":YourVimFunction()<cr>",
+	  ["u"] = ":lua require'some_module'.some_function()<cr>",
+
+	  -- default mappings
+	  ["<CR>"]           = tree_cb("edit"),
+	  ["o"]              = tree_cb("edit"),
+	  ["<2-LeftMouse>"]  = tree_cb("edit"),
+	  ["<2-RightMouse>"] = tree_cb("cd"),
+	  ["<C-]>"]          = tree_cb("cd"),
+	  ["<C-v>"]          = tree_cb("vsplit"),
+	  ["<C-x>"]          = tree_cb("split"),
+	  ["<C-t>"]          = tree_cb("tabnew"),
+	  ["<"]              = tree_cb("prev_sibling"),
+	  [">"]              = tree_cb("next_sibling"),
+	  ["P"]              = tree_cb("parent_node"),
+	  ["<BS>"]           = tree_cb("close_node"),
+	  ["<S-CR>"]         = tree_cb("close_node"),
+	  ["<Tab>"]          = tree_cb("preview"),
+	  ["K"]              = tree_cb("first_sibling"),
+	  ["J"]              = tree_cb("last_sibling"),
+	  ["I"]              = tree_cb("toggle_ignored"),
+	  ["H"]              = tree_cb("toggle_dotfiles"),
+	  ["R"]              = tree_cb("refresh"),
+	  ["a"]              = tree_cb("create"),
+	  ["d"]              = tree_cb("remove"),
+	  ["r"]              = tree_cb("rename"),
+	  ["<C-r>"]          = tree_cb("full_rename"),
+	  ["x"]              = tree_cb("cut"),
+	  ["c"]              = tree_cb("copy"),
+	  ["p"]              = tree_cb("paste"),
+	  ["<space>-"]             = tree_cb("prev_git_item"),
+	  ["<space>="]             = tree_cb("next_git_item"),
+	  ["-"]              = tree_cb("dir_up"),
+	  ["q"]              = tree_cb("close"),
+	}
+EOF
 '''
 
 [[plugins]]
-repo = 'https://hub.fastgit.org/kyazdani42/nvim-web-devicons'
+repo = 'https://github.com/kyazdani42/nvim-web-devicons'
