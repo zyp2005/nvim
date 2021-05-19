@@ -3,7 +3,48 @@
 # ------------------------------------------------------
 
 [[plugins]]
-repo = 'https://hub.fastgit.org/glepnir/galaxyline.nvim.git'
+repo = 'https://hub.fastgit.org/itchyny/lightline.vim.git'
+hook_source = 'source $NVIM_PATH/modules/airline/lightline.vim'
 
 [[plugins]]
 repo = 'https://hub.fastgit.org/romgrk/barbar.nvim.git'
+hook_source = '''
+" Move to previous/next
+nnoremap <silent>    <M-[> :BufferPrevious<CR>
+nnoremap <silent>    <M-]> :BufferNext<CR>
+" Goto buffer in position...
+nnoremap <silent>    <space>1 :BufferGoto 1<CR>
+nnoremap <silent>    <space>2 :BufferGoto 2<CR>
+nnoremap <silent>    <space>3 :BufferGoto 3<CR>
+nnoremap <silent>    <space>4 :BufferGoto 4<CR>
+nnoremap <silent>    <space>5 :BufferGoto 5<CR>
+nnoremap <silent>    <space>6 :BufferGoto 6<CR>
+nnoremap <silent>    <space>7 :BufferGoto 7<CR>
+nnoremap <silent>    <space>8 :BufferGoto 8<CR>
+nnoremap <silent>    <space>9 :BufferGoto 9<CR>
+nnoremap <silent>    <space>0 :BufferLast<CR>
+" Close buffer
+nnoremap <silent>    <spacee>wc :BufferClose<CR>
+" Magic buffer-picking mode
+nnoremap <silent> <space>wp    :BufferPick<CR>
+" Sort automatically by...
+noremap <silent> <Space>wd :BufferOrderByDirectory<CR>
+nnoremap <silent> <Space>wl :BufferOrderByLanguage<CR>
+
+
+lua << EOF
+  local tree = {}
+   tree.open = function ()
+      require'bufferline.state'.set_offset(31)
+      require'nvim-tree'.find_file(true)
+   end
+
+   tree.close = function ()
+      require'bufferline.state'.set_offset(0)
+      require'nvim-tree'.close()
+   end
+
+   return tree
+EOF
+
+'''

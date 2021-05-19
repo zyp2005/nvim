@@ -64,12 +64,15 @@ hook_add = '''
 repo = 'https://hub.fastgit.org/tpope/vim-fugitive'
 hook_add = 'nnoremap \g :Git '
 
+[[plugins]]
+repo = 'https://hub.fastgit.org/airblade/vim-gitgutter'
+
 # 文本片段
 [[plugins]]
-repo = 'https://github.com/hrsh7th/vim-vsnip.git'
+repo = 'https://hub.fastgit.org/hrsh7th/vim-vsnip.git'
 
 [[plugins]]
-repo = 'https://github.com/rafamadriz/friendly-snippets.git'
+repo = 'https://hub.fastgit.org/rafamadriz/friendly-snippets.git'
 
 # 书签
 [[plugins]]
@@ -93,7 +96,7 @@ let g:indentLine_fileType = ['c','cpp','vim']
 '''
 
 [[plugins]]
-repo = 'https://github.com/kyazdani42/nvim-tree.lua.git'
+repo = 'https://hub.fastgit.org/kyazdani42/nvim-tree.lua.git'
 hook_source = '''
 let g:nvim_tree_ignore = [ '.git', 'node_modules', '.cache' ] "empty by default
 let g:nvim_tree_auto_open = 1 "0 by default, opens the tree when typing `vim $DIR` or `vim`
@@ -111,9 +114,26 @@ let g:nvim_tree_quit_on_open = 1
 let g:nvim_tree_special_files = [ 'README.md', 'Makefile', 'MAKEFILE' ] " List of filenames that gets highlighted with NvimTreeSpecialFile
 let g:nvim_tree_show_icons = {
     \ 'git': 1,
-    \ 'folders': 1,
-    \ 'files': 1,
+    \ 'folders': 0,
+    \ 'files': 0,
     \ }
+    let g:nvim_tree_icons = {
+        \ 'git' : {
+            \ 'unstaged': "~",
+            \ 'staged' : "M",
+            \ 'unmerged' : "",
+            \ 'renamed' : "→",
+            \ 'untracked': "?",
+            \ 'deleted': "×",
+            \ 'ignored': "!",
+            \},
+        \ 'lsp' : {
+            \ 'hint' : "H",
+            \ 'info' : "I",
+            \ 'warning' : "W",
+            \ 'error' : "E",
+            \}
+        \}
 "If 0, do not show the icons for one of 'git' 'folder' and 'files'
 "1 by default, notice that if 'files' is 1, it will only display
 "if nvim-web-devicons is installed and on your runtimepath
@@ -163,4 +183,4 @@ EOF
 '''
 
 [[plugins]]
-repo = 'https://github.com/kyazdani42/nvim-web-devicons'
+repo = 'https://hub.fastgit.org/kyazdani42/nvim-web-devicons'
