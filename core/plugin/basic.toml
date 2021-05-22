@@ -66,6 +66,15 @@ hook_add = 'nnoremap \g :Git '
 
 [[plugins]]
 repo = 'https://hub.fastgit.org/airblade/vim-gitgutter'
+hook_source = '''
+    let g:gitgutter_map_keys = 0
+let g:gitgutter_sign_added              = '┃'
+    let g:gitgutter_sign_modified           = '┃'
+    let g:gitgutter_sign_removed            = '┃'
+    let g:gitgutter_sign_removed_first_line = '┃'
+    let g:gitgutter_sign_removed_above_and_below = '┃'
+    let g:gitgutter_sign_modified_removed   = '┃'
+'''
 
 # 文本片段
 [[plugins]]
@@ -124,7 +133,7 @@ let g:nvim_tree_show_icons = {
             \ 'unmerged' : "",
             \ 'renamed' : "→",
             \ 'untracked': "?",
-            \ 'deleted': "×",
+            \ 'deleted': "-",
             \ 'ignored': "!",
             \},
         \ 'lsp' : {
@@ -174,12 +183,21 @@ lua << EOF
 	  ["x"]              = tree_cb("cut"),
 	  ["c"]              = tree_cb("copy"),
 	  ["p"]              = tree_cb("paste"),
-	  ["<space>-"]             = tree_cb("prev_git_item"),
-	  ["<space>="]             = tree_cb("next_git_item"),
+	  ["g-"]             = tree_cb("prev_git_item"),
+	  ["g="]             = tree_cb("next_git_item"),
 	  ["-"]              = tree_cb("dir_up"),
 	  ["q"]              = tree_cb("close"),
 	}
 EOF
+highlight NvimTreeGitStaged guifg=#009900 ctermfg=2
+highlight NvimTreNvimTreeGitMerge guifg=#bbbb00 ctermfg=3
+highlight NvimTreNvimTreeGitRenamed guifg=#009900 ctermfg=2
+highlight NvimTreNvimTreeGitNew guifg=#009900 ctermfg=2
+highlight NvimTreNvimTreeGitDeleted guifg=#ff2222 ctermfg=1
+highlight NvimTreLspDiagnosticsError guifg=red gui=bold,underline
+highlight NvimTreLspDiagnosticsWarning guifg=yellow gui=bold,underline
+highlight NvimTreLspDiagnosticsInformation guifg=#009900 ctermfg=2
+highlight NvimTreLspDiagnosticsHint guifg=#009900 ctermfg=2
 '''
 
 [[plugins]]
