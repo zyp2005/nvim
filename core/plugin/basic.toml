@@ -74,6 +74,34 @@ let g:gitgutter_sign_added              = '┃'
     let g:gitgutter_sign_removed_first_line = '┃'
     let g:gitgutter_sign_removed_above_and_below = '┃'
     let g:gitgutter_sign_modified_removed   = '┃'
+" navigate chunks of current buffer
+nmap <space>g- <Plug>(GitGutterPrevHunk)
+nmap <space>g= <Plug>(GitGutterNextHunk)
+"在光标下显示块信息。
+nmap <space>gh <Plug>(GitGutterPreviewHunk)
+" 显示当前块的提交。
+nmap <space>gsc <Plug>(coc-git-commit)
+" create text object for git chunks
+omap ig <Plug>(GitGutterTextObjectInnerPending)
+xmap ig <Plug>(GitGutterTextObjectInnerVisual)
+omap ag <Plug>(GitGutterTextObjectOuterPending)
+xmap ag <Plug>(GitGutterTextObjectOuterVisual)
+"撤消当前块。
+nmap <space>gu <Plug>(GitGutterUndoHunk)
+"暂存当前块。
+nmap <space>gs <Plug>(GitGutterStageHunk)
+":CocCommand git.diffCached 在预览窗口中显示缓存的差异。
+nmap <space>gd :CocCommand git.diffCached<CR>
+":CocCommand git.browserOpen 在浏览器中打开当前行，支持github url。
+nmap <space>gw :CocCommand git.browserOpen<CR>
+"折叠当前缓冲区的不变行。
+nmap <space>gf :GitGutterFold<CR>
+"在符号列中切换git gutter。
+nmap <space>gt :CocCommand git.toggleGutters<CR>
+
+nmap <space>gc :CocList commits<CR>
+nmap <space>ga :CocList gstatus<CR>
+nmap <space>gb :CocList branches<CR>
 '''
 
 # 文本片段
@@ -123,8 +151,8 @@ let g:nvim_tree_quit_on_open = 1
 let g:nvim_tree_special_files = [ 'README.md', 'Makefile', 'MAKEFILE' ] " List of filenames that gets highlighted with NvimTreeSpecialFile
 let g:nvim_tree_show_icons = {
     \ 'git': 1,
-    \ 'folders': 0,
-    \ 'files': 0,
+    \ 'folders': 1,
+    \ 'files': 1,
     \ }
     let g:nvim_tree_icons = {
         \ 'git' : {
@@ -189,15 +217,7 @@ lua << EOF
 	  ["q"]              = tree_cb("close"),
 	}
 EOF
-highlight NvimTreeGitStaged guifg=#009900 ctermfg=2
-highlight NvimTreNvimTreeGitMerge guifg=#bbbb00 ctermfg=3
-highlight NvimTreNvimTreeGitRenamed guifg=#009900 ctermfg=2
-highlight NvimTreNvimTreeGitNew guifg=#009900 ctermfg=2
-highlight NvimTreNvimTreeGitDeleted guifg=#ff2222 ctermfg=1
-highlight NvimTreLspDiagnosticsError guifg=red gui=bold,underline
-highlight NvimTreLspDiagnosticsWarning guifg=yellow gui=bold,underline
-highlight NvimTreLspDiagnosticsInformation guifg=#009900 ctermfg=2
-highlight NvimTreLspDiagnosticsHint guifg=#009900 ctermfg=2
+
 '''
 
 [[plugins]]

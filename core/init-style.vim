@@ -84,14 +84,10 @@ endif
 " 颜色主题：色彩文件位于 colors 目录中
 "----------------------------------------------------------------------
 
-" 设置黑色背景
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+set t_Co=256
+set termguicolors
 set background=dark
-
-" 允许 256 色
-" set t_Co=256
-
-"真彩色，floaterm正常运行
-" set termguicolors
 
 " 设置颜色主题，会在所有 runtimepaths 的 colors 目录寻找同名配置
 color gruvbox-material

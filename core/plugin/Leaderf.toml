@@ -18,7 +18,6 @@ depends = ['telescope']
 
 [[plugins]]
 repo = 'https://hub.fastgit.org/nvim-telescope/telescope.nvim'
-on_cmd = 'Telescope'
 hook_add = '''
 nnoremap <leader>s <cmd>Telescope<cr>
 '''
