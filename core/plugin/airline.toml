@@ -2,9 +2,18 @@
 # 状态栏
 # ------------------------------------------------------
 
+
 [[plugins]]
-repo = 'https://hub.fastgit.org/itchyny/lightline.vim.git'
-hook_source = 'source $NVIM_PATH/modules/airline/lightline.vim'
+repo = 'https://hub.fastgit.org/ojroques/nvim-hardline.git'
+on_event = 'VimEnter'
+hook_post_source = '''
+lua << EOF
+require('hardline').setup {
+    theme = 'default'
+}
+EOF
+'''
+
 
 [[plugins]]
 repo = 'https://hub.fastgit.org/romgrk/barbar.nvim.git'

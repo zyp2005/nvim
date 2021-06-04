@@ -1,5 +1,5 @@
-noremap <space>vv :Vista coc<CR>
-noremap <space>vf :silent! Vista finder coc<CR>
+noremap <space>vv :Vista nvim_lsp<CR>
+noremap <space>vf :silent! Vista finder nvim_lsp<CR>
 let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
 let g:vista_default_executive = 'ctags'
 " let g:vista_fzf_preview = ['right:50%']
