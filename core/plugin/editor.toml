@@ -14,10 +14,24 @@ on_map = ['\\\','<m-m>','<C-up>','<C-down>']
 hook_source = 'source $NVIM_PATH/modules/editor/vim-visual-multi.vim'
 
 # 注释
+# [[plugins]]
+# repo = 'https://hub.fastgit.org/tomtom/tcomment_vim'
+# on_map = ['g>c','g>','g<','g<c']
+# hook_add = 'source $NVIM_PATH/modules/editor/tcomment_vim_add.vim'
+
 [[plugins]]
-repo = 'https://hub.fastgit.org/tomtom/tcomment_vim'
-on_map = ['g>c','g>','g<','g<c']
-hook_add = 'source $NVIM_PATH/modules/editor/tcomment_vim_add.vim'
+repo = 'https://hub.fastgit.org/b3nj5m1n/kommentary.git'
+on_map = ['<space>cn','<space>cu']
+hook_source = '''
+lua << EOF
+    vim.g.kommentary_create_default_mappings = false
+    vim.api.nvim_set_keymap("n", "<leader>cn", "<Plug>kommentary_line_increase", {})
+    vim.api.nvim_set_keymap("v", "<leader>cn", "<Plug>kommentary_visual_increase", {})
+    vim.api.nvim_set_keymap("n", "<leader>cu", "<Plug>kommentary_line_decrease", {})
+    vim.api.nvim_set_keymap("v", "<leader>cu", "<Plug>kommentary_visual_decrease", {})
+
+EOF
+'''
 
 
 # 快速替换

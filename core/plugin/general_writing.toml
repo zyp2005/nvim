@@ -17,7 +17,10 @@ hook_add = 'map <space>gy :Goyo<CR>'
 # hook_source = 'source $NVIM_PATH/modules/general_writing/thesaurus_query.vim'
 
 [[plugins]]
-repo = 'https://hub.fastgit.org/psliwka/vim-smoothie.git'
+repo = 'https://hub.fastgit.org/karb94/neoscroll.nvim.git'
+hook_source = '''
+lua require('neoscroll').setup()
+'''
 
 [[plugins]]
 repo = 'https://hub.fastgit.org/rhysd/accelerated-jk.git'

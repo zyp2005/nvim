@@ -104,6 +104,12 @@ nmap <space>ga :CocList gstatus<CR>
 nmap <space>gb :CocList branches<CR>
 '''
 
+[[plugins]]
+repo = 'https://hub.fastgit.org/tveskag/nvim-blame-line.git'
+hook_source = '''
+autocmd  BufEnter  * EnableBlameLine
+'''
+
 # 文本片段
 [[plugins]]
 repo = 'https://hub.fastgit.org/hrsh7th/vim-vsnip.git'
@@ -127,9 +133,10 @@ hook_add = 'source $NVIM_PATH/modules/basic/suda_add.vim'
 #缩进
 [[plugins]]
 repo = 'https://hub.fastgit.org/Yggdroot/indentLine.git'
+on_ft = ['c','cpp','vim','toml']
 hook_add = '''
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
-let g:indentLine_fileType = ['c','cpp','vim']
+let g:indentLine_fileType = ['c','cpp','vim','toml']
 '''
 
 [[plugins]]

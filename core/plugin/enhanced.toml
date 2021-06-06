@@ -69,3 +69,13 @@ require 'colorizer'.setup {
 }
 EOF
 '''
+
+[[plugins]]
+repo = 'https://hub.fastgit.org/kevinhwang91/nvim-hlslens.git'
+hook_source = '''
+aug VMlens
+    au!
+    au User visual_multi_start lua require('vmlens').start()
+    au User visual_multi_exit lua require('vmlens').exit()
+aug END
+'''
