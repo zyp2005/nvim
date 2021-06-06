@@ -4,10 +4,11 @@
 
 [[plugins]]
 repo = 'https://hub.fastgit.org/skywind3000/asynctasks.vim'
-on_cmd = 'AsyncTask'
+on_cmd = ['AsyncTask','Leaderf']
 hook_add = '''
 	noremap <silent><space><F3> :AsyncTask file-build<cr>
 	noremap <silent><space><F5> :AsyncTask file-run<cr>
+    noremap <silent><space>ft :Leaderf task<cr>
 '''
 hook_source = 'source $NVIM_PATH/modules/asyncrun/asyctask.vim'
 depends = ['asyncrun.vim','vim-floaterm']

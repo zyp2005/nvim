@@ -16,7 +16,14 @@ nnoremap <silent>gl <cmd>lua vim.lsp.diagnostic.set_loclist()<CR>
 repo = 'https://hub.fastgit.org/glepnir/lspsaga.nvim'
 hook_source = '''
 nnoremap <silent> gr :Lspsaga lsp_finder<CR>
-nnoremap <silent>K :Lspsaga hover_doc<CR>
+function! s:show_documentation()
+	if (index(['vim','help'], &filetype) >= 0)
+		execute 'h '.expand('<cword>')
+	else
+		Lspsaga hover_doc
+	endif
+endfunction
+nnoremap <silent> K :call <SID>show_documentation()<CR>
 nnoremap <silent><leader>ca :Lspsaga code_action<CR>
 vnoremap <silent><leader>ca :<C-U>Lspsaga range_code_action<CR>
 nnoremap <silent> <C-f> <cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>
@@ -174,3 +181,5 @@ hook_source = '''
 '''
 
 
+[[plugins]]
+repo = 'https://hub.fastgit.org/nvim-lua/lsp_extensions.nvim.git'
