@@ -5,11 +5,11 @@
 # 文本快速移动
 [[plugins]]
 repo = 'https://hub.fastgit.org/phaazon/hop.nvim.git'
-on_event = ['BufNewFile','BufRead']
+on_map = ['<space>ef','<space>eF','<space>ew','<space>el','<space>ep',]
 hook_source = '''
 lua require'hop'.setup { keys = 'asdfghjkl', create_hl_autocmd = true}
 nmap <space>ef :HopChar1<cr>
-nmap <space>ef :HopChar2<cr>
+nmap <space>eF :HopChar2<cr>
 nmap <space>ew :HopWord<cr>
 nmap <space>el :HopLine<cr>
 nmap <space>ep :HopPattern<cr>
@@ -40,8 +40,6 @@ hook_source = ' source $NVIM_PATH/modules/basic/vim-floaterm.vim'
 [[plugins]]
 repo = 'https://hub.fastgit.org/sainnhe/gruvbox-material'
 hook_source = 'source $NVIM_PATH/modules/basic/gruvbox-material.vim'
-[[plugins]]
-repo = 'https://hub.fastgit.org/rakr/vim-one'
 
 # ALT+e 窗口移动
 [[plugins]]
@@ -60,6 +58,7 @@ hook_add = '''
 # git支持
 [[plugins]]
 repo = 'https://hub.fastgit.org/tpope/vim-fugitive'
+on_cmd = 'Git'
 hook_add = 'nnoremap \g :Git '
 
 [[plugins]]
@@ -104,15 +103,18 @@ nmap <space>gb :CocList branches<CR>
 
 [[plugins]]
 repo = 'https://hub.fastgit.org/tveskag/nvim-blame-line.git'
+on_event = 'BufRead'
 hook_source = '''
 autocmd  BufEnter  * EnableBlameLine
 '''
 
 # 文本片段
 [[plugins]]
+on_event = 'InsertEnter'
 repo = 'https://hub.fastgit.org/hrsh7th/vim-vsnip.git'
 
 [[plugins]]
+on_event = 'InsertEnter'
 repo = 'https://hub.fastgit.org/rafamadriz/friendly-snippets.git'
 
 # 书签
@@ -139,6 +141,7 @@ let g:indentLine_fileType = ['c','cpp','vim','toml']
 
 [[plugins]]
 repo = 'https://hub.fastgit.org/kyazdani42/nvim-tree.lua.git'
+on_map = 'tt'
 hook_source = '''
 let g:nvim_tree_ignore = [ '.git', 'node_modules', '.cache' ] "empty by default
 let g:nvim_tree_auto_open = 1 "0 by default, opens the tree when typing `vim $DIR` or `vim`

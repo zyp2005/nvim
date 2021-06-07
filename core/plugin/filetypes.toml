@@ -32,10 +32,6 @@ on_ft = 'python'
 repo = 'https://hub.fastgit.org/rust-lang/rust.vim'
 on_ft = 'rust'
 
-#vim org-mode
-[[plugins]]
-repo = 'https://hub.fastgit.org/jceb/vim-orgmode'
-on_ft = 'org'
 
 # markdown
 [[plugins]]
@@ -64,8 +60,6 @@ hook_source = '''
 "    \ 'content_editable': v:false,
 "    \ 'disable_filename': 0
 "    \ }
-
-
 '''
 
 [[plugins]]

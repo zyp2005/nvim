@@ -26,10 +26,4 @@ nmap j <Plug>(accelerated_jk_gj)
 nmap k <Plug>(accelerated_jk_gk)
 '''
 
-#对齐
-[[plugins]]
-repo = 'https://hub.fastgit.org/junegunn/vim-easy-align.git'
-
-
-
 

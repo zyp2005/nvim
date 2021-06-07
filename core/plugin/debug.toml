@@ -4,7 +4,7 @@
 
 [[plugins]]
 repo = 'https://hub.fastgit.org/puremourning/vimspector'
-event = 'BufReadPost'
+on_map = "<F5>"
 hook_add = '''
 	noremap <space>vs :tabe .vimspector.json<CR>:LoadVimSpectorJsonTemplate<CR>
 '''

@@ -25,9 +25,6 @@ on_map = 'UndotreeToggle'
 hook_add = 'noremap <space>u :UndotreeToggle<CR>'
 hook_source = 'source $NVIM_PATH/modules/enhanced/undotree.vim'
 
-# 彩虹括号
-[[plugins]]
-repo = 'https://hub.fastgit.org/luochen1990/rainbow'
 
 # 中文文档
 [[plugins]]
@@ -38,10 +35,6 @@ repo = 'https://hub.fastgit.org/yianwillis/vimcdoc'
 repo = 'https://hub.fastgit.org/ntpeters/vim-better-whitespace.git'
 hook_source = 'source $NVIM_PATH/modules/enhanced/vim-whitespace.vim'
 
-# 提供图形字符支持
-[[plugins]]
-repo = 'https://hub.fastgit.org/ryanoasis/vim-devicons'
-
 # 翻译
 [[plugins]]
 repo = 'https://hub.fastgit.org/voldikss/vim-translator'
@@ -50,6 +43,7 @@ hook_add = 'source $NVIM_PATH/modules/enhanced/vim-translator_add.vim'
 
 [[plugins]]
 repo = 'https://hub.fastgit.org/norcalli/nvim-colorizer.lua'
+on_map = "ColorizerToggle"
 hook_source = '''
 set termguicolors
 lua << EOF

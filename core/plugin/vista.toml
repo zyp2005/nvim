@@ -3,5 +3,6 @@
 # ------------------------------------------------------
 [[plugins]]
 repo = 'https://hub.fastgit.org/liuchengxu/vista.vim'
+on_map = ['<space>vv']
 hook_source = 'source $NVIM_PATH/modules/vista/vista.vim'
 

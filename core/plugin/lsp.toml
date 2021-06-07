@@ -14,6 +14,7 @@ nnoremap <silent>gl <cmd>lua vim.lsp.diagnostic.set_loclist()<CR>
 
 [[plugins]]
 repo = 'https://hub.fastgit.org/glepnir/lspsaga.nvim'
+on_event = 'BufRead'
 hook_source = '''
 nnoremap <silent> gr :Lspsaga lsp_finder<CR>
 function! s:show_documentation()
@@ -38,6 +39,7 @@ nnoremap <silent><leader>- :Lspsaga diagnostic_jump_prev<CR>
 
 [[plugins]]
 repo = 'https://hub.fastgit.org/hrsh7th/nvim-compe.git'
+on_event = 'BufRead'
 hook_source = '''
 lua << EOF
 vim.o.completeopt = "menuone,noselect"
@@ -116,6 +118,7 @@ inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
 
 [[plugins]]
 repo = 'https://hub.fastgit.org/folke/trouble.nvim.git'
+on_map = '<space>x'
 hook_post_source = '''
 lua << EOF
   require("trouble").setup {
@@ -179,7 +182,3 @@ repo = 'https://hub.fastgit.org/folke/lsp-colors.nvim.git'
 hook_source = '''
    lua require("lsp-colors").setup()
 '''
-
-
-[[plugins]]
-repo = 'https://hub.fastgit.org/nvim-lua/lsp_extensions.nvim.git'
