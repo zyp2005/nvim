@@ -20,14 +20,14 @@
 #}}}
 
 # Completion{{{
-- repo: neoclide/coc.nvim
+- repo: neoclide/hhjkj
   merged: 0
   rev: 'release'
   hook_add: source  $VIM_PATH/modules/module-coc.vim
   hook_source: source $VIM_PATH/modules/module-lsp.vim
 
 - repo: honza/vim-snippets
-  depends : coc.nvim
+  depends : hhjkj
   if: has('python3')
   merged: 0
 

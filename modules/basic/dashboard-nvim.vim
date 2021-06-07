@@ -1,4 +1,4 @@
-let g:dashboard_default_executive ='fzf'
+let g:dashboard_default_executive ='Telescope'
 let g:dashboard_custom_header = [
 			\ '',
 			\ '                     ___   ___   ___  _____ ',
@@ -31,6 +31,6 @@ let g:dashboard_custom_section = {
 			\ 'command': 'BookmarkShowAll'},
 			\ 'open_personal'       :{
 			\ 'description': ['  Open Personal Config File             no     '],
-			\ 'command': 'CocList files ~/.config/nvim'},
+			\ 'command': 'e $NVIM_PATH/init.vim'},
 			\}
 

@@ -4,14 +4,16 @@
 
 # 文本快速移动
 [[plugins]]
-repo = 'https://hub.fastgit.org/easymotion/vim-easymotion'
-on_map = '<Plug>'
-hook_add = '''
-	nmap <space>ef <Plug>(easymotion-overwin-f)
-	nmap <space>eF <Plug>(easymotion-overwin-f2)
-	nmap <space>el <Plug>(easymotion-overwin-line)
+repo = 'https://hub.fastgit.org/phaazon/hop.nvim.git'
+on_event = ['BufNewFile','BufRead']
+hook_source = '''
+lua require'hop'.setup { keys = 'asdfghjkl', create_hl_autocmd = true}
+nmap <space>ef :HopChar1<cr>
+nmap <space>ef :HopChar2<cr>
+nmap <space>ew :HopWord<cr>
+nmap <space>el :HopLine<cr>
+nmap <space>ep :HopPattern<cr>
 '''
-hook_source = 'source $NVIM_PATH/modules/basic/vim-easymotion.vim'
 
 # 显示开始画面
 [[plugins]]
@@ -30,10 +32,6 @@ hook_add = '''
 	let  g:floaterm_keymap_kill    =  '<M-f><M-k>'
 	let  g:floaterm_keymap_toggle  =  '<M-f><M-h>'
 	nmap <M-f><M-o> :FloatermNew<cr>
-	nmap <space>fl :CocList --auto-preview floaterm<CR>
-	nmap  <space>fr :FloatermNew ranger<CR>
-	nmap  <space>ff :FloatermNew fzf<CR>
-	nmap  <space>fg :FloatermNew lazygit<CR>
 '''
 hook_source = ' source $NVIM_PATH/modules/basic/vim-floaterm.vim'
 
