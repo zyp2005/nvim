@@ -73,3 +73,50 @@ aug VMlens
     au User visual_multi_exit lua require('vmlens').exit()
 aug END
 '''
+
+[[plugins]]
+repo = 'https://hub.fastgit.org/nvim-treesitter/nvim-treesitter.git'
+merged = 0
+hook_source = '''
+lua << EOF
+require'nvim-treesitter.configs'.setup {
+    ensure_installed = "c",
+    ignore_install = { "javascript" }, -- List of parsers to ignore installing
+    highlight = {
+    enable = true,              -- false will disable the whole extension
+    disable = { "rust" },  -- list of language that will be disabled
+    },
+    incremental_selection = { enable = true },
+    textobjects = { enable = true },
+      refactor = {
+    highlight_definitions = { enable = true },
+    highlight_current_scope = { enable = false },
+    smart_rename = {
+      enable = false,
+      keymaps = {
+        smart_rename = "grr",
+      },
+    },
+  },
+      textobjects = {
+    select = {
+      enable = true,
+      keymaps = {
+        -- You can use the capture groups defined in textobjects.scm
+        ["af"] = "@function.outer",
+        ["if"] = "@function.inner",
+        ["ac"] = "@class.outer",
+        ["ic"] = "@class.inner",
+        },
+      },
+  },
+}
+EOF
+'''
+
+
+[[plugins]]
+repo = 'https://hub.fastgit.org/nvim-treesitter/nvim-treesitter-textobjects.git'
+
+[[plugins]]
+repo = 'https://hub.fastgit.org/nvim-treesitter/nvim-treesitter-refactor.git'

@@ -86,7 +86,9 @@ endif
 
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 set t_Co=256
-set termguicolors
+if has('termguicolors')
+          set termguicolors
+        endif
 set background=dark
 
 " 设置颜色主题，会在所有 runtimepaths 的 colors 目录寻找同名配置

@@ -141,7 +141,6 @@ let g:indentLine_fileType = ['c','cpp','vim','toml']
 
 [[plugins]]
 repo = 'https://hub.fastgit.org/kyazdani42/nvim-tree.lua.git'
-on_map = 'tt'
 hook_source = '''
 let g:nvim_tree_ignore = [ '.git', 'node_modules', '.cache' ] "empty by default
 let g:nvim_tree_auto_open = 1 "0 by default, opens the tree when typing `vim $DIR` or `vim`
