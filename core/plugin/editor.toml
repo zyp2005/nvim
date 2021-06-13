@@ -4,7 +4,21 @@
 
 #自动括号
 [[plugins]]
-repo = 'https://hub.fastgit.org/jiangmiao/auto-pairs'
+repo = 'https://hub.fastgit.org/steelsojka/pears.nvim.git'
+hook_source = '''
+lua << EOF
+require "pears".setup()
+require "pears".setup(function(conf)
+  conf.on_enter(function(pears_handle)
+    if vim.fn.pumvisible() == 1 and vim.fn.complete_info().selected ~= -1 then
+      return vim.fn["compe#confirm"]("<CR>")
+    else
+      pears_handle()
+    end
+  end)
+end)
+EOF
+'''
 
 
 # 多光标
@@ -81,10 +95,9 @@ hook_source = 'source $NVIM_PATH/modules/editor/NrrwRgn.vim'
 
 [[plugins]]
 repo = 'https://hub.fastgit.org/windwp/nvim-spectre.git'
-on_cmd = ['<space>FF','<space>FW']
+on_map = ['<space>FF','<space>FW']
 hook_source = '''
 nnoremap <leader>FF :lua require('spectre').open()<CR>
-"search current word
 nnoremap <leader>FW viw:lua require('spectre').open_visual()<CR>
 vnoremap <leader>FW :lua require('spectre').open_visual()<CR>
 '''

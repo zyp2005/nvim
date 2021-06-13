@@ -43,9 +43,8 @@ hook_add = 'source $NVIM_PATH/modules/enhanced/vim-translator_add.vim'
 
 [[plugins]]
 repo = 'https://hub.fastgit.org/norcalli/nvim-colorizer.lua'
-on_map = "ColorizerToggle"
+on_cmd = 'ColorizerToggle'
 hook_source = '''
-set termguicolors
 lua << EOF
 require 'colorizer'.setup {
     DEFAULT_OPTIONS = {

@@ -14,6 +14,5 @@ let g:gruvbox_material_diagnostic_virtual_text = 'colored'
 let g:gruvbox_material_better_performance = 1
 "let g:gruvbox_material_transparent_background = 1
 let g:gruvbox_material_enable_bold = 1
-let g:airline_theme='gruvbox_material'
-
+let g:gruvbox_material_cursor = 'blue'
 

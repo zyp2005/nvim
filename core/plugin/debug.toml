@@ -2,13 +2,57 @@
 # 调试
 # -------------------------------------------------------
 
+# [[plugins]]
+# repo = 'https://hub.fastgit.org/puremourning/vimspector'
+# on_map = "<F5>"
+# hook_add = '''
+# 	noremap <space>vs :tabe .vimspector.json<CR>:LoadVimSpectorJsonTemplate<CR>
+# '''
+# hook_source = 'source $NVIM_PATH/modules/debug/vimspector.vim'
+
+
+
 [[plugins]]
-repo = 'https://hub.fastgit.org/puremourning/vimspector'
-on_map = "<F5>"
-hook_add = '''
-	noremap <space>vs :tabe .vimspector.json<CR>:LoadVimSpectorJsonTemplate<CR>
+repo = 'https://hub.fastgit.org/sakhnik/nvim-gdb.git'
+build = './install.sh'
+hook_source = '''
+function! NvimGdbNoTKeymaps()
+  tnoremap <silent> <buffer> <esc> <c-\><c-n>
+endfunction
+
+let g:nvimgdb_config_override = {
+  \ 'key_next': 'n',
+  \ 'key_step': 's',
+  \ 'key_finish': 'f',
+  \ 'key_continue': 'c',
+  \ 'key_until': 'u',
+  \ 'key_breakpoint': 'b',
+  \ 'set_tkeymaps': "NvimGdbNoTKeymaps",
+  \ }
 '''
-hook_source = 'source $NVIM_PATH/modules/debug/vimspector.vim'
+
+[[plugins]]
+repo = 'https://hub.fastgit.org/simrat39/symbols-outline.nvim.git'
+hook_source = '''
+" init.vim
+let g:symbols_outline = {
+    \ "highlight_hovered_item": v:true,
+    \ "show_guides": v:true,
+    \ "position": 'right',
+    \ "auto_preview": v:true,
+    \ "keymaps": {
+        \ "close": "<Esc>",
+        \ "goto_location": "<Cr>",
+        \ "focus_location": "o",
+        \ "hover_symbol": "<C-space>",
+        \ "rename_symbol": "r",
+        \ "code_actions": "a",
+    \ },
+    \ "lsp_blacklist": [],
+\ }
+
+'''
+
 
 
 
