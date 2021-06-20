@@ -26,12 +26,13 @@ let g:lightline = {
 	\  'right': [],
 	\},
 	\ 'component_function': {
+	\   'cocstatus': 'coc#status',
 	\   'method': 'NearestMethodOrFunction',
 	\   'filetype': 'MyFiletype',
 	\   'fileformat': 'MyFileformat',
 	\ },
 	\ 'component' : {
-	\   'git' : '$%{FugitiveHead()} %{GitStatus()}',
+	\   'git' : '%{get(g:,"coc_git_status","")}%{get(b:,"coc_git_status","")}%{get(b:,"coc_git_blame","")}',
 	\   'mode': '%{lightline#mode()}',
 	\   'absolutepath': '%F',
 	\   'relativepath': '%f',
@@ -55,11 +56,13 @@ let g:lightline = {
 	\   'winnr': '%{winnr()}'
 	\ },
 	\ }
-    let g:lightline.enable = {
-        \ 'statusline': 1,
-        \ 'tabline': 0
-        \ }
-function! GitStatus()
-      let [a,m,r] = GitGutterGetHunkSummary()
-      return printf('+%d ~%d -%d', a, m, r)
-    endfunction
+
+autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
+" autocmd User CocGitStatusChange call lightline#update()
+  function! MyFiletype()
+    return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft') : ''
+  endfunction
+
+  function! MyFileformat()
+    return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) : ''
+  endfunction

@@ -28,7 +28,6 @@ inoremap <silent><expr> <c-x> coc#refresh()
 " <cr> could be remapped by other vim plugin, try `:verbose imap <CR>`.
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<CR>"
 
-
 "
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>

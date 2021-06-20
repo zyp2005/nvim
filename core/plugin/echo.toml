@@ -2,25 +2,29 @@
 # echodoc：搭配 YCM/deoplete 在底部显示函数参数
 # ------------------------------------------------------
 
+# [[plugins]]
+# repo = 'https://hub.fastgit.org/ray-x/lsp_signature.nvim.git'
+# on_event = 'InsertEnter'
+# hook_source = '''
+# lua << EOF
+#  require "lsp_signature".on_attach({
+#   bind = true, -- This is mandatory, otherwise border config won't get registered.
+#   doc_lines = 2, -- will show two lines of comment/doc(if there are more than two lines in doc, will be truncated);
+#   floating_window = true,
+#   hint_enable = true, -- virtual hint enable
+#   hint_prefix = "->",  -- Panda for parameter
+#   hint_scheme = "String",
+#   hi_parameter = "Search",
+#   max_height = 12,
+#   max_width = 120,
+#   use_lspsaga = false,  -- set to true if you want to use lspsaga popup
+#   handler_opts = {
+#     border = "single"   -- double, single, shadow, none
+#   },
+#     })
+# EOF
+# '''
+
 [[plugins]]
-repo = 'https://hub.fastgit.org/ray-x/lsp_signature.nvim.git'
-on_event = 'InsertEnter'
-hook_source = '''
-lua << EOF
- require "lsp_signature".on_attach({
-  bind = true, -- This is mandatory, otherwise border config won't get registered.
-  doc_lines = 2, -- will show two lines of comment/doc(if there are more than two lines in doc, will be truncated);
-  floating_window = true,
-  hint_enable = true, -- virtual hint enable
-  hint_prefix = "->",  -- Panda for parameter
-  hint_scheme = "String",
-  hi_parameter = "Search",
-  max_height = 12,
-  max_width = 120,
-  use_lspsaga = false,  -- set to true if you want to use lspsaga popup
-  handler_opts = {
-    border = "single"   -- double, single, shadow, none
-  },
-    })
-EOF
-'''
+repo = 'https://hub.fastgit.org/Shougo/echodoc.vim.git'
+hook_source = 'source $NVIM_PATH/modules/echodoc/echodoc.vim'

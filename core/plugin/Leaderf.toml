@@ -10,14 +10,16 @@ hook_source = 'source $NVIM_PATH/modules/Leaderf/Leaderf.vim'
 
 [[plugins]]
 repo = 'https://hub.fastgit.org/nvim-lua/popup.nvim'
-depends = ['telescope']
+lazy = 1
 
 [[plugins]]
 repo = 'https://hub.fastgit.org/nvim-lua/plenary.nvim'
-depends = ['telescope']
+lazy = 1
 
 [[plugins]]
 repo = 'https://hub.fastgit.org/nvim-telescope/telescope.nvim'
+on_cmd = 'Telescope'
 hook_add = '''
-nnoremap <leader>s <cmd>Telescope<cr>
+nnoremap <leader>ss <cmd>Telescope<cr>
 '''
+depends = ['popup.nvim','plenary.nvim']

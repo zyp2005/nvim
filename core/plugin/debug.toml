@@ -13,46 +13,69 @@
 
 
 [[plugins]]
-repo = 'https://hub.fastgit.org/sakhnik/nvim-gdb.git'
-build = './install.sh'
+repo = 'https://hub.fastgit.org/mfussenegger/nvim-dap'
 hook_source = '''
-function! NvimGdbNoTKeymaps()
-  tnoremap <silent> <buffer> <esc> <c-\><c-n>
-endfunction
+lua << EOF
+local dap = require('dap')
+dap.adapters.lldb = {
+  type = 'executable',
+  command = '/usr/bin/lldb-vscode', -- adjust as needed
+  name = "lldb"
+}
+dap.configurations.cpp = {
+  {
+    name = "Launch",
+    type = "lldb",
+    request = "launch",
+    program = function()
+      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+    end,
+    cwd = '${workspaceFolder}',
+    stopOnEntry = false,
+    args = {},
 
-let g:nvimgdb_config_override = {
-  \ 'key_next': 'n',
-  \ 'key_step': 's',
-  \ 'key_finish': 'f',
-  \ 'key_continue': 'c',
-  \ 'key_until': 'u',
-  \ 'key_breakpoint': 'b',
-  \ 'set_tkeymaps': "NvimGdbNoTKeymaps",
-  \ }
+    -- if you change `runInTerminal` to true, you might need to change the yama/ptrace_scope setting:
+    --
+    --    echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope
+    --
+    -- Otherwise you might get the following error:
+    --
+    --    Error on launch: Failed to attach to the target process
+    --
+    -- But you should be aware of the implications:
+    -- https://www.kernel.org/doc/html/latest/admin-guide/LSM/Yama.html
+    runInTerminal = tree,
+  },
+}
+dap.configurations.c = dap.configurations.cpp
+dap.configurations.rust = dap.configurations.cpp
+dap.defaults.fallback.force_external_terminal = true
+  dap.defaults.fallback.external_terminal = {
+    command = '/usr/bin/alacritty';
+    args = {'-e'};
+  }
+EOF
+nnoremap <silent> <leader>dn :lua require'dap'.continue()<CR>
+nnoremap <silent> <leaderf>ds :lua require'dap'.step_over()<CR>
+nnoremap <silent> <leader>di :lua require'dap'.step_into()<CR>
+nnoremap <silent> <leaderf>du :lua require'dap'.step_out()<CR>
+nnoremap <silent> <leader>db :lua require'dap'.toggle_breakpoint()<CR>
+nnoremap <silent> <leader>dB :lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>
+nnoremap <silent> <leader>dp :lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>
+nnoremap <silent> <leader>dr :lua require'dap'.repl.open()<CR>
+nnoremap <silent> <leader>dl :lua require'dap'.run_last()<CR>
 '''
 
 [[plugins]]
-repo = 'https://hub.fastgit.org/simrat39/symbols-outline.nvim.git'
+repo = 'https://hub.fastgit.org/theHamsta/nvim-dap-virtual-text.git'
 hook_source = '''
-" init.vim
-let g:symbols_outline = {
-    \ "highlight_hovered_item": v:true,
-    \ "show_guides": v:true,
-    \ "position": 'right',
-    \ "auto_preview": v:true,
-    \ "keymaps": {
-        \ "close": "<Esc>",
-        \ "goto_location": "<Cr>",
-        \ "focus_location": "o",
-        \ "hover_symbol": "<C-space>",
-        \ "rename_symbol": "r",
-        \ "code_actions": "a",
-    \ },
-    \ "lsp_blacklist": [],
-\ }
-
+let g:dap_virtual_text = v:true
 '''
 
-
-
-
+[[plugins]]
+repo = 'https://hub.fastgit.org/rcarriga/nvim-dap-ui.git'
+hook_source = '''
+lua <<  EOF
+require("dapui").setup()
+EOF
+'''
