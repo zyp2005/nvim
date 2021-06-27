@@ -41,27 +41,6 @@ repo = 'https://hub.fastgit.org/voldikss/vim-translator'
 on_map = '<Plug>Translate'
 hook_add = 'source $NVIM_PATH/modules/enhanced/vim-translator_add.vim'
 
-[[plugins]]
-repo = 'https://hub.fastgit.org/norcalli/nvim-colorizer.lua'
-on_cmd = 'ColorizerToggle'
-hook_source = '''
-lua << EOF
-require 'colorizer'.setup {
-    DEFAULT_OPTIONS = {
-        RGB      = true;         -- #RGB hex codes
-        RRGGBB   = true;         -- #RRGGBB hex codes
-        names    = true;         -- "Name" codes like Blue
-        RRGGBBAA = false;        -- #RRGGBBAA hex codes
-        rgb_fn   = false;        -- CSS rgb() and rgba() functions
-        hsl_fn   = false;        -- CSS hsl() and hsla() functions
-        css      = false;        -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB
-        css_fn   = false;        -- Enable all CSS *functions*: rgb_fn, hsl_fn
-        -- Available modes: foreground, background
-        mode     = 'background'; -- Set the display mode.
-      }
-}
-EOF
-'''
 
 [[plugins]]
 repo = 'https://hub.fastgit.org/kevinhwang91/nvim-hlslens.git'
@@ -85,30 +64,6 @@ require'nvim-treesitter.configs'.setup {
     enable = true,              -- false will disable the whole extension
     disable = { "rust" },  -- list of language that will be disabled
     },
-    incremental_selection = { enable = true },
-    textobjects = { enable = true },
-      refactor = {
-    highlight_definitions = { enable = false },
-    highlight_current_scope = { enable = false },
-    smart_rename = {
-      enable = false,
-      keymaps = {
-        smart_rename = "grr",
-      },
-    },
-  },
-      textobjects = {
-    select = {
-      enable = true,
-      keymaps = {
-        -- You can use the capture groups defined in textobjects.scm
-        ["af"] = "@function.outer",
-        ["if"] = "@function.inner",
-        ["ac"] = "@class.outer",
-        ["ic"] = "@class.inner",
-        },
-      },
-  },
       rainbow = {
     enable = true,
     extended_mode = true, -- Highlight also non-parentheses delimiters, boolean or table: lang -> boolean
@@ -118,16 +73,8 @@ require'nvim-treesitter.configs'.setup {
 EOF
 '''
 
-
-[[plugins]]
-repo = 'https://hub.fastgit.org/nvim-treesitter/nvim-treesitter-textobjects.git'
-
-[[plugins]]
-repo = 'https://hub.fastgit.org/nvim-treesitter/nvim-treesitter-refactor.git'
-
-
-[[plugins]]
-repo = 'https://hub.fastgit.org/romgrk/nvim-treesitter-context.git'
-
 [[plugins]]
 repo = 'https://hub.fastgit.org/p00f/nvim-ts-rainbow.git'
+
+[[plugins]]
+repo = 'https://hub.fastgit.org/tweekmonster/startuptime.vim.git'

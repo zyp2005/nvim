@@ -3,6 +3,9 @@
 # ------------------------------------------------------
 
 [[plugins]]
+repo = 'https://hub.fastgit.org/fannheyward/telescope-coc.nvim.git'
+
+[[plugins]]
 repo = 'https://hub.fastgit.org/neoclide/coc.nvim'
 rev = 'release'
 on_envent = 'BufReadPost'

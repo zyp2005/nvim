@@ -1,9 +1,9 @@
 [[plugins]]
-# repo = 'https://hub.fastgit.org/skywind3000/vim-quickui.git'
-# on_ft = 'qf'
-# hook_source = '''
-# augroup MyQuickfixPreview
-#   au!
-#   au FileType qf noremap <silent><buffer> p :call quickui#tools#preview_quickfix()<cr>
-# augroup END
-# '''
+repo = 'https://hub.fastgit.org/skywind3000/vim-quickui.git'
+on_ft = 'qf'
+hook_source = '''
+augroup MyQuickfixPreview
+  au!
+  au FileType qf noremap <silent><buffer> p :call quickui#tools#preview_quickfix()<cr>
+augroup END
+'''

@@ -23,3 +23,10 @@ hook_add = '''
 nnoremap <leader>ss <cmd>Telescope<cr>
 '''
 depends = ['popup.nvim','plenary.nvim']
+
+[[plugins]]
+repo = 'https://hub.fastgit.org/liuchengxu/vim-clap.git'
+hook_source = '''
+let g:clap_layout = { 'relative': 'editor' }
+let g:clap_open_preview = 'never'
+'''

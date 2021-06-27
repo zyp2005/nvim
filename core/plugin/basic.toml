@@ -52,8 +52,6 @@ repo = 'https://hub.fastgit.org/kevinhwang91/nvim-bqf.git'
 hook_source = 'source $NVIM_PATH/modules/basic/nvim-bqf.vim'
 on_func = ['Coc_qf_diagnostic','Coc_qf_jump2loc']
 on_ft = 'qf'
-hook_add = '''
-'''
 
 # git支持
 [[plugins]]
