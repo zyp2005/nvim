@@ -25,8 +25,5 @@ nnoremap <leader>ss <cmd>Telescope<cr>
 depends = ['popup.nvim','plenary.nvim']
 
 [[plugins]]
-repo = 'https://hub.fastgit.org/liuchengxu/vim-clap.git'
-hook_source = '''
-let g:clap_layout = { 'relative': 'editor' }
-let g:clap_open_preview = 'never'
-'''
+repo = 'https://hub.fastgit.org/tamago324/LeaderF-filer.git'
+depends = 'leaderF'

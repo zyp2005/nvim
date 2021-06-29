@@ -92,3 +92,4 @@ nnoremap <leader>FF :lua require('spectre').open()<CR>
 nnoremap <leader>FW viw:lua require('spectre').open_visual()<CR>
 vnoremap <leader>FW :lua require('spectre').open_visual()<CR>
 '''
+depends = ['plenary.nvim','popup.nvim']

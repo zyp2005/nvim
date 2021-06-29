@@ -1,20 +1,24 @@
+
 " :h CocLocationsChange for detail
 let g:coc_enable_locationlist = 0
-augroup Coc
-    autocmd!
-    autocmd User CocLocationsChange ++nested call Coc_qf_jump2loc(g:coc_jump_locations)
-augroup END
+aug Coc
+    au!
+    au User CocLocationsChange ++nested call Coc_qf_jump2loc(g:coc_jump_locations)
+aug END
 
+" if you use coc-fzf, you should disable its CocLocationsChange event make
+" bqf work for <Plug>(coc-references)
+" au VimEnter * au! CocFzfLocation User CocLocationsChange
 
 function! Coc_qf_diagnostic() abort
     let diagnostic_list = CocAction('diagnosticList')
     let items = []
     let loc_ranges = []
     for d in diagnostic_list
-        let type = d.severity[0]
-        let text = printf('[%s%s] %s [%s]', (empty(d.source) ? 'coc.nvim' : d.source),
-                    \ (d.code ? ' ' . d.code : ''), split(d.message, '\n')[0], type)
-        let item = {'filename': d.file, 'lnum': d.lnum, 'col': d.col, 'text': text, 'type': type}
+        let text = printf('[%s%s] %s', (empty(d.source) ? 'coc.nvim' : d.source),
+                    \ (d.code ? ' ' . d.code : ''), split(d.message, '\n')[0])
+        let item = {'filename': d.file, 'lnum': d.lnum, 'col': d.col, 'text': text, 'type':
+                    \ d.severity[0]}
         call add(loc_ranges, d.location.range)
         call add(items, item)
     endfor
@@ -29,7 +33,7 @@ function! Coc_qf_jump2loc(locs) abort
                 \ 'context': {'bqf': {'lsp_ranges_hl': loc_ranges}}})
     let winid = getloclist(0, {'winid': 0}).winid
     if winid == 0
-        belowright lwindow
+        aboveleft lwindow
     else
         call win_gotoid(winid)
     endif

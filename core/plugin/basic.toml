@@ -49,9 +49,7 @@ hook_add = 'nmap <m-e> <Plug>(choosewin)'
 
 [[plugins]]
 repo = 'https://hub.fastgit.org/kevinhwang91/nvim-bqf.git'
-hook_source = 'source $NVIM_PATH/modules/basic/nvim-bqf.vim'
-on_func = ['Coc_qf_diagnostic','Coc_qf_jump2loc']
-on_ft = 'qf'
+hook_post_source = 'source $NVIM_PATH/modules/basic/nvim-bqf.vim'
 
 # git支持
 [[plugins]]
@@ -124,13 +122,21 @@ on_event = 'FileChangedRO'
 hook_add = 'source $NVIM_PATH/modules/basic/suda_add.vim'
 
 #缩进
+# [[plugins]]
+# repo = 'https://hub.fastgit.org/Yggdroot/indentLine.git'
+# on_ft = ['c','cpp','vim','toml']
+# hook_add = '''
+# let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+# let g:indentLine_fileType = ['c','cpp','vim','toml']
+# '''
+
 [[plugins]]
-repo = 'https://hub.fastgit.org/Yggdroot/indentLine.git'
-on_ft = ['c','cpp','vim','toml']
-hook_add = '''
-let g:indentLine_char_list = ['|', '¦', '┆', '┊']
-let g:indentLine_fileType = ['c','cpp','vim','toml']
+repo = 'https://hub.fastgit.org/lukas-reineke/indent-blankline.nvim.git'
+rev = 'lua'
+hook_post_source = '''
+let g:indent_blankline_char_list = ['|', '¦', '┆', '┊']
 '''
+
 
 # [[plugins]]
 # repo = 'https://hub.fastgit.org/kyazdani42/nvim-tree.lua.git'

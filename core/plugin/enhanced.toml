@@ -78,3 +78,24 @@ repo = 'https://hub.fastgit.org/p00f/nvim-ts-rainbow.git'
 
 [[plugins]]
 repo = 'https://hub.fastgit.org/tweekmonster/startuptime.vim.git'
+on_map = 'StartupTime'
+
+
+[[plugins]]
+repo = 'https://hub.fastgit.org/nacro90/numb.nvim.git'
+hook_source = '''
+lua require('numb').setup()
+'''
+
+[[plugins]]
+repo = 'https://hub.fastgit.org/monaqa/dial.nvim.git'
+hook_source = '''
+nmap <C-a> <Plug>(dial-increment)
+nmap <C-x> <Plug>(dial-decrement)
+vmap <C-a> <Plug>(dial-increment)
+vmap <C-x> <Plug>(dial-decrement)
+'''
+
+
+[[plugins]]
+repo = 'https://hub.fastgit.org/wfxr/minimap.vim.git'
