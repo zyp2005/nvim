@@ -20,7 +20,7 @@ lazy = 1
 repo = 'https://hub.fastgit.org/nvim-telescope/telescope.nvim'
 on_cmd = 'Telescope'
 hook_add = '''
-nnoremap <leader>ss <cmd>Telescope<cr>
+nnoremap <leader>ff <cmd>Telescope<cr>
 '''
 depends = ['popup.nvim','plenary.nvim']
 

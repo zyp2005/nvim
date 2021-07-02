@@ -156,7 +156,7 @@ nmap <space>rn <Plug>(coc-rename)
 nmap tt :CocCommand explorer<CR>
 
 " coc-tasks
-noremap <silent> <space>st :AsyncTask<CR>:CocList tasks<CR>
+noremap <silent> <space>ct :AsyncTask<CR>:CocList tasks<CR>
 " coc-snippets
 " Use <C-l> for trigger snippet expand.
 imap <C-l> <Plug>(coc-snippets-expand)

@@ -56,9 +56,9 @@ dap.defaults.fallback.force_external_terminal = true
   }
 EOF
 nnoremap <silent> <leader>dn :lua require'dap'.continue()<CR>
-nnoremap <silent> <leaderf>ds :lua require'dap'.step_over()<CR>
+nnoremap <silent> <leader>ds :lua require'dap'.step_over()<CR>
 nnoremap <silent> <leader>di :lua require'dap'.step_into()<CR>
-nnoremap <silent> <leaderf>du :lua require'dap'.step_out()<CR>
+nnoremap <silent> <leader>du :lua require'dap'.step_out()<CR>
 nnoremap <silent> <leader>db :lua require'dap'.toggle_breakpoint()<CR>
 nnoremap <silent> <leader>dB :lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>
 nnoremap <silent> <leader>dp :lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>
