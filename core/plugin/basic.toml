@@ -44,7 +44,7 @@ hook_source = 'source $NVIM_PATH/modules/basic/gruvbox-material.vim'
 # ALT+e 窗口移动
 [[plugins]]
 repo = 'https://hub.fastgit.org/t9md/vim-choosewin'
-on_map = '<Plug>'
+on_map = '<Plug>(choosewin)'
 hook_add = 'nmap <m-e> <Plug>(choosewin)'
 
 [[plugins]]
@@ -54,6 +54,7 @@ hook_post_source = 'source $NVIM_PATH/modules/basic/nvim-bqf.vim'
 # git支持
 [[plugins]]
 repo = 'https://hub.fastgit.org/tpope/vim-fugitive'
+on_cmd = ['Git','Gcommit']
 hook_add = 'nnoremap \g :Git '
 
 

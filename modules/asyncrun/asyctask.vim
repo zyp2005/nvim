@@ -1,6 +1,5 @@
 noremap <silent><space><F3> :AsyncTask file-build<cr>
 noremap <silent><space><F5> :AsyncTask file-run<cr>
-noremap <silent><space>ft :AsyncTaskFzf<cr>
 
 let g:asynctasks_term_pos = 'right'
 let g:asynctasks_term_rows = 10    " 设置纵向切割时，高度为 10

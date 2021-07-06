@@ -12,9 +12,9 @@ noremap <space>vs :tabe .vimspector.json<CR>:LoadVimSpectorJsonTemplate<CR>
 sign define vimspectorBP text=☛ texthl=Normal
 sign define vimspectorBPDisabled text=☞ texthl=Normal
 "sign define vimspectorPC text=🔶 texthl=SpellBad
-let g:vimspector_sidebar_width = 30
+let g:vimspector_sidebar_width = 50
 let g:vimspector_bottombar_height = 7
 let g:vimspector_code_minwidth = 70
 let g:vimspector_terminal_maxwidth = 100
 let g:vimspector_terminal_minwidth = 40
-
+nmap <Leader><F4> <Plug>VimspectorBalloonEval

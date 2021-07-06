@@ -9,3 +9,6 @@ hook_source = '''
 	source $NVIM_PATH/modules/coc/coc.vim
 	source $NVIM_PATH/modules/coc/git.vim
 '''
+
+[[plugins]]
+repo = 'https://hub.fastgit.org/m-pilia/vim-ccls'
