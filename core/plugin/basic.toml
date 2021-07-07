@@ -2,21 +2,7 @@
 # 基础插件
 # ------------------------------------------------------
 
-# 文本快速移动
-[[plugins]]
-repo = 'https://hub.fastgit.org/easymotion/vim-easymotion'
-on_map = '<Plug>'
-hook_add = '''
-	nmap <space>ef <Plug>(easymotion-overwin-f)
-	nmap <space>eF <Plug>(easymotion-overwin-f2)
-	nmap <space>el <Plug>(easymotion-overwin-line)
-'''
-hook_source = 'source $NVIM_PATH/modules/basic/vim-easymotion.vim'
-
 # 显示开始画面
-[[plugins]]
-repo = 'https://hub.fastgit.org/hardcoreplayers/dashboard-nvim.git'
-hook_source = 'source $NVIM_PATH/modules/basic/dashboard-nvim.vim'
 
 # 浮动终端
 [[plugins]]
@@ -51,28 +37,10 @@ repo = 'https://hub.fastgit.org/t9md/vim-choosewin'
 on_map = '<Plug>'
 hook_add = 'nmap <m-e> <Plug>(choosewin)'
 
-# [[plugins]]
-# repo = 'https://hub.fastgit.org/kevinhwang91/nvim-bqf.git'
-# hook_source = 'source $NVIM_PATH/modules/basic/nvim-bqf.vim'
-# on_func = ['Coc_qf_diagnostic','Coc_qf_jump2loc']
-# on_ft = 'qf'
-# hook_add = '''
-# let g:coc_enable_locationlist = 0
-# augroup Coc
-#     autocmd!
-#     autocmd User CocLocationsChange ++nested call Coc_qf_jump2loc(g:coc_jump_locations)
-# augroup END
-# '''
-
 # git支持
 [[plugins]]
 repo = 'https://hub.fastgit.org/tpope/vim-fugitive'
 hook_add = 'nnoremap \g :Git '
-
-# 文本片段
-[[plugins]]
-repo = 'https://hub.fastgit.org/honza/vim-snippets'
-hook_source = 'source $NVIM_PATH/modules/basic/vim-snippets.vim'
 
 # 书签
 [[plugins]]
@@ -94,8 +62,3 @@ hook_add = '''
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 let g:indentLine_fileType = ['c','cpp','vim']
 '''
-
-#
-[[plugins]]
-repo = 'https://hub.fastgit.org/liuchengxu/vim-which-key.git'
-hook_source = 'source $NVIM_PATH/modules/basic/vim-which-key.vim'

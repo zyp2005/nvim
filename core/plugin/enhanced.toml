@@ -2,32 +2,12 @@
 # 增强插件
 # ------------------------------------------------------
 
-# 表格对齐，使用命令 Tabularize
-[[plugins]]
-repo = 'https://hub.fastgit.org/godlygeek/tabular'
-on_cmd = 'Tabularize'
-hook_add = 'source $NVIM_PATH/modules/enhanced/tabular_add.vim'
-
-#格式化
-[[plugins]]
-repo = 'https://hub.fastgit.org/Chiel92/vim-autoformat'
-on_cmd = ['Autoformat','tabe','LoadFormatTemplate']
-hook_add = '''
-	noremap <space>vl :tabe .clang-format<CR>:LoadFormatTemplate<CR>
-	nnoremap <space>\ :Autoformat<CR>
-'''
-hook_source = 'source $NVIM_PATH/modules/enhanced/vim-autoformat.vim'
-
 # 修改树
 [[plugins]]
 repo = 'https://hub.fastgit.org/mbbill/undotree'
 on_map = 'UndotreeToggle'
 hook_add = 'noremap <space>u :UndotreeToggle<CR>'
 hook_source = 'source $NVIM_PATH/modules/enhanced/undotree.vim'
-
-# 彩虹括号
-[[plugins]]
-repo = 'https://hub.fastgit.org/luochen1990/rainbow'
 
 # 中文文档
 [[plugins]]

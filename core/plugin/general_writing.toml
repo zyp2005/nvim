@@ -6,30 +6,3 @@
 repo = 'https://hub.fastgit.org/junegunn/goyo.vim'
 on_cmd = 'Goyo'
 hook_add = 'map <space>gy :Goyo<CR>'
-
-
-# [[plugins]]
-# repo = 'https://hub.fastgit.org/reedes/vim-wordy'
-
-
-# [[plugins]]
-# repo = 'https://hub.fastgit.org/ron89/thesaurus_query.vim'
-# hook_source = 'source $NVIM_PATH/modules/general_writing/thesaurus_query.vim'
-
-[[plugins]]
-repo = 'https://hub.fastgit.org/psliwka/vim-smoothie.git'
-
-[[plugins]]
-repo = 'https://hub.fastgit.org/rhysd/accelerated-jk.git'
-hook_add = '''
-nmap j <Plug>(accelerated_jk_gj)
-nmap k <Plug>(accelerated_jk_gk)
-'''
-
-#对齐
-[[plugins]]
-repo = 'https://hub.fastgit.org/junegunn/vim-easy-align.git'
-
-
-
-

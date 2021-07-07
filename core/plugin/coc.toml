@@ -1,11 +1,3 @@
 # ------------------------------------------------------
 # coc.nvim : lsp客户端
 # ------------------------------------------------------
-[[plugins]]
-repo = 'https://hub.fastgit.org/neoclide/coc.nvim'
-rev = 'release'
-on_event = 'BufEnter'
-hook_source = '''
-	source $NVIM_PATH/modules/coc/coc.vim
-	source $NVIM_PATH/modules/coc/git.vim
-'''

@@ -18,13 +18,6 @@ repo = 'https://hub.fastgit.org/tomtom/tcomment_vim'
 on_map = ['g>c','g>','g<','g<c']
 hook_add = 'source $NVIM_PATH/modules/editor/tcomment_vim_add.vim'
 
-
-# 快速替换
-[[plugins]]
-repo = 'https://hub.fastgit.org/jwarby/antovim.git'
-on_cmd = 'Antovim'
-hook_add = 'source $NVIM_PATH/modules/editor/antovim_add.vim'
-
 # 快速操作type yskw' to wrap the word with '' or type cs'` to change 'word' to `word`
 [[plugins]]
 repo = 'https://hub.fastgit.org/tpope/vim-surround'
@@ -38,28 +31,5 @@ hook_add = '''
 	map <m--> <Plug>(expand_region_shrink)
 '''
 
-# [[plugins]]
-# repo = 'https://hub.fastgit.org/Konfekt/FastFold'
-
-# [[plugins]]
-# repo = 'https://hub.fastgit.org/wellle/context.vim'
-# hook_post_source = 'source $NVIM_PATH/modules/editor/context.vim'
-
 [[plugins]]
 repo = 'https://hub.fastgit.org/rhysd/clever-f.vim'
-
-[[plugins]]
-repo = 'https://hub.fastgit.org/chrisbra/NrrwRgn'
-on_cmd = 'NR'
-hook_add = 'noremap <space>n :NR<CR>'
-hook_source = 'source $NVIM_PATH/modules/editor/NrrwRgn.vim'
-
-
-[[plugins]]
-repo = 'https://hub.fastgit.org/brooth/far.vim'
-on_cmd = ['F','Far','Fardo']
-hook_add = '''
-	noremap <space>FF :F  **/*<left><left><left><left><left>
-	noremap <space>FD :Far  **/*<left><left><left><left><left>
-'''
-hook_source = 'source $NVIM_PATH/modules/editor/Far.vim'

@@ -1,42 +1,6 @@
 # ------------------------------------------------------
 # 文本对象：textobj 全家桶
 # ------------------------------------------------------
-
-# 基础插件：提供让用户方便的自定义文本对象的接口
-[[plugins]]
-repo = 'https://hub.fastgit.org/kana/vim-textobj-user'
-event = 'BufReadPost'
-
-# indent 文本对象：ii/ai 表示当前缩进，vii 选中当缩进，cii 改写缩进
-[[plugins]]
-repo = 'https://hub.fastgit.org/kana/vim-textobj-indent'
-event = 'BufReadPost'
-
-# 语法文本对象：iy/ay 基于语法的文本对象
-[[plugins]]
-repo = 'https://hub.fastgit.org/kana/vim-textobj-syntax'
-event = 'BufReadPost'
-
-# 函数文本对象：if/af 支持 c/c++/vim/java
-[[plugins]]
-repo = 'https://hub.fastgit.org/kana/vim-textobj-function'
-on_ft = ['c', 'cpp', 'vim', 'java']
-
-# 参数文本对象：i,/a, 包括参数或者列表元素
-[[plugins]]
-repo = 'https://hub.fastgit.org/sgur/vim-textobj-parameter'
-event = 'BufReadPost'
-
-# 提供 python 相关文本对象，if/af 表示函数，ic/ac 表示类
-[[plugins]]
-repo = 'https://hub.fastgit.org/bps/vim-textobj-python'
-on_ft = 'python'
-
-# 提供 uri/url 的文本对象，iu/au 表示
-[[plugins]]
-repo = 'https://hub.fastgit.org/jceb/vim-textobj-uri'
-event = 'BufReadPost'
-
 # da= to delete what's after =
 [[plugins]]
 repo = 'https://hub.fastgit.org/junegunn/vim-after-object'
