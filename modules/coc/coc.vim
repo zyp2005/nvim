@@ -172,7 +172,7 @@ let g:snips_author = 'zyp2005'
 "
 nmap <silent> <space>- <Plug>(coc-diagnostic-prev)
 nmap <silent> <space>= <Plug>(coc-diagnostic-next)
-nnoremap <silent> <leader>cd <Cmd>call Coc_qf_diagnostic()<CR>
+nnoremap <silent> <leader>cd <cmd>CocList diagnostics<CR>
 
 nmap <space>rf <Plug>(coc-refactor)
 

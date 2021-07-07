@@ -17,11 +17,6 @@ on_ft = 'ps1'
 repo = 'https://hub.fastgit.org/tbastos/vim-lua'
 on_ft = 'lua'
 
-#额外语法文件
-# [[plugins]]
-# repo = 'https://hub.fastgit.org/justinmk/vim-syntax-extra'
-# on_ft = ['c', 'bison', 'flex', 'cpp']
-
 #python 语法文件增强
 [[plugins]]
 repo = 'https://hub.fastgit.org/vim-python/python-syntax'

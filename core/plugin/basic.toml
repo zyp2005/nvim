@@ -47,16 +47,15 @@ repo = 'https://hub.fastgit.org/t9md/vim-choosewin'
 on_map = '<Plug>(choosewin)'
 hook_add = 'nmap <m-e> <Plug>(choosewin)'
 
-[[plugins]]
-repo = 'https://hub.fastgit.org/kevinhwang91/nvim-bqf.git'
-hook_post_source = 'source $NVIM_PATH/modules/basic/nvim-bqf.vim'
+# [[plugins]]
+# repo = 'https://hub.fastgit.org/kevinhwang91/nvim-bqf.git'
+# hook_source = 'source $NVIM_PATH/modules/basic/nvim-bqf.vim'
 
 # git支持
 [[plugins]]
 repo = 'https://hub.fastgit.org/tpope/vim-fugitive'
 on_cmd = ['Git','Gcommit']
 hook_add = 'nnoremap \g :Git '
-
 
 # 文本片段
 [[plugins]]
@@ -80,7 +79,7 @@ hook_add = 'source $NVIM_PATH/modules/basic/suda_add.vim'
 repo = 'https://hub.fastgit.org/lukas-reineke/indent-blankline.nvim.git'
 hook_post_source = '''
 let g:indent_blankline_char_list = ['|', '¦', '┆', '┊']
-let g:indent_blankline_filetype = ['vim','c','']
+let g:indent_blankline_filetype = ['vim','c','cpp']
 '''
 
 [[plugins]]

@@ -72,10 +72,10 @@ endif
 " 完成菜单和浮动窗口的伪透明性
 if &termguicolors
     if exists('&pumblend')
-        set pumblend=19
+        set pumblend=15
     endif
     if exists('&winblend')
-        set winblend=19
+        set winblend=15
     endif
 endif
 

@@ -11,4 +11,9 @@ hook_source = '''
 '''
 
 [[plugins]]
-repo = 'https://hub.fastgit.org/m-pilia/vim-ccls'
+repo = 'https://github.com/m-pilia/vim-ccls.git'
+hook_source = '''
+let g:ccls_levels = 5
+let g:ccls_size = 40
+'''
+on_ft = ['c','cpp']
