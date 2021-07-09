@@ -77,6 +77,7 @@ hook_add = 'source $NVIM_PATH/modules/basic/suda_add.vim'
 
 [[plugins]]
 repo = 'https://hub.fastgit.org/lukas-reineke/indent-blankline.nvim.git'
+on_ft = ['vim','c','cpp']
 hook_post_source = '''
 let g:indent_blankline_char_list = ['|', '¦', '┆', '┊']
 let g:indent_blankline_filetype = ['vim','c','cpp']

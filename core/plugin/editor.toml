@@ -7,7 +7,7 @@
 repo = 'https://hub.fastgit.org/steelsojka/pears.nvim.git'
 hook_source = '''
 lua << EOF
-require "pears".setup()
+    require "pears".setup()
 EOF
 '''
 
