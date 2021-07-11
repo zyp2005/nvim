@@ -17,7 +17,7 @@
   "suggest.detailMaxLength": 60,
   "suggest.enablePreview": true,
   "suggest.noselect": true,
-  "suggest.enablePreselect": false,
+  "suggest.enablePreselect": true,
   "suggest.detailField": "preview",
   "suggest.defaultSortMethod": "alphabetical",
   "suggest.autoTrigger": "always",

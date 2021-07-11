@@ -60,7 +60,7 @@ hook_add = 'nnoremap \g :Git '
 # 文本片段
 [[plugins]]
 repo = 'https://hub.fastgit.org/honza/vim-snippets.git'
-on_event = 'BufRead'
+lazy = 1
 
 # 书签
 [[plugins]]

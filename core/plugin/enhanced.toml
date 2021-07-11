@@ -27,8 +27,8 @@ hook_source = 'source $NVIM_PATH/modules/enhanced/undotree.vim'
 
 
 # 中文文档
-[[plugins]]
-repo = 'https://hub.fastgit.org/yianwillis/vimcdoc'
+# [[plugins]]
+# repo = 'https://hub.fastgit.org/yianwillis/vimcdoc'
 
 # 空白检测
 [[plugins]]

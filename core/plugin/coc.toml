@@ -9,9 +9,10 @@ hook_source = '''
 	source $NVIM_PATH/modules/coc/coc.vim
 	source $NVIM_PATH/modules/coc/git.vim
 '''
+depends = 'vim-snippets'
 
 [[plugins]]
-repo = 'https://github.com/m-pilia/vim-ccls.git'
+repo = 'https://hub.fastgit.org/m-pilia/vim-ccls.git'
 hook_source = '''
 let g:ccls_levels = 5
 let g:ccls_size = 40
