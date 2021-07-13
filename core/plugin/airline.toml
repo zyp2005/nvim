@@ -38,6 +38,7 @@ EOF
 [[plugins]]
 repo = 'https://hub.fastgit.org/romgrk/barbar.nvim.git'
 hook_source = '''
+let g:bufferline = { "icons" : 'both' }
 " Move to previous/next
 nnoremap <silent>    <M-[> :BufferPrevious<CR>
 nnoremap <silent>    <M-]> :BufferNext<CR>

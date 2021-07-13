@@ -12,7 +12,7 @@ let g:floaterm_width = 0.7
 let g:floaterm_height = 0.7
 let g:floaterm_winblend = 15
 " Configuration example
-hi Floaterm guibg=black
+hi Floaterm guibg=#171717
 hi FloatermBorder guibg=normal
 hi FloatermNC guibg=gray
 " autocmd User Startified setlocal buflisted
